@@ -1539,11 +1539,19 @@
             const splash = document.getElementById('splash-screen');
             const enterBtn = document.getElementById('enter-btn');
 
+            // Check if user has already visited
+            if (sessionStorage.getItem('gutti_visited')) {
+                splash.style.display = 'none'; // Hide immediately
+            }
+
             enterBtn.addEventListener('click', () => {
                 splash.classList.add('hidden');
+                sessionStorage.setItem('gutti_visited', 'true'); // Mark as visited
+
                 // Optional: Play hero animations after splash
                 setTimeout(() => {
-                    document.querySelector('.hero-content h1').style.animationPlayState = 'running';
+                    const heroTitle = document.querySelector('.hero-content h1');
+                    if (heroTitle) heroTitle.style.animationPlayState = 'running';
                 }, 500);
             });
 
