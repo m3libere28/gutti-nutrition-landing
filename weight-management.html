@@ -164,6 +164,89 @@
             transform: translateY(-2px);
         }
 
+        /* Mobile Utility to hide elements */
+        @media (max-width: 768px) {
+            .desktop-only {
+                display: none !important;
+            }
+        }
+
+        /* --- MOBILE MENU --- */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1002;
+            padding: 0;
+        }
+
+        .mobile-menu-btn span {
+            width: 100%;
+            height: 3px;
+            background: var(--color-primary-dark);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+
+        .mobile-menu-btn.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            z-index: 1001;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            display: flex;
+        }
+
+        .mobile-menu-overlay.open {
+            right: 0;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-nav-link {
+            font-size: 1.5rem;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--color-text);
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--color-primary);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
         /* Hero Section */
         .hero-page {
             position: relative;
@@ -344,8 +427,21 @@
                 <a href="index.html#services" class="nav-link">Services</a>
                 <a href="#contact" class="btn" style="padding: 10px 24px; font-size: 0.9rem;">Book Now</a>
             </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="weight-management.html" class="mobile-nav-link" style="color: var(--color-primary);">Weight Loss</a>
+        <a href="index.html#services" class="mobile-nav-link">Services</a>
+        <a href="#contact" class="mobile-nav-link" style="color: var(--color-primary);">Book Now</a>
+    </div>
 
     <!-- [HERO SECTION] -->
     <section class="hero-page">
@@ -658,6 +754,28 @@
                 } else {
                     img.onload = processImage;
                 }
+            }
+
+            // Mobile Menu Toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileBtn.classList.toggle('open');
+                    mobileMenu.classList.toggle('open');
+                    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
+                });
+
+                // Close menu when a link is clicked
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileBtn.classList.remove('open');
+                        mobileMenu.classList.remove('open');
+                        document.body.style.overflow = 'auto';
+                    });
+                });
             }
         });
     </script>
