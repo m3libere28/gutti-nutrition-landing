@@ -1112,7 +1112,12 @@
             <div class="services-grid">
                 <!-- Card 1 -->
                 <div class="glass-card service-card reveal" style="transition-delay: 0.1s;">
-                    <div class="service-icon">🦠</div>
+                    <div class="service-icon" onclick="openVideoModal('assets/gut_health_video.mp4')"
+                        style="cursor: pointer; transition: transform 0.2s;"
+                        onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                        🦠 <span
+                            style="font-size: 1rem; position: absolute; bottom: 5px; right: 5px; opacity: 0.7;">▶️</span>
+                    </div>
                     <h3>Gut Health Rescue</h3>
                     <p style="color: var(--color-text-light); margin-top: 10px;">
                         Relief for IBS, SIBO, bloating, and food sensitivities. We rebuild your microbiome from the
@@ -1310,6 +1315,104 @@
             </div>
         </div>
     </section>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+        <div class="video-modal-content" onclick="event.stopPropagation()">
+            <span class="close-modal" onclick="closeVideoModal()">&times;</span>
+            <video id="modalVideoPlayer" controls style="width: 100%; border-radius: 10px;">
+                <source id="videoSource" src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <style>
+        .video-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-modal-content {
+            position: relative;
+            background-color: transparent;
+            margin: auto;
+            padding: 0;
+            width: 90%;
+            max-width: 800px;
+            animation: modalFadeIn 0.3s;
+        }
+
+        .close-modal {
+            color: white;
+            position: absolute;
+            top: -40px;
+            right: 0;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10001;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+
+    <script>
+        function openVideoModal(videoSrc) {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('modalVideoPlayer');
+            const source = document.getElementById('videoSource');
+
+            source.src = videoSrc;
+            video.load();
+
+            modal.style.display = "flex";
+            video.play().catch(e => console.log("Autoplay prevented:", e));
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('modalVideoPlayer');
+
+            video.pause();
+            video.currentTime = 0;
+            modal.style.display = "none";
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === "Escape") {
+                closeVideoModal();
+            }
+        });
+    </script>
 
     <!-- Footer -->
     <footer>
