@@ -295,6 +295,29 @@
             line-height: 1.6;
         }
 
+        /* Pulse Animation */
+        @keyframes pulse-glow {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            }
+
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 10px 20px rgba(90, 141, 238, 0.2);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            }
+        }
+
+        .animated-pulse {
+            animation: pulse-glow 3s infinite ease-in-out;
+            cursor: default;
+        }
+
         /* Footer CTA */
         .final-cta {
             text-align: center;
@@ -353,8 +376,8 @@
             <p style="font-size: 1.1rem; color: var(--color-text-light); margin-bottom: 40px;">
                 The stress returns, the cravings hit, and the weight comes back—often with interest.
             </p>
-            <div
-                style="background: white; padding: 25px; border-radius: 15px; border-left: 5px solid var(--color-primary);">
+            <div class="animated-pulse"
+                style="background: white; padding: 25px; border-radius: 15px; border-left: 5px solid var(--color-primary); margin-top: 30px;">
                 <strong style="color: var(--color-primary);">I want you to know one thing before you read
                     further:</strong><br>
                 You are not failing. Your biology is just trying to keep you safe.
