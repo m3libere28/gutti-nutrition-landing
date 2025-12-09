@@ -216,6 +216,28 @@
             margin-bottom: 100px;
         }
 
+        .zigzag-row:nth-child(even) {
+            direction: rtl;
+            /* Swaps columns visually */
+        }
+
+        .zigzag-row:nth-child(even) .zigzag-content {
+            direction: ltr;
+            /* Reset text direction */
+        }
+
+        @media (max-width: 900px) {
+            .zigzag-row {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                margin-bottom: 60px;
+            }
+
+            .zigzag-row:nth-child(even) {
+                direction: ltr;
+            }
+        }
+
         /* ... unchanged ... */
 
         .zigzag-content h3 {
