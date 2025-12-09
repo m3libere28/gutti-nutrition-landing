@@ -819,10 +819,10 @@
                 display: flex;
             }
 
-            /* Hide the Desktop Book Now button on mobile if desired, 
-                   BUT likely user wants it accessible. 
-                   Let's keep it but maybe adjust layout if needed. 
-                   For now, flex-gap handles spacing. */
+            /* Hide navbar CTA on mobile to prevent overlap */
+            .navbar .btn {
+                display: none;
+            }
         }
     </style>
 </head>
