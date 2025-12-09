@@ -563,6 +563,64 @@
             background: linear-gradient(135deg, #2C3E50 0%, #1A2633 100%);
             color: white;
         }
+
+        /* --- MOBILE OPTIMIZATION --- */
+        @media (max-width: 768px) {
+
+            /* 1. Global Spacing */
+            .section {
+                padding: 50px 0;
+                /* Reduced from 80/100px */
+            }
+
+            /* 2. Hero Section */
+            .split-hero {
+                padding-top: 100px;
+                padding-bottom: 50px;
+                gap: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.4rem !important;
+                /* Prevent huge text */
+                margin-bottom: 20px;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+
+            /* 3. Education/ZigZag */
+            .zigzag-row {
+                gap: 40px;
+                margin-bottom: 50px;
+            }
+
+            .zigzag-content h3 {
+                font-size: 1.7rem;
+            }
+
+            /* 4. Solution Grid */
+            .solution-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            /* 5. Buttons */
+            .btn {
+                width: 100%;
+                /* Full width on mobile for better touch target */
+                max-width: 350px;
+                padding: 18px 20px;
+                font-size: 1rem;
+            }
+
+            /* 6. Text Tweaks */
+            h2 {
+                font-size: 1.8rem !important;
+            }
+        }
     </style>
 </head>
 
