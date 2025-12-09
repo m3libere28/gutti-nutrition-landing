@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metabolic Health & Weight Loss | Guttie Nutrition</title>
+    <meta name="description"
+        content="Invest in your metabolic future. Sustainable weight management beyond calories. HSA/FSA Eligible.">
+    <link rel="icon" type="image/png" href="assets/favicon.png?v=3">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Reusing Core Styles from index.html */
+        :root {
+            --color-primary: #5A8DEE;
+            --color-primary-light: #7B61FF;
+            --color-primary-dark: #3F72D3;
+            --color-secondary: #89D934;
+            --color-secondary-light: #E9F7D9;
+            --color-accent: #00b894;
+            --color-bg: #F8FAFC;
+            --color-surface: #FFFFFF;
+            --color-text: #2C3E50;
+            --color-text-light: #64748B;
+            --font-heading: 'Fredoka', sans-serif;
+            --font-body: 'Quicksand', sans-serif;
+            --container-width: 1200px;
+            --section-padding: 80px;
+            --radius-lg: 24px;
+            --shadow-card: 0 10px 30px -10px rgba(90, 141, 238, 0.15);
+        }
+
+        /* Essential Reset & Layout */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading);
+            color: var(--color-primary-dark);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: var(--section-padding) 0;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--color-primary);
+        }
+
+        /* Button */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(90, 141, 238, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(90, 141, 238, 0.4);
+            background: var(--color-primary-dark);
+        }
+
+        /* Page Specific Styles */
+        .hero-page {
+            padding-top: 140px;
+            padding-bottom: 80px;
+            text-align: center;
+            background: linear-gradient(180deg, #F8FAFC 0%, #E0F2FE 100%);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            margin-bottom: 16px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--color-text-light);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 20px;
+        }
+
+        .highlight-text {
+            color: var(--color-secondary);
+            font-weight: 700;
+        }
+
+        .video-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            display: block;
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="brand">
+                <img src="assets/logo.png" alt="Guttie Logo" class="brand-logo" style="width: 50px;">
+                Guttie Nutrition
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="weight-management.html" class="nav-link active">Weight Management</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-page">
+        <div class="container">
+            <h1 class="hero-title">Metabolic Health & Sustainable Weight Loss</h1>
+            <p class="hero-subtitle">Stop "Dieting." Start investing in your metabolic future.</p>
+
+            <!-- Integrated Video -->
+            <div class="video-wrapper" style="max-width: 800px; margin: 0 auto 60px;">
+                <video controls poster="assets/hero_plaza.jpg">
+                    <source src="assets/gut_health_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Hook & Reality -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <div class="content-grid">
+                <div>
+                    <h2 style="margin-bottom: 20px; color: var(--color-primary);">You’re Ready to Stop Renting Your
+                        Results.</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                        You’ve tried the quick fixes, the subscriptions, and the restrictive plans. They work for a
+                        month, and then life happens.
+                        <strong>You are ready to start owning your health.</strong>
+                    </p>
+                    <p style="font-size: 1.1rem; margin-bottom: 20px; color: var(--color-text-light);">
+                        True weight management isn't about willpower; it’s about biology. Insurance-driven healthcare
+                        often rushes you through a 15-minute visit with a generic handout.
+                        But your metabolism is unique.
+                    </p>
+                </div>
+                <div>
+                    <img src="assets/emily_real.jpg" alt="Emily RDN"
+                        style="border-radius: 20px; box-shadow: var(--shadow-card);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="section">
+        <div class="container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2>The Private Practice Difference</h2>
+                <p style="margin-bottom: 40px;">Because we are not bound by insurance restrictions, we focus on what
+                    actually works for you.</p>
+            </div>
+
+            <div class="method-grid">
+                <div class="feature-card">
+                    <h3 style="margin-bottom: 10px;">🧪 Beyond Calories</h3>
+                    <p>We look at your stress (cortisol), sleep quality, and nutrient timing—factors that generic apps
+                        ignore.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 style="margin-bottom: 10px;">📉 The "Set Point" Science</h3>
+                    <p>We work to gently shift your body's comfortable weight range without triggering the starvation
+                        response that causes rebound weight gain.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 style="margin-bottom: 10px;">🤝 Real Accountability</h3>
+                    <p>You get a partner, not just a provider. We troubleshoot in real-time when you hit a plateau.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 style="margin-bottom: 10px;">🥗 Personalized Strategy</h3>
+                    <p>We build a plan that fits your busy life, your cultural foods, and your family needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" style="background: var(--color-primary-light); color: white; text-align: center;">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 20px;">Invest in a Strategy That Lasts</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;">
+                We talk as long as we need, not as long as insurance allows.
+            </p>
+            <div
+                style="background: rgba(255,255,255,0.1); display: inline-block; padding: 10px 20px; border-radius: 10px; margin-bottom: 40px;">
+                ✅ HSA/FSA Eligible &nbsp;|&nbsp; ✅ Superbills Provided
+            </div>
+            <br>
+            <a href="https://my.practicebetter.io/" class="btn"
+                style="background: white; color: var(--color-primary);">View Packages & Book Discovery Call</a>
+        </div>
+    </section>
+
+    <!-- Footer (Simplified) -->
+    <footer style="background: #1A2633; color: white; padding: 60px 0; text-align: center;">
+        <div class="container">
+            <h3 style="color: white;">Guttie Nutrition</h3>
+            <p style="opacity: 0.8; margin-bottom: 20px;">Licensed Dietitian Nutritionist (LDN) – Florida <br> STATE OF
+                FLORIDA DEPARTMENT OF HEALTH</p>
+            <p style="opacity: 0.5;">&copy; 2025 Con Amor Marketing LLC.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
