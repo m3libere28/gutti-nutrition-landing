@@ -401,8 +401,18 @@
                     <p style="font-size: 1.1rem; font-weight: 700; color: var(--color-primary);">
                         But your metabolism is unique, and it requires a deeper look.
                     </p>
+                    <!-- SVG Filter for basic black transparency -->
+                    <svg style="width:0; height:0; position: absolute;" aria-hidden="true" focusable="false">
+                        <filter id="remove-black" color-interpolation-filters="sRGB">
+                            <feColorMatrix type="matrix" values="1 0 0 0 0
+                                                                 0 1 0 0 0
+                                                                 0 0 1 0 0
+                                                                 1 1 1 0 0" />
+                        </filter>
+                    </svg>
+
                     <img src="assets/guttie_bike.jpg" alt="Guttie on a bike"
-                        style="display: block; width: 140px; margin: 30px auto 0; border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        style="display: block; width: 220px; margin: 30px auto 0; filter: url(#remove-black); -webkit-filter: url(#remove-black);">
                 </div>
                 <div>
                     <!-- 1. Beyond Calories -->
