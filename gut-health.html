@@ -629,6 +629,18 @@
             cursor: default;
         }
 
+        .footer-nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+            text-decoration: none !important;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-nav-link:hover {
+            color: var(--color-secondary) !important;
+        }
+
         /* Footer CTA */
         .final-cta {
             text-align: center;
@@ -988,20 +1000,12 @@
                 STATE OF FLORIDA DEPARTMENT OF HEALTH
             </p>
             <div class="footer-links"
-                style="display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; font-size: 0.9rem;">
-                <a href="index.html"
-                    style="color: rgba(255, 255, 255, 0.8) !important; text-decoration: none !important;">Home</a>
-                <a href="weight-management.html"
-                    style="color: rgba(255, 255, 255, 0.8) !important; text-decoration: none !important;">Weight
-                    Loss</a>
-                <a href="gut-health.html"
-                    style="color: rgba(255, 255, 255, 0.8) !important; text-decoration: none !important;">Gut Health</a>
-                <a href="raising-confident-eaters.html"
-                    style="color: rgba(255, 255, 255, 0.8) !important; text-decoration: none !important;">Picky
-                    Eaters</a>
-                <a href="https://my.practicebetter.io/"
-                    style="color: rgba(255, 255, 255, 0.8) !important; text-decoration: none !important;">Client
-                    Portal</a>
+                style="display: flex; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; font-size: 0.9rem;">
+                <a href="index.html" class="footer-nav-link">Home</a>
+                <a href="weight-management.html" class="footer-nav-link">Weight Loss</a>
+                <a href="gut-health.html" class="footer-nav-link">Gut Health</a>
+                <a href="raising-confident-eaters.html" class="footer-nav-link">Picky Eaters</a>
+                <a href="https://my.practicebetter.io/" class="footer-nav-link">Client Portal</a>
             </div>
             <p style="opacity: 0.4; font-size: 0.8rem;">&copy; 2025 Con Amor Marketing LLC. All Rights Reserved.</p>
         </div>
