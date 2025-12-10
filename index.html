@@ -1042,43 +1042,11 @@
         <a href="weight-management.html" class="mobile-nav-link">Weight Loss</a>
         <a href="gut-health.html" class="mobile-nav-link">Gut Health</a>
         <a href="raising-confident-eaters.html" class="mobile-nav-link">Picky Eaters</a>
-        <a href="maternity-care.html" class="mobile-nav-link" style="color: var(--color-primary);">Maternity
-            Care</a>
-        <a href="wellness-coaching.html" class="mobile-nav-link">Wellness Coaching</a>
-        <a href="#contact" class="mobile-nav-link" style="color: var(--color-primary);">Book Now</a>
-    </div>
-    <a href="index.html" class="brand">
-        <img src="assets/logo.png" alt="Guttie Nutrition Logo" class="brand-logo">
-        <div>Guttie<span style="color: var(--color-primary);">Nutrition</span></div>
-    </a>
-    <div class="nav-links desktop-only">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="weight-management.html" class="nav-link">Weight Loss</a>
-        <a href="gut-health.html" class="nav-link">Gut Health</a>
-        <a href="raising-confident-eaters.html" class="nav-link">Picky Eaters</a>
-        <a href="maternity-care.html" class="nav-link">Maternity Care</a>
-        <a href="wellness-coaching.html" class="nav-link">Wellness Coaching</a>
-        <a href="index.html#contact" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.9rem;">Book
-            Now</a>
-    </div>
-    <button class="mobile-menu-btn" id="mobile-menu-btn">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-    </div>
-    </nav>
-
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay" id="mobile-menu">
-        <a href="index.html" class="mobile-nav-link active">Home</a>
-        <a href="weight-management.html" class="mobile-nav-link">Weight Loss</a>
-        <a href="gut-health.html" class="mobile-nav-link">Gut Health</a>
-        <a href="raising-confident-eaters.html" class="mobile-nav-link">Picky Eaters</a>
         <a href="maternity-care.html" class="mobile-nav-link">Maternity Care</a>
         <a href="wellness-coaching.html" class="mobile-nav-link">Wellness Coaching</a>
         <a href="#contact" class="mobile-nav-link" style="color: var(--color-primary);">Book Now</a>
     </div>
+
 
     <!-- Hero Section -->
     <header class="hero">
@@ -2021,105 +1989,14 @@
         </div>
     </div>
 
-    <script>
-        // Modal Logic
-        const privacyModal = document.getElementById("privacy-modal");
-        const privacyBtn = document.getElementById("privacy-link");
-        const privacySpan = document.getElementsByClassName("close-btn")[0];
+    <!-- GLOBAL SCRIPTS -->
+    <script src="main.js"></script>
 
-        const termsModal = document.getElementById("terms-modal");
-        const termsBtn = document.getElementById("terms-link");
-        const termsSpan = document.getElementsByClassName("close-btn-terms")[0];
-
-        // Privacy Modal
-        if (privacyBtn) {
-            privacyBtn.onclick = function (e) {
-                e.preventDefault();
-                privacyModal.style.display = "block";
-            }
-        }
-        if (privacySpan) {
-            privacySpan.onclick = function () {
-                privacyModal.style.display = "none";
-            }
-        }
-
-        // Terms Modal
-        if (termsBtn) {
-            termsBtn.onclick = function (e) {
-                e.preventDefault();
-                termsModal.style.display = "block";
-            }
-        }
-        if (termsSpan) {
-            termsSpan.onclick = function () {
-                termsModal.style.display = "none";
-            }
-        }
-
-        // Close on Outside Click
-        window.onclick = function (event) {
-            if (event.target == privacyModal) {
-                privacyModal.style.display = "none";
-            }
-            if (event.target == termsModal) {
-                termsModal.style.display = "none";
-            }
-        }
-    </script>
-
-    <!-- JAVA SCRIPT LOGIC -->
+    <!-- PAGE SPECIFIC LOGIC (Splash, Parallax) -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-            // 1. Navigation Scroll Effect
-            const navbar = document.getElementById('navbar');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
-
-            // 2. Intersection Observer for 'Reveal' Animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: "0px"
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-            // 2.5 Mobile Menu Toggle
-            const mobileBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-            mobileBtn.addEventListener('click', () => {
-                mobileBtn.classList.toggle('open');
-                mobileMenu.classList.toggle('open');
-                // Prevent scrolling when menu is open
-                document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
-            });
-
-            // Close menu when a link is clicked
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileBtn.classList.remove('open');
-                    mobileMenu.classList.remove('open');
-                    document.body.style.overflow = 'auto'; // Restore scrolling
-                });
-            });
-
-            // 3. Parallax Effect
+            // 1. Parallax Effect
             window.addEventListener('scroll', () => {
                 const scrolled = window.scrollY;
                 document.querySelectorAll('.parallax-layer').forEach(layer => {
@@ -2129,7 +2006,7 @@
                 });
             });
 
-            // Hero Fade Out on Scroll
+            // 2. Hero Fade Out on Scroll
             window.addEventListener('scroll', () => {
                 const scrolled = window.scrollY;
                 const heroVisual = document.querySelector('.hero-visual');
@@ -2139,35 +2016,27 @@
                 }
             });
 
-            // 4. Smooth Scroll for Anchor Links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-
-            // 5. Splash Screen Logic
+            // 3. Splash Screen Logic
             const splash = document.getElementById('splash-screen');
             const enterBtn = document.getElementById('enter-btn');
 
-            // Check if user has already visited
-            if (sessionStorage.getItem('gutti_visited')) {
-                splash.style.display = 'none'; // Hide immediately
+            if (splash && enterBtn) {
+                // Check if user has already visited
+                if (sessionStorage.getItem('gutti_visited')) {
+                    splash.style.display = 'none'; // Hide immediately
+                }
+
+                enterBtn.addEventListener('click', () => {
+                    splash.classList.add('hidden');
+                    sessionStorage.setItem('gutti_visited', 'true'); // Mark as visited
+
+                    // Optional: Play hero animations after splash
+                    setTimeout(() => {
+                        const heroTitle = document.querySelector('.hero-content h1');
+                        if (heroTitle) heroTitle.style.animationPlayState = 'running';
+                    }, 500);
+                });
             }
-
-            enterBtn.addEventListener('click', () => {
-                splash.classList.add('hidden');
-                sessionStorage.setItem('gutti_visited', 'true'); // Mark as visited
-
-                // Optional: Play hero animations after splash
-                setTimeout(() => {
-                    const heroTitle = document.querySelector('.hero-content h1');
-                    if (heroTitle) heroTitle.style.animationPlayState = 'running';
-                }, 500);
-            });
 
         });
     </script>

@@ -32,11 +32,13 @@
 }
 
 .brand {
-    font-family: 'Fredoka', sans-serif; /* Hardcoded fallback or use var(--font-heading) */
+    font-family: 'Fredoka', sans-serif;
+    /* Hardcoded fallback or use var(--font-heading) */
     font-family: var(--font-heading, 'Fredoka', sans-serif);
     font-size: 1.5rem;
     font-weight: 700;
-    color: #3F72D3; /* var(--color-primary-dark) fallback */
+    color: #3F72D3;
+    /* var(--color-primary-dark) fallback */
     color: var(--color-primary-dark, #3F72D3);
     display: flex;
     align-items: center;
@@ -51,14 +53,17 @@
 }
 
 .brand span {
-    color: #89D934; /* var(--color-secondary) fallback */
+    color: #89D934;
+    /* var(--color-secondary) fallback */
     color: var(--color-secondary, #89D934);
 }
 
 .nav-links {
     display: flex;
-    gap: 30px; /* Standardized to 30px */
-    align-items: center; /* Critical for vertical alignment */
+    gap: 30px;
+    /* Standardized to 30px */
+    align-items: center;
+    /* Critical for vertical alignment */
 }
 
 .desktop-only {
@@ -66,7 +71,8 @@
 }
 
 .nav-link {
-    font-family: 'Quicksand', sans-serif; /* Hardcoded fallback */
+    font-family: 'Quicksand', sans-serif;
+    /* Hardcoded fallback */
     font-family: var(--font-body, 'Quicksand', sans-serif);
     font-weight: 500;
     font-size: 0.95rem;
@@ -158,12 +164,30 @@
     text-decoration: none !important;
 }
 
-.mobile-nav-link:hover {
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
     color: var(--color-primary, #5A8DEE);
 }
 
-.mobile-nav-link.active {
-    color: var(--color-primary, #5A8DEE);
+/* --- FOOTER --- */
+footer {
+    background: #121a22;
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    text-decoration: none !important;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.footer-nav-link:hover {
+    color: var(--color-secondary, #89D934) !important;
 }
 
 /* Mobile Utility to hide elements */
@@ -171,9 +195,11 @@
     .desktop-only {
         display: none !important;
     }
+
     .mobile-menu-btn {
         display: flex;
     }
+
     .navbar .btn {
         display: none;
     }
