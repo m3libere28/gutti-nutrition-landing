@@ -1907,7 +1907,8 @@
                 const scrolled = window.scrollY;
                 const heroVisual = document.querySelector('.hero-visual');
                 if (heroVisual) {
-                    const fadeOpacity = Math.max(0, 0.3 - (scrolled / 1500));
+                    // Start opacity at 1 (fully visible) and fade out
+                    const fadeOpacity = Math.max(0, 1 - (scrolled / 800));
                     heroVisual.style.opacity = fadeOpacity;
                 }
             });
@@ -1917,20 +1918,27 @@
             const enterBtn = document.getElementById('enter-btn');
 
             if (splash && enterBtn) {
-                // Check if user has already visited
-                if (sessionStorage.getItem('gutti_visited')) {
-                    splash.style.display = 'none'; // Hide immediately
-                }
+                // Determine if we should show splash
+                // FOR TESTING: Comment out sessionStorage check to see splash every time
+                // if (sessionStorage.getItem('gutti_visited')) {
+                //     splash.style.display = 'none'; 
+                // }
 
-                enterBtn.addEventListener('click', () => {
+                const hideSplash = () => {
                     splash.classList.add('hidden');
-                    sessionStorage.setItem('gutti_visited', 'true'); // Mark as visited
+                    sessionStorage.setItem('gutti_visited', 'true');
 
-                    // Optional: Play hero animations after splash
+                    // Remove from DOM after transition to allow clicking elements behind it
                     setTimeout(() => {
-                        const heroTitle = document.querySelector('.hero-content h1');
-                        if (heroTitle) heroTitle.style.animationPlayState = 'running';
-                    }, 500);
+                        splash.style.display = 'none';
+                    }, 1000);
+                };
+
+                enterBtn.addEventListener('click', hideSplash);
+
+                // Allow clicking strictly on the background to enter as well (usability)
+                splash.addEventListener('click', (e) => {
+                    if (e.target === splash) hideSplash();
                 });
             }
 
