@@ -41,8 +41,9 @@
     font-family: var(--font-heading, 'Fredoka', sans-serif);
     font-size: 1.6rem;
     font-weight: 700;
-    color: white;
-    /* Default White for Hero overlap */
+    color: var(--color-primary, #5A8DEE) !important;
+    /* Force Blue Globally */
+    /* Default White for Hero overlap REMOVED */
     display: flex;
     align-items: center;
     gap: 12px;
@@ -51,6 +52,8 @@
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     white-space: nowrap;
     flex-shrink: 0;
+    margin-right: 60px;
+    /* Increased separation */
 }
 
 .navbar.scrolled .brand {
@@ -299,7 +302,7 @@ footer {
 /* --- NAVBAR INVERSE (For Light Background Pages) --- */
 /* Use this class on pages with white/light hero sections */
 .navbar-inverse .brand {
-    color: var(--color-primary-dark, #3F72D3);
+    color: var(--color-primary, #5A8DEE);
     text-shadow: none;
 }
 
