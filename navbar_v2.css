@@ -175,23 +175,7 @@
 /* We target the .btn class inside navbar specifically */
 /* 5. CTA Button in Navbar */
 /* We target the .btn class inside navbar specifically */
-padding: 12px 40px !important;
-white-space: nowrap;
-/* Wider & Single Line */
-border-radius: 50px;
-/* Standard Roundness */
-font-weight: 700;
-letter-spacing: 0.5px;
-box-shadow: 0 4px 15px rgba(90, 141, 238, 0.3);
-/* Blue glow matches button */
-transition: all 0.3s ease;
-/* Ensure it overrides generic btn styles if conflict */
-background: var(--color-primary, #5A8DEE) !important;
-color: white !important;
-border: 2px solid transparent;
-animation: pulse-glow 2s infinite;
-/* Continuous subtle animation */
-}
+
 
 @keyframes pulse-glow {
     0% {
