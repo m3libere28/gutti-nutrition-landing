@@ -110,8 +110,8 @@
             z-index: 1000;
             padding: 20px 0;
             transition: all 0.4s ease;
-            background: transparent;
-            box-shadow: none;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             border-radius: 0;
             max-width: 100%;
             transform: none;
@@ -308,7 +308,8 @@
             width: 100%;
             height: 100%;
             /* Darker overlay for White Text readability */
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(90, 141, 238, 0.7) 100%);
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 1;
         }
 
         .hero-content {
