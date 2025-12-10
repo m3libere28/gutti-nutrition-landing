@@ -535,10 +535,7 @@
         .feature-icon {
             font-size: 3rem;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            /* Removed background clip to fix emoji visibility on Windows */
         }
 
         .feature-item h3 {
@@ -554,10 +551,12 @@
         .feature-number {
             position: absolute;
             top: 20px;
+            top: 20px;
             right: 20px;
             font-size: 4rem;
             font-weight: 900;
-            color: rgba(0, 0, 0, 0.03);
+            color: rgba(137, 217, 52, 0.25);
+            /* Light Green Watermark */
             font-family: var(--font-premium);
         }
 
