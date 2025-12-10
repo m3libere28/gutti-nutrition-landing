@@ -81,7 +81,7 @@
 /* 4. Desktop Navigation Links */
 .nav-links {
     display: flex;
-    gap: 25px;
+    gap: 40px;
     align-items: center;
     flex-wrap: nowrap;
 }
@@ -329,7 +329,7 @@ footer {
 
 
 /* Mobile Utility to hide elements */
-@media (max-width: 1250px) {
+@media (max-width: 1350px) {
     .desktop-only {
         display: none !important;
     }
