@@ -840,25 +840,30 @@
         }
 
         /* --- MOBILE MENU --- */
+        /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 20px;
             background: none;
             border: none;
             cursor: pointer;
-            z-index: 1002;
-            padding: 0;
+            z-index: 1001;
+            padding: 10px;
         }
 
         .mobile-menu-btn span {
-            width: 100%;
+            display: block;
+            width: 25px;
             height: 3px;
-            background: var(--color-primary-dark);
-            border-radius: 3px;
+            background-color: var(--color-primary);
+            margin: 5px 0;
             transition: all 0.3s ease;
+        }
+
+        /* Feature Card Link Hover Effect */
+        .feature-card-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(90, 141, 238, 0.2);
+            cursor: pointer;
         }
 
         /* Hamburger Animation */
@@ -1013,67 +1018,67 @@
 
                 <div
                     style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; text-align: left;">
-                    <div class="reveal"
-                        style="transition-delay: 0.1s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary);">
+                    <a href="gut-health.html" class="reveal feature-card-link"
+                        style="transition-delay: 0.1s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary); text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                         <h3 style="font-size: 1.25rem; margin-bottom: 10px;">🎈 Unpredictable Bloating</h3>
                         <p style="font-size: 0.95rem;">Looking 6 months pregnant after meals, even when you eat
                             "healthy"?</p>
-                    </div>
-                    <div class="reveal"
-                        style="transition-delay: 0.2s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary);">
+                    </a>
+                    <a href="gut-health.html" class="reveal feature-card-link"
+                        style="transition-delay: 0.2s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary); text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                         <h3 style="font-size: 1.25rem; margin-bottom: 10px;">😰 Food Fear</h3>
                         <p style="font-size: 0.95rem;">Anxious about eating out because you don't know what will trigger
                             symptoms?</p>
-                    </div>
-                    <div class="reveal"
-                        style="transition-delay: 0.3s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary);">
+                    </a>
+                    <a href="gut-health.html" class="reveal feature-card-link"
+                        style="transition-delay: 0.3s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary); text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                         <h3 style="font-size: 1.25rem; margin-bottom: 10px;">📉 Low Energy</h3>
                         <p style="font-size: 0.95rem;">Feeling drained, foggy, and tired, knowing your gut is the
                             culprit?</p>
-                    </div>
+                    </a>
                     <!-- New Cards -->
-                    <div class="reveal"
-                        style="transition-delay: 0.4s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary);">
+                    <a href="gut-health.html" class="reveal feature-card-link"
+                        style="transition-delay: 0.4s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary); text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                         <h3 style="font-size: 1.25rem; margin-bottom: 10px;">☁️ Brain Fog</h3>
                         <p style="font-size: 0.95rem;">Hard to concentrate or remember things? Your gut-brain connection
                             might be disrupted.</p>
-                    </div>
-                    <div class="reveal"
-                        style="transition-delay: 0.5s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary);">
+                    </a>
+                    <a href="gut-health.html" class="reveal feature-card-link"
+                        style="transition-delay: 0.5s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary); text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                         <h3 style="font-size: 1.25rem; margin-bottom: 10px;">🧴 Skin Issues</h3>
                         <p style="font-size: 0.95rem;">Stubborn acne, eczema, or rosacea that won't go away with creams
                             alone?</p>
-                    </div>
-                    <div class="reveal"
-                        style="transition-delay: 0.6s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary);">
+                    </a>
+                    <a href="gut-health.html" class="reveal feature-card-link"
+                        style="transition-delay: 0.6s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary); text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                         <h3 style="font-size: 1.25rem; margin-bottom: 10px;">⚖️ Hormonal Chaos</h3>
                         <p style="font-size: 0.95rem;">Painful periods or irregular cycles? Gut health plays a huge role
                             in hormone balance.</p>
-                    </div>
-                    <div class="reveal"
-                        style="transition-delay: 0.7s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary);">
+                    </a>
+                    <a href="weight-management.html" class="reveal feature-card-link"
+                        style="transition-delay: 0.7s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary); text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                         <h3 style="font-size: 1.25rem; margin-bottom: 10px;">🔄 Weight Cycling</h3>
                         <p style="font-size: 0.95rem;">Unexplained weight gain or inability to lose weight despite
                             eating well?</p>
-                    </div>
-                    <div class="reveal"
-                        style="transition-delay: 0.8s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary);">
+                    </a>
+                    <a href="gut-health.html" class="reveal feature-card-link"
+                        style="transition-delay: 0.8s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary); text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                         <h3 style="font-size: 1.25rem; margin-bottom: 10px;">😴 Poor Sleep</h3>
                         <p style="font-size: 0.95rem;">Tossing and turning? Serotonin (the sleep precursor) is mostly
                             made in the gut.</p>
-                    </div>
-                    <div class="reveal"
-                        style="transition-delay: 0.9s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary);">
+                    </a>
+                    <a href="gut-health.html" class="reveal feature-card-link"
+                        style="transition-delay: 0.9s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary); text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                         <h3 style="font-size: 1.25rem; margin-bottom: 10px;">🚽 Chronic Constipation</h3>
                         <p style="font-size: 0.95rem;">Feeling backed up, heavy, or relying on laxatives? Regularity is
                             a sign of a happy gut.</p>
-                    </div>
-                    <div class="reveal"
-                        style="transition-delay: 1.0s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary);">
+                    </a>
+                    <a href="raising-confident-eaters.html" class="reveal feature-card-link"
+                        style="transition-delay: 1.0s; background: var(--color-bg); padding: 30px; border-radius: 20px; border-left: 5px solid var(--color-primary); text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                         <h3 style="font-size: 1.25rem; margin-bottom: 10px;">🥦 Picky Eating</h3>
                         <p style="font-size: 0.95rem;">Struggling with texture aversions or limited variety? A diverse
                             microbiome craves diverse foods.</p>
-                    </div>
+                    </a>
 
                 </div>
 
