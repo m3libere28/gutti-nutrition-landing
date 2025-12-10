@@ -101,6 +101,9 @@
     /* White text at top */
     transition: color 0.3s ease;
     white-space: nowrap;
+    border-bottom: none !important;
+    /* Prevent legacy underlines */
+    text-decoration: none !important;
 }
 
 .navbar.scrolled .nav-link {
