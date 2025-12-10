@@ -30,18 +30,33 @@
             --color-bg: #F8FAFC;
             --color-surface: #FFFFFF;
 
-            /* Maternity Specific Colors - Serene & Premium */
-            --color-sage: #94A388;
-            /* Soft Green */
-            --color-blush: #FDF2F0;
-            /* Soft Pink tint */
-            --color-stone: #E2E8F0;
-            --color-charcoal: #1E293B;
+            /* --- BRAND COLORS (Guttie Core) --- */
+            /* Reverting to core brand identity as requested */
+            --color-primary: #5A8DEE;
+            /* Standard Blue */
+            --color-primary-dark: #3F72D3;
+            --color-secondary: #89D934;
+            /* Standard Green */
+            --color-secondary-light: #E9F7D9;
+            --color-earth: #8B7355;
+            /* Potato Brown */
+
+            --color-text: #2C3E50;
+            --color-text-light: #64748B;
+            --color-bg: #F8FAFC;
+            --color-surface: #FFFFFF;
+
+            /* Mapping previously used vars to Brand Colors for layout compatibility */
+            --color-sage: var(--color-secondary);
+            --color-blush: #FFF5F7;
+            /* Keeping a subtle pink for the 'Baby Shower' vibe IF needed, or use secondary-light */
+            --color-stone: var(--color-bg);
+            --color-charcoal: var(--color-primary-dark);
 
             --font-heading: 'Fredoka', sans-serif;
             --font-body: 'Quicksand', sans-serif;
-            --font-premium: 'Outfit', sans-serif;
-            /* For specific accents */
+            --font-premium: 'Fredoka', sans-serif;
+            /* Reverting Premium font to Brand font */
 
             --container-width: 1200px;
             --section-padding: 100px;
@@ -373,8 +388,8 @@
         /* --- SECTION 2: THE REALITY (2-Col Grid) --- */
         .section-reality {
             padding: var(--section-padding) 0;
-            background: var(--color-blush);
-            /* Subtle Pink Tint */
+            background: var(--color-secondary-light);
+            /* Switching to Brand Light Green */
         }
 
         .reality-grid {
@@ -513,6 +528,7 @@
             margin-bottom: 20px;
             background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -539,7 +555,8 @@
         /* --- SECTION 4: SCIENCE (List) --- */
         .section-science {
             padding: 80px 0;
-            background: var(--color-charcoal);
+            background: var(--color-primary-dark);
+            /* Brand Blue */
             color: white;
         }
 
@@ -757,9 +774,11 @@
     <!-- HERO SECTION -->
     <header class="hero">
         <div class="hero-bg">
-            <img src="assets/hero_maternity.png" alt="Serene pregnant woman in kitchen">
+            <img src="assets/hero_maternity_brand.jpg" alt="Guttie Baby Shower Characters"
+                style="object-position: center bottom;">
         </div>
-        <div class="hero-overlay"></div>
+        <div class="hero-overlay"
+            style="background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(90, 141, 238, 0.4) 100%);"></div>
         <div class="hero-content">
             <h1>Your Ultimate Investment: <br>Proactive Nutritional Care for Motherhood.</h1>
             <p>Premium support for the most demanding physical event of your life.</p>
