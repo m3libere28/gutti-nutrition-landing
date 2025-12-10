@@ -49,6 +49,8 @@
     text-decoration: none !important;
     transition: color 0.4s ease;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .navbar.scrolled .brand {
@@ -79,8 +81,9 @@
 /* 4. Desktop Navigation Links */
 .nav-links {
     display: flex;
-    gap: 35px;
+    gap: 25px;
     align-items: center;
+    flex-wrap: nowrap;
 }
 
 .desktop-only {
@@ -97,6 +100,7 @@
     color: rgba(255, 255, 255, 0.9);
     /* White text at top */
     transition: color 0.3s ease;
+    white-space: nowrap;
 }
 
 .navbar.scrolled .nav-link {
@@ -325,7 +329,7 @@ footer {
 
 
 /* Mobile Utility to hide elements */
-@media (max-width: 1100px) {
+@media (max-width: 1250px) {
     .desktop-only {
         display: none !important;
     }
