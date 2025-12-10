@@ -483,10 +483,21 @@
             height: 100%;
             z-index: 0;
             pointer-events: none;
-            opacity: 0.3;
-            /* Increased visibility per request */
-            mix-blend-mode: multiply;
+            /* Fully visible dark hero */
+            opacity: 1;
             transition: opacity 0.1s ease-out;
+        }
+
+        .hero-visual::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Darker overlay for White Text readability matches Wellness Coaching */
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 1;
         }
 
         .hero-img-main {
@@ -495,6 +506,8 @@
             object-fit: cover;
             border-radius: 0;
             transform: translateY(var(--scroll-y, 0px));
+            /* Slightly darken the image itself too */
+            filter: brightness(0.9);
         }
 
         /* --- SPLASH SCREEN --- */
@@ -1037,8 +1050,9 @@
 
         <div class="container">
             <div class="hero-content">
-                <h1>Transform Your Health from the <span style="color: var(--color-primary)">Inside Out</span></h1>
-                <p style="font-size: 1.35rem; font-weight: 500; color: var(--color-text);">
+                <h1 style="color: white">Transform Your Health from the <span style="color: var(--color-primary)">Inside
+                        Out</span></h1>
+                <p style="font-size: 1.35rem; font-weight: 500; color: rgba(255, 255, 255, 0.9);">
                     Cut through the noise. Eat with confidence.
                 </p>
                 <div class="hero-btns">
@@ -1050,7 +1064,7 @@
 
         <!-- Floating Hero Image -->
         <div class="hero-visual parallax-layer" data-speed="-0.1">
-            <img src="assets/hero_plaza.jpg" alt="Guttie Plaza" class="hero-img-main" style="border-radius: 40px;">
+            <img src="assets/hero_plaza.jpg" alt="Guttie Plaza" class="hero-img-main">
         </div>
     </header>
 
