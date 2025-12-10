@@ -1917,11 +1917,10 @@
             const enterBtn = document.getElementById('enter-btn');
 
             if (splash && enterBtn) {
-                // Determine if we should show splash
-                // FOR TESTING: Comment out sessionStorage check to see splash every time
-                // if (sessionStorage.getItem('gutti_visited')) {
-                //     splash.style.display = 'none'; 
-                // }
+                // Check if user has already visited (Session based)
+                if (sessionStorage.getItem('gutti_visited')) {
+                    splash.style.display = 'none';
+                }
 
                 const hideSplash = () => {
                     splash.classList.add('hidden');
