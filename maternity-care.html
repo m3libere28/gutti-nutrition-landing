@@ -163,6 +163,7 @@
             font-size: 0.95rem;
             position: relative;
             color: var(--color-text);
+            /* Standard Guttie Dark Text */
         }
 
         .nav-link::after {
@@ -296,8 +297,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Filter for serenity */
-            filter: brightness(0.85) contrast(1.1);
+            /* Filter for brand integration */
+            filter: brightness(0.9);
         }
 
         .hero-overlay {
@@ -306,7 +307,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%);
+            /* Darker overlay for White Text readability */
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(90, 141, 238, 0.7) 100%);
         }
 
         .hero-content {
@@ -323,6 +325,8 @@
             font-weight: 700;
             letter-spacing: -1px;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            color: white;
+            /* Explicitly White */
         }
 
         .hero p {
@@ -330,6 +334,8 @@
             margin-bottom: 40px;
             font-weight: 500;
             opacity: 0.95;
+            color: white;
+            /* Explicitly White */
         }
 
         .btn-primary {
