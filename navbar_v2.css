@@ -395,7 +395,7 @@ footer {
     }
 
     .mobile-menu-btn {
-        display: flex;
+        display: block;
     }
 
     .navbar .btn {
