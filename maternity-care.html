@@ -804,7 +804,7 @@
         <div class="container nav-content">
             <a href="index.html" class="brand">
                 <img src="assets/logo.png" alt="Guttie Nutrition Logo" class="brand-logo">
-                <div>Guttie<span style="color: var(--color-primary);">Nutrition</span></div>
+                <div>Guttie<span>Nutrition</span></div>
             </a>
             <div class="nav-links desktop-only">
                 <a href="index.html" class="nav-link">Home</a>
@@ -1115,93 +1115,20 @@
     </div>
 
     <!-- SCRIPTS -->
+    <!-- GLOBAL SCRIPTS -->
+    <script src="main.js"></script>
+
+    <!-- PAGE SPECIFIC ANIMATION -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Modal Logic
-            const privacyModal = document.getElementById("privacy-modal");
-            const privacyBtn = document.getElementById("privacy-link");
-            const privacySpan = document.getElementsByClassName("close-btn")[0];
-
-            const termsModal = document.getElementById("terms-modal");
-            const termsBtn = document.getElementById("terms-link");
-            const termsSpan = document.getElementsByClassName("close-btn-terms")[0];
-
-            // Privacy Modal
-            if (privacyBtn) {
-                privacyBtn.onclick = function (e) {
-                    e.preventDefault();
-                    privacyModal.style.display = "block";
-                }
-            }
-            if (privacySpan) {
-                privacySpan.onclick = function () {
-                    privacyModal.style.display = "none";
-                }
-            }
-
-            // Terms Modal
-            if (termsBtn) {
-                termsBtn.onclick = function (e) {
-                    e.preventDefault();
-                    termsModal.style.display = "block";
-                }
-            }
-            if (termsSpan) {
-                termsSpan.onclick = function () {
-                    termsModal.style.display = "none";
-                }
-            }
-
-            // Close on Outside Click
-            window.onclick = function (event) {
-                if (event.target == privacyModal) {
-                    privacyModal.style.display = "none";
-                }
-                if (event.target == termsModal) {
-                    termsModal.style.display = "none";
-                }
-            }
-
             // Fade In Animation for Header
             const heroContent = document.querySelector('.hero-content');
-            heroContent.style.opacity = 0;
-            setTimeout(() => {
-                heroContent.style.opacity = 1;
-                heroContent.style.transform = 'translateY(0)';
-            }, 300);
-
-            // --- STANDARD NAVIGATION SCRIPTS ---
-            // Navigation Scroll Effect
-            const navbar = document.getElementById('navbar');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
-
-            // Mobile Menu Toggle
-            const mobileBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-            if (mobileBtn) {
-                mobileBtn.addEventListener('click', () => {
-                    mobileBtn.classList.toggle('open');
-                    mobileMenu.classList.toggle('open');
-                    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
-                });
-            }
-
-            if (mobileLinks) {
-                mobileLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileBtn.classList.remove('open');
-                        mobileMenu.classList.remove('open');
-                        document.body.style.overflow = 'auto';
-                    });
-                });
+            if (heroContent) {
+                heroContent.style.opacity = 0;
+                setTimeout(() => {
+                    heroContent.style.opacity = 1;
+                    heroContent.style.transform = 'translateY(0)';
+                }, 300);
             }
         });
     </script>
