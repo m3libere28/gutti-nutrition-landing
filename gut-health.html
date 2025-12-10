@@ -1310,27 +1310,7 @@
     <!-- JS for removing black background from character -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. Mobile Menu Toggle (Critical Priority)
-            const mobileBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
-            if (mobileBtn && mobileMenu) {
-                mobileBtn.addEventListener('click', () => {
-                    mobileBtn.classList.toggle('open');
-                    mobileMenu.classList.toggle('open');
-                    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
-                });
-
-                // Close menu when a link is clicked
-                mobileLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileBtn.classList.remove('open');
-                        mobileMenu.classList.remove('open');
-                        document.body.style.overflow = 'auto';
-                    });
-                });
-            }
 
             // 2. Navbar Scroll Effect
             const navbar = document.querySelector('.navbar');
