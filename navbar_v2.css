@@ -403,6 +403,8 @@ footer {
 
     .mobile-menu-btn {
         display: block;
+        margin-right: 25vw;
+        /* Moved left by 25% of viewport width per user request */
     }
 
     .navbar .btn {
