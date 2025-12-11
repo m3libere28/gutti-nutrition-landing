@@ -553,13 +553,40 @@
         }
 
         /* Responsiveness */
+        /* Responsiveness & Mobile Optimization */
         @media (max-width: 900px) {
+            :root {
+                --section-padding: 60px;
+                /* Reducing padding for mobile */
+            }
+
             .reality-grid {
                 grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .difference-grid {
+                grid-template-columns: 1fr;
+                /* Stacking the 3-col grid */
+                gap: 40px;
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.5rem !important;
+                /* Force resize */
+            }
+
+            .hero p {
+                font-size: 1.1rem !important;
+            }
+
+            .citation-grid {
+                grid-template-columns: 1fr !important;
+                /* Ensure citations stack nicely */
+            }
+
+            .section-header h2 {
+                font-size: 2rem !important;
             }
         }
     </style>
