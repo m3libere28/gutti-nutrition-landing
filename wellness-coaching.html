@@ -557,39 +557,54 @@
 
         /* Responsiveness */
         /* Responsiveness & Mobile Optimization */
+        /* Responsiveness & Mobile Optimization */
         @media (max-width: 900px) {
             :root {
                 --section-padding: 60px;
                 /* Reducing padding for mobile */
             }
 
+            /* Stack Reality Section (Left Text over Right Cards) */
             .reality-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
 
+            .reality-left.sticky-content {
+                position: static !important;
+                /* Disable sticky on mobile */
+                margin-bottom: 20px;
+            }
+
+            /* Stack Difference Grid (Icons) */
             .difference-grid {
                 grid-template-columns: 1fr;
-                /* Stacking the 3-col grid */
                 gap: 40px;
             }
 
+            /* Stack Citations */
+            .citation-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Typography Adjustments */
             .hero h1 {
                 font-size: 2.5rem !important;
-                /* Force resize */
             }
 
             .hero p {
                 font-size: 1.1rem !important;
-            }
-
-            .citation-grid {
-                grid-template-columns: 1fr !important;
-                /* Ensure citations stack nicely */
+                padding: 0 10px;
             }
 
             .section-header h2 {
                 font-size: 2rem !important;
+            }
+
+            /* Ensure container doesn't overflow */
+            .container {
+                padding: 0 20px;
+                width: 100%;
             }
         }
     </style>
