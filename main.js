@@ -12,27 +12,47 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 2. Mobile Menu Toggle
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    // 2. Mobile Menu Toggle (Re-Engineered)
+    const initMobileMenu = () => {
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
-    if (mobileBtn && mobileMenu) {
-        mobileBtn.addEventListener('click', () => {
-            mobileBtn.classList.toggle('open');
+        // Safety check
+        if (!mobileBtn || !mobileMenu) return;
+
+        // Clone element to remove old event listeners (Nuclear option to prevent double-toggles)
+        const newBtn = mobileBtn.cloneNode(true);
+        mobileBtn.parentNode.replaceChild(newBtn, mobileBtn);
+
+        newBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Stop bubbling
+            newBtn.classList.toggle('open');
             mobileMenu.classList.toggle('open');
-            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
-        });
-    }
 
-    if (mobileLinks) {
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (mobileBtn) mobileBtn.classList.remove('open');
-                if (mobileMenu) mobileMenu.classList.remove('open');
-                document.body.style.overflow = 'auto';
-            });
+            // Lock body scroll
+            const isOpen = mobileMenu.classList.contains('open');
+            document.body.style.overflow = isOpen ? 'hidden' : 'auto';
         });
-    }
+
+        // Close on Link Click
+        if (mobileLinks) {
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    newBtn.classList.remove('open');
+                    mobileMenu.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+        }
+
+        // Close on Outside Click (Overlay itself acts as background? No, overlay is full screen)
+        // If we want to close when clicking strictly outside links? 
+        // Logic: The overlay IS the menu background. Clicking it usually does nothing or closes.
+        // Let's leave it as explicit close button logic for now (clicking button again closes it).
+    };
+
+    initMobileMenu();
 
     // 3. Reveal Animations (Intersection Observer)
     const observerOptions = {
