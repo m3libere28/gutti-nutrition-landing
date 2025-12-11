@@ -403,8 +403,11 @@ footer {
 
     .mobile-menu-btn {
         display: block;
-        margin-right: 25vw;
-        /* Moved left by 25% of viewport width per user request */
+        position: absolute;
+        right: 25px;
+        /* Safe, standard position */
+        top: 25px;
+        margin: 0;
     }
 
     .navbar .btn {
