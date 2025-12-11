@@ -405,8 +405,10 @@ footer {
         display: block;
         position: absolute;
         right: 25px;
-        /* Safe, standard position */
-        top: 25px;
+        top: 50%;
+        /* Center vertically */
+        transform: translateY(-50%);
+        /* Adjust for own height */
         margin: 0;
     }
 
