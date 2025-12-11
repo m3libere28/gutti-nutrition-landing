@@ -73,12 +73,15 @@
             box-sizing: border-box;
         }
 
+        html,
         body {
             font-family: var(--font-body);
             background-color: var(--color-bg);
             color: var(--color-text);
             line-height: 1.7;
             overflow-x: hidden;
+            /* Critical for mobile to prevent side-scroll */
+            width: 100%;
         }
 
         h1,
