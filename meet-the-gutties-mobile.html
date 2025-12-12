@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="navbar_v2.css?v=align_fix">
     <script>
         // Redirect to desktop version if on a large screen
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > 900) {
             window.location.href = "meet-the-gutties.html";
         }
     </script>
@@ -36,179 +36,118 @@
             box-sizing: border-box;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
         body {
             font-family: var(--font-body);
-            overflow: hidden;
-            /* Lock scroll for the immersive feel */
-            background: #1a1a1a;
-            height: 100vh;
-            width: 100vw;
+            background-color: #000000;
+            /* Solid Black Background */
+            color: #ffffff;
+            overflow-x: hidden;
+            overflow-y: auto;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Full Screen Interactive Container */
-        .guttie-town-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            background: url('assets/meet_gutties_map.jpg') no-repeat center center;
-            background-size: 100% 100%;
-            /* Lockwood to background features */
-            overflow: hidden;
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 100px;
+            /* Space for navbar */
+            padding-bottom: 50px;
         }
 
-        /* Dark overlay for text readability if needed, but we want the town to pop */
-        .town-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.2);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        /* Intro Text - Fade out on click? Or stay at top */
+        /* Page Header */
         .page-header {
-            position: absolute;
-            top: 100px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
             text-align: center;
-            color: white;
-            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            pointer-events: none;
-            /* Let clicks pass through */
+            margin-bottom: 40px;
         }
 
         .page-header h1 {
-            font-size: 3.5rem;
-            color: white;
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--color-primary);
             margin-bottom: 10px;
         }
 
         .page-header p {
-            font-size: 1.2rem;
-            background: rgba(0, 0, 0, 0.5);
-            display: inline-block;
-            padding: 5px 20px;
-            border-radius: 20px;
+            color: #888;
+            font-size: 1.1rem;
         }
 
-        /* Character Hotspots */
-        .character-spot {
-            position: absolute;
-            z-index: 5;
+        /* Card Layout */
+        .guttie-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .guttie-card {
+            background: #111;
+            /* Very dark grey card */
+            border: 1px solid #333;
+            border-radius: 24px;
+            padding: 30px;
+            text-align: center;
             cursor: pointer;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+            transition: transform 0.2s, background 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
-        .character-spot:hover {
-            transform: scale(1.15) translateY(-10px);
-            filter: drop-shadow(0 15px 25px rgba(90, 141, 238, 0.6));
-            z-index: 20;
+        .guttie-card:hover {
+            border-color: var(--color-primary);
+            background: #1a1a1a;
         }
 
-        .character-img {
-            width: 150px;
-            /* Base size */
+        .guttie-card:active {
+            transform: scale(0.98);
+        }
+
+        .guttie-img {
+            width: 140px;
             height: auto;
             display: block;
-            pointer-events: none;
-            /* Click goes to parent */
+            margin: 0 auto 20px;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.1));
+            transition: transform 0.3s;
         }
 
-        /* Floating Animation */
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-15px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
+        .guttie-card:hover .guttie-img {
+            transform: scale(1.05);
         }
 
-        .animate-float {
-            animation: float 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse-btn {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-            }
-
-            70% {
-                transform: scale(1.05);
-                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
-            }
-
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-            }
-        }
-
-        .instruction-pulse {
-            animation: pulse-btn 2s infinite;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        /* Tooltip Name Tag */
-        .char-name {
-            position: absolute;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            color: var(--color-primary-dark);
-            padding: 5px 15px;
-            border-radius: 15px;
-            font-weight: 700;
+        .guttie-name {
             font-family: var(--font-heading);
-            opacity: 0;
-            transition: opacity 0.3s, bottom 0.3s;
-            white-space: nowrap;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 1.6rem;
+            color: white;
+            margin-bottom: 10px;
         }
 
-        .character-spot:hover .char-name {
-            opacity: 1;
-            bottom: -40px;
+        .tap-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(90, 141, 238, 0.1);
+            color: var(--color-primary);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid rgba(90, 141, 238, 0.3);
         }
 
-        /* Character Positioning (Percentages of Viewport) */
-        /* Top Left */
-        #guttie-hoops {
-            top: 25%;
-            left: 15%;
+        /* Navbar Overrides for Dark Mode */
+        .navbar {
+            background: rgba(0, 0, 0, 0.8) !important;
+            border-bottom: 1px solid #333 !important;
         }
 
-        /* Bottom Left */
-        #guttie-lifting {
-            top: 60%;
-            left: 10%;
+        .brand {
+            color: white !important;
         }
 
-        /* Center */
+        .mobile-menu-btn span {
+            background-color: white !important;
+        }
 
-
-
-        /* MODAL STYLES */
+        /* Modal Styles */
         .bio-modal {
             display: none;
             position: fixed;
@@ -217,8 +156,8 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(8px);
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
             align-items: center;
             justify-content: center;
             opacity: 0;
@@ -231,205 +170,71 @@
         }
 
         .bio-content {
-            background: white;
+            background: #151515;
             width: 90%;
-            max-width: 900px;
-            border-radius: 25px;
+            max-width: 500px;
+            border-radius: 20px;
             overflow: hidden;
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            transform: scale(0.9);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #333;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 1);
             position: relative;
-        }
-
-        .bio-modal.active .bio-content {
-            transform: scale(1);
         }
 
         .bio-video-wrapper {
-            background: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 400px;
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: black;
         }
 
         .bio-text-wrapper {
-            padding: 40px;
-            position: relative;
+            padding: 25px;
+            text-align: left;
+        }
+
+        .bio-title {
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            font-family: var(--font-heading);
+            margin-bottom: 10px;
+        }
+
+        .bio-desc {
+            color: #ccc;
+            line-height: 1.6;
+            font-size: 1rem;
         }
 
         .close-bio {
             position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 2rem;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
             cursor: pointer;
-            color: #ccc;
-            line-height: 1;
-            z-index: 5;
-        }
-
-        .close-bio:hover {
-            color: var(--color-primary);
-        }
-
-        .bio-title {
-            font-size: 2.5rem;
-            color: var(--color-primary-dark);
-            margin-bottom: 5px;
-            font-family: var(--font-heading);
-        }
-
-        .bio-role {
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--color-secondary);
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .bio-desc {
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-
-        /* Mobile Adjustments */
-        @media (max-width: 900px) {
-            body {
-                overflow: hidden;
-                /* Keep body locked */
-                position: fixed;
-                /* Prevent bouncy scroll on iOS */
-            }
-
-            .guttie-town-wrapper {
-                width: 100%;
-                height: 100vh;
-                overflow-x: auto;
-                /* Enable horizontal scroll */
-                overflow-y: hidden;
-                -webkit-overflow-scrolling: touch;
-                /* Smooth scroll */
-            }
-
-            /* The core map container that holds the image and characters */
-            .town-overlay {
-                /* We need a new container for the content really, but for now we can style the wrapper's content context */
-                /* Actually, best approach is to make the background a real element or pseudo that is wide */
-                width: 1400px;
-                /* Force wide width for scrolling */
-                height: 100%;
-                position: absolute;
-                background: url('assets/meet_gutties_map.jpg') no-repeat center center;
-                background-size: cover;
-            }
-
-            /* We need to apply the width to the relative container so children approximate correctly */
-            /* Since the wrapper has the image, we need to change strategy slightly for mobile */
-            /* Let's make the background image attached to a pseudo-element or separate div that sets the scroll width */
-        }
-
-        /* Better Mobile Strategy: The wrapper scrolls, inside is a wide container */
-        @media (max-width: 900px) {
-            .guttie-town-wrapper {
-                background: none;
-                /* Remove background from wrapper */
-                overflow-x: auto;
-                overflow-y: hidden;
-            }
-
-            .town-scroll-container {
-                position: relative;
-                width: 1300px;
-                /* Wide canvas for mobile */
-                height: 100%;
-                background: url('assets/meet_gutties_map.jpg') no-repeat center center;
-                background-size: cover;
-            }
-
-            /* Adjust Modal for Mobile */
-            .bio-content {
-                width: 95%;
-                height: 80%;
-                /* Taller on mobile */
-                grid-template-columns: 1fr;
-                /* Stack vertically */
-                overflow-y: auto;
-            }
-
-            .bio-video-wrapper {
-                min-height: 250px;
-            }
-
-            .bio-text-wrapper {
-                padding: 20px;
-            }
-
-            .bio-title {
-                font-size: 2rem;
-            }
-        }
-
-        /* Default mobile adjustments for images if needed, or keep global */
-        @media (max-width: 900px) {
-            .character-img {
-                width: 100px;
-            }
-        }
-
-        #guttie-hoops {
-            top: 20%;
-            left: 5%;
-        }
-
-        #guttie-lifting {
-            top: 45%;
-            left: 5%;
-        }
-
-        #guttie-doctor {
-            top: 35%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        #guttie-scientist {
-            top: 20%;
-            right: 5%;
-        }
-
-        #guttie-meditate {
-            top: 60%;
-            right: 10%;
-        }
+            z-index: 10;
+            border: 1px solid #444;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Nav (Glassmorphism) -->
+    <!-- Nav -->
     <nav class="navbar" id="navbar">
-        <div class="container nav-content">
+        <div class="container nav-content" style="padding: 0; width: 100%;">
             <a href="index.html" class="brand">
                 <img src="assets/logo.png" alt="Guttie Nutrition Logo" class="brand-logo">
                 <div>Guttie<span>Nutrition</span></div>
             </a>
-            <div class="nav-links desktop-only">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="weight-management.html" class="nav-link">Weight Loss</a>
-                <a href="gut-health.html" class="nav-link">Gut Health</a>
-                <a href="raising-confident-eaters.html" class="nav-link">Picky Eaters</a>
-                <a href="maternity-care.html" class="nav-link">Maternity Care</a>
-                <a href="wellness-coaching.html" class="nav-link">Wellness Coaching</a>
-                <a href="meet-the-gutties.html" class="nav-link active">Meet the Gutties</a>
-            </div>
             <button class="mobile-menu-btn" id="mobile-menu-btn">
                 <span></span><span></span><span></span>
             </button>
@@ -445,68 +250,70 @@
         <a href="meet-the-gutties.html" class="mobile-nav-link active">Meet the Gutties</a>
     </div>
 
-    <!-- MAIN INTERACTIVE AREA -->
-    <div class="guttie-town-wrapper">
-        <div class="town-overlay"></div>
+    <!-- Main Content -->
+    <div class="container">
 
-        <!-- CHARACTER: Selfie Guttie -->
-        <!-- Positioned for Selfie View (Top Right approx) -->
-        <div class="character-spot" id="guttie-selfie" onclick="openBio('selfie')" style="top: 25%; right: 12%;">
-            <img src="assets/guttie_selfie_v2.png" class="character-img" alt="Selfie Guttie" style="width: 106px;">
-            <div class="char-name">Selfie Guttie</div>
+        <div class="page-header">
+            <h1>Meet the Gutties</h1>
+            <p>Tap a character to watch their story!</p>
         </div>
 
-        <div class="character-spot" id="guttie-singing" onclick="openBio('singing')" style="top: 11%; left: 11%;">
-            <img src="assets/guttie_singing_v2.png" class="character-img" alt="Singing Guttie" style="width: 320px;">
-            <div class="char-name">Singing Guttie</div>
+        <div class="guttie-list">
+
+            <!-- Card 1 -->
+            <div class="guttie-card" onclick="openBio('selfie')">
+                <img src="assets/guttie_selfie_v2.png" alt="Selfie Guttie" class="guttie-img">
+                <div class="guttie-name">Selfie Guttie</div>
+                <span class="tap-btn">Watch Video &rarr;</span>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="guttie-card" onclick="openBio('singing')">
+                <img src="assets/guttie_singing_v2.png" alt="Singing Guttie" class="guttie-img">
+                <div class="guttie-name">Singing Guttie</div>
+                <span class="tap-btn">Watch Video &rarr;</span>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="guttie-card" onclick="openBio('baby')">
+                <img src="assets/guttie_char3.png" alt="Baby Guttie" class="guttie-img">
+                <div class="guttie-name">Baby Guttie</div>
+                <span class="tap-btn">Watch Video &rarr;</span>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="guttie-card" onclick="openBio('running')">
+                <img src="assets/guttie_running.png" alt="Running Guttie" class="guttie-img">
+                <div class="guttie-name">Running Guttie</div>
+                <span class="tap-btn">Watch Video &rarr;</span>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="guttie-card" onclick="openBio('swimming')">
+                <img src="assets/guttie_swimming.png" alt="Swimming Guttie" class="guttie-img">
+                <div class="guttie-name">Swimming Guttie</div>
+                <span class="tap-btn">Watch Video &rarr;</span>
+            </div>
+
         </div>
-
-        <!-- CHARACTER 3: Baby Guttie -->
-        <!-- Size: 100px, Position: Left 24% (Moved left 6% more) -->
-        <div class="character-spot" id="guttie-baby" onclick="openBio('baby')" style="top: 50%; left: 24%;">
-            <img src="assets/guttie_char3.png" class="character-img" alt="Baby Guttie" style="width: 100px;">
-            <div class="char-name">Baby Guttie</div>
-        </div>
-
-        <!-- CHARACTER 4: Running Guttie -->
-        <!-- Size: 120px, Position: Running Track (Lowered 3%) -->
-        <div class="character-spot" id="guttie-running" onclick="openBio('running')" style="top: 45%; left: 70%;">
-            <img src="assets/guttie_running.png" class="character-img" alt="Running Guttie" style="width: 120px;">
-            <div class="char-name">Running Guttie</div>
-        </div>
-
-        <!-- CHARACTER 5: Swimming Guttie -->
-        <!-- Size: 120px, Position: Pool (Moved up 5% more) -->
-        <div class="character-spot" id="guttie-swimming" onclick="openBio('swimming')" style="top: 59%; left: 70%;">
-            <img src="assets/guttie_swimming.png" class="character-img" alt="Swimming Guttie" style="width: 120px;">
-            <div class="char-name">Swimming Guttie</div>
-        </div>
-
-
-
     </div>
 
-    <!-- BIO MODAL -->
+    <!-- Bio Modal -->
     <div class="bio-modal" id="bio-modal">
         <div class="bio-content">
             <span class="close-bio" onclick="closeBio()">&times;</span>
-
             <div class="bio-video-wrapper">
-                <video id="bio-video" controls
-                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                <video id="bio-video" controls style="width: 100%; height: 100%; object-fit: cover;">
                     <source src="" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-
             <div class="bio-text-wrapper">
                 <h2 class="bio-title" id="bio-title">Character Name</h2>
                 <p class="bio-desc" id="bio-desc">Character description goes here.</p>
             </div>
         </div>
     </div>
-
-
 
     <script src="main.js"></script>
     <script>
@@ -553,13 +360,14 @@
 
             modal.classList.add('active');
 
-            // Auto-play the video
-            videoEl.play().catch(e => console.log("Autoplay prevented:", e));
+            // Auto-play video
+            videoEl.play().catch(e => console.log("Autoplay blocked:", e));
         }
 
         function closeBio() {
             modal.classList.remove('active');
             videoEl.pause();
+            videoEl.currentTime = 0;
         }
 
         // Close outside click
@@ -567,7 +375,6 @@
             if (e.target === modal) closeBio();
         });
     </script>
-
 </body>
 
 </html>
