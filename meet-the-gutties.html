@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Gutties | Guttie Nutrition</title>
+    <meta name="description" content="Explore the Guttie Town and meet the characters behind your metabolic health.">
+    <link rel="icon" type="image/png" href="assets/favicon.png?v=3">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="navbar_v2.css?v=align_fix">
+
+    <style>
+        :root {
+            --color-primary: #5A8DEE;
+            --color-primary-dark: #3F72D3;
+            --color-secondary: #89D934;
+            --font-heading: 'Fredoka', sans-serif;
+            --font-body: 'Quicksand', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            overflow: hidden;
+            /* Lock scroll for the immersive feel */
+            background: #1a1a1a;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Full Screen Interactive Container */
+        .guttie-town-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: url('assets/hero_guttie_village_v2.jpg') no-repeat center center;
+            background-size: cover;
+            /* Ensures it covers the screen */
+            overflow: hidden;
+        }
+
+        /* Dark overlay for text readability if needed, but we want the town to pop */
+        .town-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Intro Text - Fade out on click? Or stay at top */
+        .page-header {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            text-align: center;
+            color: white;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+            /* Let clicks pass through */
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            background: rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            padding: 5px 20px;
+            border-radius: 20px;
+        }
+
+        /* Character Hotspots */
+        .character-spot {
+            position: absolute;
+            z-index: 5;
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+        }
+
+        .character-spot:hover {
+            transform: scale(1.15) translateY(-10px);
+            filter: drop-shadow(0 15px 25px rgba(90, 141, 238, 0.6));
+            z-index: 20;
+        }
+
+        .character-img {
+            width: 150px;
+            /* Base size */
+            height: auto;
+            display: block;
+            pointer-events: none;
+            /* Click goes to parent */
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .animate-float-delay {
+            animation: float 4s ease-in-out 2s infinite;
+        }
+
+        /* Tooltip Name Tag */
+        .char-name {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            color: var(--color-primary-dark);
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .character-spot:hover .char-name {
+            opacity: 1;
+            bottom: -40px;
+        }
+
+        /* Character Positioning (Percentages of Viewport) */
+        /* Top Left */
+        #guttie-hoops {
+            top: 25%;
+            left: 15%;
+        }
+
+        /* Bottom Left */
+        #guttie-lifting {
+            top: 60%;
+            left: 10%;
+        }
+
+        /* Center */
+        #guttie-doctor {
+            top: 40%;
+            left: 45%;
+            width: 180px;
+        }
+
+        /* Top Right */
+        #guttie-scientist {
+            top: 20%;
+            right: 15%;
+        }
+
+        /* Bottom Right */
+        #guttie-meditate {
+            top: 65%;
+            right: 20%;
+        }
+
+
+        /* MODAL STYLES */
+        .bio-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .bio-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .bio-content {
+            background: white;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 25px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .bio-modal.active .bio-content {
+            transform: scale(1);
+        }
+
+        .bio-video-wrapper {
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .bio-text-wrapper {
+            padding: 40px;
+            position: relative;
+        }
+
+        .close-bio {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #ccc;
+            line-height: 1;
+            z-index: 5;
+        }
+
+        .close-bio:hover {
+            color: var(--color-primary);
+        }
+
+        .bio-title {
+            font-size: 2.5rem;
+            color: var(--color-primary-dark);
+            margin-bottom: 5px;
+            font-family: var(--font-heading);
+        }
+
+        .bio-role {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-secondary);
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .bio-desc {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            .guttie-town-wrapper {
+                background-position: center;
+                height: 100vh;
+                overflow-y: auto;
+                /* Allow scrolling on mobile if town is too big? Or scale down */
+            }
+
+            .bio-content {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .bio-video-wrapper {
+                min-height: 250px;
+            }
+
+            .character-img {
+                width: 100px;
+            }
+
+            #guttie-hoops {
+                top: 20%;
+                left: 5%;
+            }
+
+            #guttie-lifting {
+                top: 45%;
+                left: 5%;
+            }
+
+            #guttie-doctor {
+                top: 35%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            #guttie-scientist {
+                top: 20%;
+                right: 5%;
+            }
+
+            #guttie-meditate {
+                top: 60%;
+                right: 10%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Nav (Glassmorphism) -->
+    <nav class="navbar navbar-inverse" id="navbar" style="position: fixed;">
+        <div class="container nav-content">
+            <a href="index.html" class="brand">
+                <img src="assets/logo.png" alt="Guttie Nutrition Logo" class="brand-logo">
+                <div>Guttie<span>Nutrition</span></div>
+            </a>
+            <div class="nav-links desktop-only">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="weight-management.html" class="nav-link">Weight Loss</a>
+                <a href="gut-health.html" class="nav-link">Gut Health</a>
+                <a href="raising-confident-eaters.html" class="nav-link">Picky Eaters</a>
+                <a href="maternity-care.html" class="nav-link">Maternity Care</a>
+                <a href="wellness-coaching.html" class="nav-link">Wellness Coaching</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-menu-overlay" id="mobile-menu">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="meet-the-gutties.html" class="mobile-nav-link active">Meet the Gutties</a>
+    </div>
+
+    <!-- MAIN INTERACTIVE AREA -->
+    <div class="guttie-town-wrapper">
+        <div class="town-overlay"></div>
+
+        <div class="page-header">
+            <h1>Guttie Village</h1>
+            <p>Click on a character to meet them!</p>
+        </div>
+
+        <!-- CHARACTER 1: The Coach -->
+        <div class="character-spot animate-float" id="guttie-hoops" onclick="openBio('coach')">
+            <img src="assets/guttie_hoops.png" class="character-img" alt="Coach Guttie">
+            <div class="char-name">Coach Active</div>
+        </div>
+
+        <!-- CHARACTER 2: The Strongman -->
+        <div class="character-spot animate-float-delay" id="guttie-lifting" onclick="openBio('strong')">
+            <img src="assets/guttie_lifting.png" class="character-img" alt="Strong Guttie">
+            <div class="char-name">Strong Guttie</div>
+        </div>
+
+        <!-- CHARACTER 3: The Doctor -->
+        <div class="character-spot animate-float" id="guttie-doctor" onclick="openBio('doc')">
+            <img src="assets/guttie_doctor.png" class="character-img" alt="Dr. Guttie">
+            <div class="char-name">Dr. Guttie</div>
+        </div>
+
+        <!-- CHARACTER 4: The Scientist -->
+        <div class="character-spot animate-float-delay" id="guttie-scientist" onclick="openBio('science')">
+            <img src="assets/guttie_scientist.png" class="character-img" alt="Sci Guttie">
+            <div class="char-name">Sci Guttie</div>
+        </div>
+
+        <!-- CHARACTER 5: Zen Master -->
+        <div class="character-spot animate-float" id="guttie-meditate" onclick="openBio('zen')">
+            <img src="assets/guttie_meditating.png" class="character-img" alt="Zen Guttie">
+            <div class="char-name">Zen Guttie</div>
+        </div>
+
+    </div>
+
+    <!-- BIO MODAL TEMPLATE -->
+    <div class="bio-modal" id="bio-modal">
+        <div class="bio-content">
+            <span class="close-bio" onclick="closeBio()">&times;</span>
+
+            <div class="bio-video-wrapper">
+                <!-- Placeholder Video -->
+                <video id="bio-video" controls style="width: 100%; height: 100%; object-fit: cover;">
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="bio-text-wrapper">
+                <span class="bio-role" id="bio-role">Metabolic Specialist</span>
+                <h2 class="bio-title" id="bio-title">Dr. Guttie</h2>
+                <p class="bio-desc" id="bio-desc">
+                    Dr. Guttie ensures that every recommendation is backed by peer-reviewed science. He loves data,
+                    charts, and helping you understand your bloodwork.
+                </p>
+                <a href="#" class="btn"
+                    style="background: var(--color-primary); color: white; padding: 10px 25px; text-decoration: none; border-radius: 20px;">Book
+                    with Me</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        // Character Data
+        const characters = {
+            'coach': {
+                title: "Coach Active",
+                role: "Movement Specialist",
+                desc: "Coach Active hates 'exercising' but loves 'moving'. He helps you find joy in activity, whether it's hoops, hiking, or just dancing in the kitchen. Movement is medicine!",
+                video: "assets/video_placeholder.mp4" // Need actual video?
+            },
+            'strong': {
+                title: "Strong Guttie",
+                role: "Strength & Resilience",
+                desc: "Strong Guttie reminds you that you are stronger than you think. He focuses on building metabolic muscle and resilience against stress.",
+                video: ""
+            },
+            'doc': {
+                title: "Dr. Guttie",
+                role: "Chief Medical Officer",
+                desc: "The leader of the village. Dr. Guttie ensures your plan is safe, effective, and clinically sound. He looks at the whole picture.",
+                video: ""
+            },
+            'science': {
+                title: "Sci Guttie",
+                role: "Research Analyst",
+                desc: "Sci Guttie lives in the lab. She is always reading the latest microbiome research to make sure we aren't following fads.",
+                video: ""
+            },
+            'zen': {
+                title: "Zen Guttie",
+                role: "Stress Management",
+                desc: "Zen Guttie knows that cortisol kills gains. He teaches breathwork and mindful eating to lower inflammation.",
+                video: ""
+            }
+        };
+
+        const modal = document.getElementById('bio-modal');
+        const titleEl = document.getElementById('bio-title');
+        const roleEl = document.getElementById('bio-role');
+        const descEl = document.getElementById('bio-desc');
+        const videoEl = document.getElementById('bio-video');
+
+        function openBio(charId) {
+            const data = characters[charId];
+            if (!data) return;
+
+            titleEl.textContent = data.title;
+            roleEl.textContent = data.role;
+            descEl.textContent = data.desc;
+            // videoEl.src = data.video; 
+
+            modal.classList.add('active');
+        }
+
+        function closeBio() {
+            modal.classList.remove('active');
+            videoEl.pause();
+        }
+
+        // Close outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeBio();
+        });
+    </script>
+</body>
+
+</html>
