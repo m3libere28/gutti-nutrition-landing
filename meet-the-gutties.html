@@ -385,8 +385,10 @@
         <div class="town-overlay"></div>
 
         <div class="page-header"
-            style="position: absolute; bottom: 20px; width: 100%; text-align: center; pointer-events: none;">
-            <p class="instruction-text instruction-pulse">Click on a character to meet them!</p>
+            style="position: absolute; bottom: 10%; width: 100%; text-align: center; pointer-events: none; z-index: 1000;">
+            <p class="instruction-text instruction-pulse"
+                style="font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Click on a character to meet them!
+            </p>
         </div>
 
         <!-- CHARACTER: Selfie Guttie -->
@@ -460,7 +462,7 @@
             'running': {
                 title: "Running Guttie",
                 desc: "Running Guttie is always on the move! Staying active keeps the gut moving too.",
-                video: "assets/video_placeholder.mp4"
+                video: "assets/running_guttie_video.mp4"
             }
         };
 
@@ -478,6 +480,9 @@
             videoEl.src = data.video;
 
             modal.classList.add('active');
+
+            // Auto-play the video
+            videoEl.play().catch(e => console.log("Autoplay prevented:", e));
         }
 
         function closeBio() {
