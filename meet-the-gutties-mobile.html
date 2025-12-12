@@ -126,15 +126,18 @@
         }
 
         .guttie-card {
-            background: var(--color-surface);
+            background: rgba(255, 255, 255, 0.75);
+            /* Semi-transparent White */
+            backdrop-filter: blur(8px);
+            /* Frost effect for readability */
+            -webkit-backdrop-filter: blur(8px);
             border-radius: var(--radius-lg);
             padding: 25px 15px;
             text-align: center;
             cursor: pointer;
             position: relative;
             box-shadow: var(--shadow-card);
-            border: 2px solid transparent;
-            /* Prepare for hover */
+            border: 2px solid rgba(255, 255, 255, 0.4);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
