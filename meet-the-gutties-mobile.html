@@ -143,13 +143,22 @@
 
         /* Fix for Jump Rope Character (Tall aspect ratio needs scaling) */
         .guttie-img.special-scale {
-            transform: scale(1.35);
-            transform-origin: center 75%;
+            width: 160px !important;
+            /* Physically wider container */
+            height: 160px !important;
+            /* Physically taller container */
+            max-width: none;
+            margin-top: -20px;
+            /* Pull up to center visually */
+            margin-bottom: 5px;
+            /* Reduce bottom margin */
+            transform: none;
+            /* Remove previous scale transform */
         }
 
         .guttie-card:hover .guttie-img.special-scale {
-            transform: scale(1.45);
-            /* Maintain boost on hover */
+            transform: scale(1.1);
+            /* Standard hover zoom */
         }
 
         .guttie-name {
