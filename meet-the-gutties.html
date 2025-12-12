@@ -391,69 +391,7 @@
 
 
     <script src="main.js"></script>
-    <script>
-        // Character Data
-        const characters = {
-            'coach': {
-                title: "Coach Active",
-                role: "Movement Specialist",
-                desc: "Coach Active hates 'exercising' but loves 'moving'. He helps you find joy in activity, whether it's hoops, hiking, or just dancing in the kitchen. Movement is medicine!",
-                video: "assets/video_placeholder.mp4" // Need actual video?
-            },
-            'strong': {
-                title: "Strong Guttie",
-                role: "Strength & Resilience",
-                desc: "Strong Guttie reminds you that you are stronger than you think. He focuses on building metabolic muscle and resilience against stress.",
-                video: ""
-            },
-            'doc': {
-                title: "Dr. Guttie",
-                role: "Chief Medical Officer",
-                desc: "The leader of the village. Dr. Guttie ensures your plan is safe, effective, and clinically sound. He looks at the whole picture.",
-                video: ""
-            },
-            'science': {
-                title: "Sci Guttie",
-                role: "Research Analyst",
-                desc: "Sci Guttie lives in the lab. She is always reading the latest microbiome research to make sure we aren't following fads.",
-                video: ""
-            },
-            'zen': {
-                title: "Zen Guttie",
-                role: "Stress Management",
-                desc: "Zen Guttie knows that cortisol kills gains. He teaches breathwork and mindful eating to lower inflammation.",
-                video: ""
-            }
-        };
 
-        const modal = document.getElementById('bio-modal');
-        const titleEl = document.getElementById('bio-title');
-        const roleEl = document.getElementById('bio-role');
-        const descEl = document.getElementById('bio-desc');
-        const videoEl = document.getElementById('bio-video');
-
-        function openBio(charId) {
-            const data = characters[charId];
-            if (!data) return;
-
-            titleEl.textContent = data.title;
-            roleEl.textContent = data.role;
-            descEl.textContent = data.desc;
-            // videoEl.src = data.video; 
-
-            modal.classList.add('active');
-        }
-
-        function closeBio() {
-            modal.classList.remove('active');
-            videoEl.pause();
-        }
-
-        // Close outside click
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeBio();
-        });
-    </script>
 </body>
 
 </html>
