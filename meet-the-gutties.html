@@ -371,8 +371,11 @@
             }
         }
 
-        .character-img {
-            width: 100px;
+        /* Default mobile adjustments for images if needed, or keep global */
+        @media (max-width: 900px) {
+            .character-img {
+                width: 100px;
+            }
         }
 
         #guttie-hoops {
@@ -533,7 +536,7 @@
             'swimming': {
                 title: "Swimming Guttie",
                 desc: "Description coming soon...",
-                video: "assets/video_placeholder.mp4"
+                video: "assets/swimming_guttie_video.mp4"
             }
         };
 
