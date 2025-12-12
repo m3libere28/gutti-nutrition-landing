@@ -141,6 +141,13 @@
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
         }
 
+        .blend-screen {
+            mix-blend-mode: screen;
+            /* Hides black background */
+            border-radius: 50%;
+            /* Soften edges if needed */
+        }
+
         .tap-btn {
             display: none;
         }
@@ -310,7 +317,7 @@
 
             <!-- Card 6 -->
             <div class="guttie-card" onclick="openBio('jumprope')">
-                <img src="assets/guttie_jumprope.png" alt="Jump Rope Guttie" class="guttie-img">
+                <img src="assets/guttie_jumprope_v3.png" alt="Jump Rope Guttie" class="guttie-img">
                 <div class="guttie-name">Jump Rope Guttie</div>
                 <span class="tap-btn">Watch Video &rarr;</span>
             </div>
@@ -351,7 +358,8 @@
 
     <script src="main.js"></script>
     <script>
-        const characters = {
+        // Unique namespace for mobile page data
+        const mobileGuttiesData = {
             'selfie': {
                 title: "Selfie Guttie",
                 desc: "Selfie Guttie loves capturing the moment! Always reminding you to smile and document your progress.",
@@ -381,6 +389,16 @@
                 title: "Jump Rope Guttie",
                 desc: "Bounce Back! Jumping rope is fantastic for bone density and lymphatic flow. Jump Rope Guttie encourages you to stay light on your feet and keep your rhythm steady for optimal digestion.",
                 video: "assets/running_guttie_video.mp4"
+            },
+            'lifting': {
+                title: "Lifting Guttie",
+                desc: "Strong to the Core! Resistance training builds muscle, which acts as a metabolic engine. Lifting Guttie shows that strength isn't just about muscles—it's about powering your entire system.",
+                video: "assets/running_guttie_video.mp4"
+            },
+            'spaghetti': {
+                title: "Spaghetti Guttie",
+                desc: "Fuel Your Day! Complex carbohydrates are essential for sustained energy. Spaghetti Guttie reminds you that the right fuel keeps your gut and brain working in perfect harmony.",
+                video: "assets/running_guttie_video.mp4"
             }
         };
 
@@ -389,9 +407,15 @@
         const descEl = document.getElementById('bio-desc');
         const videoEl = document.getElementById('bio-video');
 
-        function openBio(charId) {
-            const data = characters[charId];
-            if (!data) return;
+        // Explicitly attach to window to ensure HTML onclick can find it
+        window.openBio = function (charId) {
+            console.log("Opening Bio for:", charId); // Debug logging
+            const data = mobileGuttiesData[charId];
+
+            if (!data) {
+                console.error("No data found for character:", charId);
+                return;
+            }
 
             titleEl.textContent = data.title;
             descEl.textContent = data.desc;
@@ -403,7 +427,7 @@
             videoEl.play().catch(e => console.log("Autoplay blocked:", e));
         }
 
-        function closeBio() {
+        window.closeBio = function () {
             modal.classList.remove('active');
             videoEl.pause();
             videoEl.currentTime = 0;
@@ -411,7 +435,7 @@
 
         // Close outside click
         modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeBio();
+            if (e.target === modal) window.closeBio();
         });
     </script>
 </body>
