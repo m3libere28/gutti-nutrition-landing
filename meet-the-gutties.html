@@ -200,23 +200,7 @@
         }
 
         /* Center */
-        #guttie-doctor {
-            top: 40%;
-            left: 45%;
-            width: 180px;
-        }
 
-        /* Top Right */
-        #guttie-scientist {
-            top: 20%;
-            right: 15%;
-        }
-
-        /* Bottom Right */
-        #guttie-meditate {
-            top: 65%;
-            right: 20%;
-        }
 
 
         /* MODAL STYLES */
@@ -404,11 +388,74 @@
             <p class="instruction-pulse">Click on a character to meet them!</p>
         </div>
 
+        <!-- CHARACTER: Selfie Guttie -->
+        <!-- Positioned for Selfie View (Top Right approx) -->
+        <div class="character-spot animate-float" id="guttie-selfie" onclick="openBio('selfie')"
+            style="top: 25%; right: 12%;">
+            <img src="assets/guttie_selfie.jpg" class="character-img" alt="Selfie Guttie" style="width: 80px;">
+            <div class="char-name">Selfie Guttie</div>
+        </div>
+
+    </div>
+
+    <!-- BIO MODAL -->
+    <div class="bio-modal" id="bio-modal">
+        <div class="bio-content">
+            <span class="close-bio" onclick="closeBio()">&times;</span>
+
+            <div class="bio-video-wrapper">
+                <video id="bio-video" controls
+                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="bio-text-wrapper">
+                <h2 class="bio-title" id="bio-title">Character Name</h2>
+                <p class="bio-desc" id="bio-desc">Character description goes here.</p>
+            </div>
+        </div>
     </div>
 
 
 
     <script src="main.js"></script>
+    <script>
+        const characters = {
+            'selfie': {
+                title: "Selfie Guttie",
+                desc: "Selfie Guttie loves capturing the moment! Always reminding you to smile and document your progress.",
+                video: "assets/video_placeholder.mp4"
+            }
+        };
+
+        const modal = document.getElementById('bio-modal');
+        const titleEl = document.getElementById('bio-title');
+        const descEl = document.getElementById('bio-desc');
+        const videoEl = document.getElementById('bio-video');
+
+        function openBio(charId) {
+            const data = characters[charId];
+            if (!data) return;
+
+            titleEl.textContent = data.title;
+            descEl.textContent = data.desc;
+            // videoEl.src = data.video; // Uncomment when real video is ready
+
+            modal.classList.add('active');
+        }
+
+        function closeBio() {
+            modal.classList.remove('active');
+            videoEl.pause();
+        }
+
+        // Close outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeBio();
+        });
+    </script>
 
 </body>
 
