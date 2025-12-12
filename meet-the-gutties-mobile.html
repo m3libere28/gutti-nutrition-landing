@@ -92,36 +92,36 @@
         }
 
         .guttie-card {
-            background: linear-gradient(145deg, #2a2a2a, #151515);
-            /* Stronger gradient */
-            border-top: 2px solid rgba(255, 255, 255, 0.4);
-            /* Highlight edge */
-            border-left: 2px solid rgba(255, 255, 255, 0.1);
-            border-right: 2px solid #111;
-            border-bottom: 10px solid #000;
-            /* Super chunky depth */
+            background: rgba(20, 20, 20, 0.4);
+            /* Very transparent dark */
+            backdrop-filter: blur(8px);
+            /* Subtle frost */
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            /* Glass highlights */
+            border-bottom: 8px solid rgba(0, 0, 0, 0.6);
+            /* Semi-transparent 3D depth */
             border-radius: 24px;
             padding: 20px 10px;
             text-align: center;
             cursor: pointer;
             position: relative;
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-            transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .guttie-card:hover {
+            background: rgba(40, 40, 40, 0.5);
             transform: translateY(-2px);
-            filter: brightness(1.1);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         .guttie-card:active {
-            transform: translateY(6px);
-            /* Press deeper */
+            transform: translateY(4px);
             border-bottom-width: 4px;
-            /* Collapse depth */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
-            margin-top: 6px;
-            /* Offset layout shift */
+            background: rgba(10, 10, 10, 0.6);
+            margin-top: 4px;
         }
 
         .guttie-img {
@@ -138,15 +138,12 @@
             color: white;
             margin: 0;
             font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
         }
 
         .tap-btn {
             display: none;
         }
-
-        font-weight: 600;
-        font-size: 0.9rem;
-        border: 1px solid rgba(90, 141, 238, 0.3);
         }
 
         /* Navbar Overrides for Dark Mode */
