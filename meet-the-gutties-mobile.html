@@ -135,13 +135,21 @@
             /* Frost effect for readability */
             -webkit-backdrop-filter: blur(8px);
             border-radius: var(--radius-lg);
-            padding: 25px 15px;
+            padding: 15px 10px;
+            /* Reduced vertical padding */
             text-align: center;
             cursor: pointer;
             position: relative;
             box-shadow: var(--shadow-card);
             border: 2px solid rgba(255, 255, 255, 0.4);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Square Layout Enforcements */
+            aspect-ratio: 1 / 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .guttie-card:hover {
@@ -159,7 +167,8 @@
             height: 100px;
             object-fit: contain;
             display: block;
-            margin: 0 auto 15px;
+            margin: 0 auto 5px;
+            /* Reduced margin */
             filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
             /* Softer shadow */
             transition: transform 0.3s ease;
@@ -171,13 +180,13 @@
 
         /* Fix for Jump Rope Character (Tall aspect ratio needs scaling) */
         .guttie-img.special-scale {
-            width: 145px !important;
-            /* Slightly reduce from 160px to prevent squeeze */
-            height: 145px !important;
+            width: 130px !important;
+            /* Adjusted for square card */
+            height: 130px !important;
             max-width: 100%;
             /* Ensure it never overflows parent */
-            margin-top: -15px;
-            margin-bottom: 5px;
+            margin-top: -10px;
+            margin-bottom: 0px;
             transform: none;
             /* Remove previous scale transform */
         }
@@ -189,22 +198,26 @@
 
         .guttie-name {
             font-family: var(--font-heading);
-            font-size: 1.1rem;
+            font-size: 1.0rem;
+            /* Slightly smaller to fit */
             color: var(--color-primary-dark);
             margin: 0;
             font-weight: 700;
             text-shadow: none;
+            line-height: 1.2;
         }
 
         .tap-btn {
             display: inline-block;
-            margin-top: 10px;
-            font-size: 0.8rem;
+            margin-top: 5px;
+            /* Reduced margin */
+            font-size: 0.75rem;
+            /* Slightly smaller */
             color: var(--color-secondary);
             font-weight: 600;
             background: var(--color-secondary-light);
-            padding: 4px 12px;
-            border-radius: 12px;
+            padding: 3px 10px;
+            border-radius: 10px;
         }
 
 
