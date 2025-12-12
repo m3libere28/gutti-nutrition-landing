@@ -97,9 +97,11 @@
         /* Card Layout - 3D Grid */
         .guttie-list {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            /* Prevent grid blowout */
             /* 2 Columns */
-            gap: 20px;
+            gap: 15px;
+            /* Slightly reduce gap to save space */
             padding: 10px;
             position: relative;
             /* Context for background */
@@ -168,15 +170,13 @@
 
         /* Fix for Jump Rope Character (Tall aspect ratio needs scaling) */
         .guttie-img.special-scale {
-            width: 160px !important;
-            /* Physically wider container */
-            height: 160px !important;
-            /* Physically taller container */
-            max-width: none;
-            margin-top: -20px;
-            /* Pull up to center visually */
+            width: 145px !important;
+            /* Slightly reduce from 160px to prevent squeeze */
+            height: 145px !important;
+            max-width: 100%;
+            /* Ensure it never overflows parent */
+            margin-top: -15px;
             margin-bottom: 5px;
-            /* Reduce bottom margin */
             transform: none;
             /* Remove previous scale transform */
         }
