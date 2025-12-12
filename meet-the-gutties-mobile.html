@@ -194,8 +194,10 @@
 
         .bio-content {
             background: #151515;
-            width: 90%;
-            max-width: 500px;
+            width: 85%;
+            /* Slightly smaller width */
+            max-width: 450px;
+            /* Limit max width further */
             border-radius: 20px;
             overflow: hidden;
             display: flex;
@@ -203,48 +205,42 @@
             border: 1px solid #333;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 1);
             position: relative;
+            max-height: 90vh;
+            /* Prevent overflowing screen height */
         }
 
-        .bio-video-wrapper {
-            width: 100%;
-            aspect-ratio: 16/9;
-            background: black;
-        }
+        /* ... existing video wrapper ... */
 
         .bio-text-wrapper {
-            padding: 25px;
+            padding: 20px 25px;
+            /* Slightly reduced padding */
             text-align: left;
-        }
-
-        .bio-title {
-            font-size: 1.8rem;
-            color: var(--color-primary);
-            font-family: var(--font-heading);
-            margin-bottom: 10px;
-        }
-
-        .bio-desc {
-            color: #ccc;
-            line-height: 1.6;
-            font-size: 1rem;
+            overflow-y: auto;
+            /* Allow text to scroll if needed */
         }
 
         .close-bio {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(0, 0, 0, 0.5);
-            width: 30px;
-            height: 30px;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            /* Darker background for contrast */
+            width: 44px;
+            /* Larger touch target */
+            height: 44px;
+            /* Larger touch target */
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            /* Larger X */
             cursor: pointer;
-            z-index: 10;
-            border: 1px solid #444;
+            z-index: 20;
+            /* Higher z-index */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
