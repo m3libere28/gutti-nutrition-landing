@@ -296,17 +296,65 @@
 
         /* Mobile Adjustments */
         @media (max-width: 900px) {
-            .guttie-town-wrapper {
-                background-position: center;
-                height: 100vh;
-                overflow-y: auto;
-                /* Allow scrolling on mobile if town is too big? Or scale down */
+            body {
+                overflow: hidden;
+                /* Keep body locked */
+                position: fixed;
+                /* Prevent bouncy scroll on iOS */
             }
 
+            .guttie-town-wrapper {
+                width: 100%;
+                height: 100vh;
+                overflow-x: auto;
+                /* Enable horizontal scroll */
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                /* Smooth scroll */
+            }
+
+            /* The core map container that holds the image and characters */
+            .town-overlay {
+                /* We need a new container for the content really, but for now we can style the wrapper's content context */
+                /* Actually, best approach is to make the background a real element or pseudo that is wide */
+                width: 1400px;
+                /* Force wide width for scrolling */
+                height: 100%;
+                position: absolute;
+                background: url('assets/meet_gutties_map.jpg') no-repeat center center;
+                background-size: cover;
+            }
+
+            /* We need to apply the width to the relative container so children approximate correctly */
+            /* Since the wrapper has the image, we need to change strategy slightly for mobile */
+            /* Let's make the background image attached to a pseudo-element or separate div that sets the scroll width */
+        }
+
+        /* Better Mobile Strategy: The wrapper scrolls, inside is a wide container */
+        @media (max-width: 900px) {
+            .guttie-town-wrapper {
+                background: none;
+                /* Remove background from wrapper */
+                overflow-x: auto;
+                overflow-y: hidden;
+            }
+
+            .town-scroll-container {
+                position: relative;
+                width: 1300px;
+                /* Wide canvas for mobile */
+                height: 100%;
+                background: url('assets/meet_gutties_map.jpg') no-repeat center center;
+                background-size: cover;
+            }
+
+            /* Adjust Modal for Mobile */
             .bio-content {
+                width: 95%;
+                height: 80%;
+                /* Taller on mobile */
                 grid-template-columns: 1fr;
-                max-width: 500px;
-                max-height: 90vh;
+                /* Stack vertically */
                 overflow-y: auto;
             }
 
@@ -314,35 +362,44 @@
                 min-height: 250px;
             }
 
-            .character-img {
-                width: 100px;
+            .bio-text-wrapper {
+                padding: 20px;
             }
 
-            #guttie-hoops {
-                top: 20%;
-                left: 5%;
+            .bio-title {
+                font-size: 2rem;
             }
+        }
 
-            #guttie-lifting {
-                top: 45%;
-                left: 5%;
-            }
+        .character-img {
+            width: 100px;
+        }
 
-            #guttie-doctor {
-                top: 35%;
-                left: 50%;
-                transform: translateX(-50%);
-            }
+        #guttie-hoops {
+            top: 20%;
+            left: 5%;
+        }
 
-            #guttie-scientist {
-                top: 20%;
-                right: 5%;
-            }
+        #guttie-lifting {
+            top: 45%;
+            left: 5%;
+        }
 
-            #guttie-meditate {
-                top: 60%;
-                right: 10%;
-            }
+        #guttie-doctor {
+            top: 35%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #guttie-scientist {
+            top: 20%;
+            right: 5%;
+        }
+
+        #guttie-meditate {
+            top: 60%;
+            right: 10%;
+        }
         }
     </style>
 </head>
@@ -418,9 +475,8 @@
         </div>
 
         <!-- Instruction Text (Force Bottom) -->
-        <!-- Instruction Text (Force Bottom) -->
         <div id="instruction-container"
-            style="position: absolute; bottom: 5%; left: 0; width: 100%; text-align: center; pointer-events: none; z-index: 9999;">
+            style="position: absolute; bottom: 13%; left: 0; width: 100%; text-align: center; pointer-events: none; z-index: 9999;">
             <p class="instruction-text instruction-pulse"
                 style="font-size: 1.5rem; color: white; text-shadow: 0 2px 5px rgba(0,0,0,0.9); margin: 0; display: inline-block;">
                 Click on a character to meet them!
