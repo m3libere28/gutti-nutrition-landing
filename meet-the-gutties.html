@@ -437,7 +437,7 @@
             'selfie': {
                 title: "Selfie Guttie",
                 desc: "Selfie Guttie loves capturing the moment! Always reminding you to smile and document your progress.",
-                video: "assets/video_placeholder.mp4"
+                video: "assets/selfie_guttie_video.mp4"
             },
             'singing': {
                 title: "Singing Guttie",
@@ -462,7 +462,7 @@
 
             titleEl.textContent = data.title;
             descEl.textContent = data.desc;
-            // videoEl.src = data.video; // Uncomment when real video is ready
+            videoEl.src = data.video;
 
             modal.classList.add('active');
         }
