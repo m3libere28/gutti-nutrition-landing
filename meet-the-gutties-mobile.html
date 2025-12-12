@@ -126,7 +126,10 @@
 
         .guttie-img {
             width: 100px;
-            height: auto;
+            height: 100px;
+            /* Fixed height for alignment */
+            object-fit: contain;
+            /* Maintain aspect ratio */
             display: block;
             margin: 0 auto 10px;
             filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
