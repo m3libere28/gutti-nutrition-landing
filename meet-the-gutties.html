@@ -299,115 +299,11 @@
             font-size: 1.1rem;
         }
 
-        /* Mobile Adjustments */
-        @media (max-width: 900px) {
-            body {
-                overflow: hidden;
-                /* Keep body locked */
-                position: fixed;
-                /* Prevent bouncy scroll on iOS */
+        /* Standard Responsive Font Adjustments (Map stays fixed) */
+        @media (max-width: 1200px) {
+            .page-header h1 {
+                font-size: 2.5rem;
             }
-
-            .guttie-town-wrapper {
-                width: 100%;
-                height: 100vh;
-                overflow-x: auto;
-                /* Enable horizontal scroll */
-                overflow-y: hidden;
-                -webkit-overflow-scrolling: touch;
-                /* Smooth scroll */
-            }
-
-            /* The core map container that holds the image and characters */
-            .town-overlay {
-                /* We need a new container for the content really, but for now we can style the wrapper's content context */
-                /* Actually, best approach is to make the background a real element or pseudo that is wide */
-                width: 1400px;
-                /* Force wide width for scrolling */
-                height: 100%;
-                position: absolute;
-                background: url('assets/meet_gutties_map.jpg') no-repeat center center;
-                background-size: cover;
-            }
-
-            /* We need to apply the width to the relative container so children approximate correctly */
-            /* Since the wrapper has the image, we need to change strategy slightly for mobile */
-            /* Let's make the background image attached to a pseudo-element or separate div that sets the scroll width */
-        }
-
-        /* Better Mobile Strategy: The wrapper scrolls, inside is a wide container */
-        @media (max-width: 900px) {
-            .guttie-town-wrapper {
-                background: none;
-                /* Remove background from wrapper */
-                overflow-x: auto;
-                overflow-y: hidden;
-            }
-
-            .town-scroll-container {
-                position: relative;
-                width: 1300px;
-                /* Wide canvas for mobile */
-                height: 100%;
-                background: url('assets/meet_gutties_map.jpg') no-repeat center center;
-                background-size: cover;
-            }
-
-            /* Adjust Modal for Mobile */
-            .bio-content {
-                width: 95%;
-                height: 80%;
-                /* Taller on mobile */
-                grid-template-columns: 1fr;
-                /* Stack vertically */
-                overflow-y: auto;
-            }
-
-            .bio-video-wrapper {
-                min-height: 250px;
-            }
-
-            .bio-text-wrapper {
-                padding: 20px;
-            }
-
-            .bio-title {
-                font-size: 2rem;
-            }
-        }
-
-        /* Default mobile adjustments for images if needed, or keep global */
-        @media (max-width: 900px) {
-            .character-img {
-                width: 100px;
-            }
-        }
-
-        #guttie-hoops {
-            top: 20%;
-            left: 5%;
-        }
-
-        #guttie-lifting {
-            top: 45%;
-            left: 5%;
-        }
-
-        #guttie-doctor {
-            top: 35%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        #guttie-scientist {
-            top: 20%;
-            right: 5%;
-        }
-
-        #guttie-meditate {
-            top: 60%;
-            right: 10%;
-        }
         }
     </style>
 </head>
