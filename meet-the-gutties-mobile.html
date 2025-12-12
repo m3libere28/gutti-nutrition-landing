@@ -141,6 +141,17 @@
             transform: scale(1.1);
         }
 
+        /* Fix for Jump Rope Character (Tall aspect ratio needs scaling) */
+        .guttie-img.special-scale {
+            transform: scale(1.35);
+            transform-origin: center 75%;
+        }
+
+        .guttie-card:hover .guttie-img.special-scale {
+            transform: scale(1.45);
+            /* Maintain boost on hover */
+        }
+
         .guttie-name {
             font-family: var(--font-heading);
             font-size: 1.1rem;
@@ -318,7 +329,7 @@
 
             <!-- Card 6 -->
             <div class="guttie-card" onclick="openBio('jumprope')">
-                <img src="assets/guttie_jumprope_v3.png" alt="Jump Rope Guttie" class="guttie-img">
+                <img src="assets/guttie_jumprope_v3.png" alt="Jump Rope Guttie" class="guttie-img special-scale">
                 <div class="guttie-name">Jump Rope Guttie</div>
                 <span class="tap-btn">Watch Video &rarr;</span>
             </div>
