@@ -121,11 +121,48 @@
             background: url('assets/bg_decoration.png') no-repeat center center;
             background-size: contain;
             /* Maintain natural aspect ratio & show entire image (No stretching, No cropping) */
-            z-index: -1;
+            z-index: -2;
+            /* Pushed back to allow fruits in between */
             opacity: 0.8;
             pointer-events: none;
             mix-blend-mode: multiply;
             /* Blend nicely into off-white */
+        }
+
+        /* Floating Fruits Animation */
+        .fruit {
+            position: absolute;
+            z-index: -1;
+            /* Above tree (-2), Below cards (0) */
+            opacity: 0.15;
+            /* Very light/transparent */
+            user-select: none;
+            pointer-events: none;
+            font-size: 2rem;
+            animation: floatDown linear infinite;
+        }
+
+        @keyframes floatDown {
+            0% {
+                top: -10%;
+                transform: rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.15;
+            }
+
+            90% {
+                opacity: 0.15;
+            }
+
+            100% {
+                top: 110%;
+                /* Fall through entire container height */
+                transform: rotate(360deg);
+                opacity: 0;
+            }
         }
 
         .guttie-card {
@@ -566,6 +603,54 @@
         // Close outside click
         modal.addEventListener('click', (e) => {
             if (e.target === modal) window.closeBio();
+        });
+
+        // Floating Fruits Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const listContainer = document.querySelector('.guttie-list');
+            const fruits = ['🍎', '🍌', '🍇', '🍊', '🍓', '🍑', '🍒', '🍐'];
+            const fruitCount = 25; // Number of floating fruits
+
+            for (let i = 0; i < fruitCount; i++) {
+                const fruit = document.createElement('div');
+                fruit.classList.add('fruit');
+                fruit.textContent = fruits[Math.floor(Math.random() * fruits.length)];
+
+                // Random Properties
+                const left = Math.random() * 95; // 0-95% width
+                const duration = 15 + Math.random() * 20; // 15-35s slow fall
+                const delay = Math.random() * -30; // Negative delay to start mid-animation
+                const size = 1.5 + Math.random() * 2; // 1.5rem - 3.5rem size
+
+                fruit.style.left = `${left}%`;
+                fruit.style.animationDuration = `${duration}s`;
+                fruit.style.animationDelay = `${delay}s`;
+                fruit.style.fontSize = `${size}rem`;
+
+                // For long page, we want them to spawn relative to scroll or just loop?
+                // Using Position Fixed simulation inside Absolute container?
+                // Actually, let's just make them fall through the container height or viewport?
+                // CSS keyframe 100vh makes them fall "one screen worth". 
+                // To cover the whole long list, we might need position: fixed?
+                // But we want them BEHIND cards. 
+                // Let's use position: absolute and update keyframes to use % of container?
+                // Container is tall. '100%' translateY would be full height.
+
+                // Check CSS: I used 100vh. This means they fall one screen length.
+                // Since container is relative, 'top' is relative to container.
+                // If I want them to "float down the screen" continuously independent of scroll,
+                // they should be fixed. BUT fixed items can't easily be z-indexed between parents content.
+                // Trick: Use 'position: fixed' but z-index -1 logic works if body has no background?
+                // Let's try sticking to absolute but randomizing TOP start position too so they cover the whole map.
+
+                // fruit.style.top = `${Math.random() * 100}%`; 
+                // The animation moves them. 
+
+                // DECISION: User said "float down the screen". This implies a continuous rain effect.
+                // I will modify the CSS in next step if needed, currently attempting standard flow.
+                // For now, let's append to listContainer.
+                listContainer.appendChild(fruit);
+            }
         });
     </script>
 </body>
