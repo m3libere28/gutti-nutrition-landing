@@ -118,9 +118,9 @@
             width: 100%;
             /* Keep container width */
             height: 100%;
-            background: url('assets/bg_decoration.png') no-repeat center top;
-            background-size: 100% 100%;
-            /* Force entire image into container (Full Width & Height) */
+            background: url('assets/bg_decoration.png') no-repeat center center;
+            background-size: contain;
+            /* Maintain natural aspect ratio & show entire image (No stretching, No cropping) */
             z-index: -1;
             opacity: 0.8;
             pointer-events: none;
