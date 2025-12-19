@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <!-- Deployment Version: 2.1 (Force Cache Clear) -->
+    <!-- Deployment Version: 2.2 (Fix Path) -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registered Dietitian in Florida | Gut Health & Weight Loss | Guttie Nutrition</title>
@@ -81,12 +81,18 @@
 </head>
 
 <body>
+    <script>
+        // Immediate check to prevent flash of splash screen
+        if (sessionStorage.getItem('gutti_visited') === 'true') {
+            document.write('<style>#splash-screen { display: none !important; }</style>');
+        }
+    </script>
 
     <!-- Splash Screen -->
     <div id="splash-screen">
         <div class="splash-video-container">
             <video class="splash-video" autoplay muted loop playsinline>
-                <source src="/splash.mp4" type="video/mp4">
+                <source src="splash.mp4" type="video/mp4">
             </video>
         </div>
         <div class="splash-content">
