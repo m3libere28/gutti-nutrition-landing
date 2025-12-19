@@ -19,7 +19,7 @@
 
     <style>
         body {
-            background-color: #F8FAFC;
+            background-color: #F8FAFC !important;
         }
 
         .audit-container {
@@ -64,9 +64,10 @@
 
         .question-title {
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 15px;
             font-family: var(--font-heading);
+            color: var(--color-primary-dark);
             display: flex;
             align-items: center;
             gap: 10px;
@@ -74,21 +75,25 @@
 
         .options-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: 1fr;
+            /* Stacked options for better readability of long text */
             gap: 15px;
         }
 
         .option-btn {
-            padding: 15px;
+            padding: 20px;
             border: 2px solid white;
             background: white;
             border-radius: 15px;
             cursor: pointer;
             font-family: var(--font-body);
             font-weight: 600;
+            font-size: 1.05rem;
             color: var(--color-text);
             transition: all 0.2s;
             text-align: left;
+            position: relative;
+            padding-left: 20px;
         }
 
         .option-btn:hover {
@@ -101,6 +106,19 @@
             background: var(--color-secondary);
             color: white;
             border-color: var(--color-secondary);
+        }
+
+        .science-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #E0F2FE;
+            border-left: 4px solid var(--color-primary);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            display: none;
+            /* Hidden by default, shown after answer */
+            font-style: italic;
         }
 
         .progress-bar {
@@ -129,6 +147,19 @@
             padding: 40px;
             border-radius: 30px;
             border: 2px solid #E0F2FE;
+        }
+
+        .result-title {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--color-primary-dark);
+            font-weight: 700;
+        }
+
+        .result-text {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
         }
 
         @keyframes fadeIn {
@@ -172,62 +203,133 @@
             <!-- Intro -->
             <div class="audit-header" id="intro">
                 <h1>Gut-Health & Energy Audit</h1>
-                <p>Let's find out where your energy is leaking. This takes 60 seconds.</p>
-                <button class="btn btn-primary btn-pulse" onclick="startQuiz()" style="margin-top: 20px;">Start Audit
-                    →</button>
+                <p>Let's find out where your energy is leaking. This takes less than 2 minutes.</p>
+                <button class="btn btn-primary btn-pulse" onclick="startQuiz()"
+                    style="margin-top: 20px; font-size: 1.2rem; padding: 15px 40px;">Start Audit →</button>
             </div>
 
             <!-- Quiz Content (Hidden Initially) -->
             <div id="quiz-content" style="display: none;">
+
                 <!-- Q1 -->
                 <div class="question-card" id="q1">
-                    <div class="question-title">⚡ How are your energy levels at 3 PM?</div>
+                    <div class="question-title">1. The "Wired but Tired" Check</div>
+                    <p style="margin-bottom: 15px; font-weight: 500;">When your head finally hits the pillow at night,
+                        how do you feel?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="answer(1, 'crash')">I need coffee or a nap ASAP.</button>
-                        <button class="option-btn" onclick="answer(1, 'steady')">I'm fine, steady energy.</button>
-                        <button class="option-btn" onclick="answer(1, 'jittery')">Anxious and jittery.</button>
+                        <button class="option-btn" onclick="answer(1, 'A')">A) I’m out instantly but wake up at 3 AM
+                            with my mind racing.</button>
+                        <button class="option-btn" onclick="answer(1, 'B')">B) I’m exhausted but my brain won't turn
+                            off; I’m scrolling or thinking about tomorrow.</button>
+                        <button class="option-btn" onclick="answer(1, 'C')">C) I’m physically tired but feel a strange
+                            "second wind" right before bed.</button>
+                    </div>
+                    <div class="science-box" id="science-q1">
+                        <strong>The Science:</strong> This assesses HPA-axis dysfunction (stress response) and its
+                        impact on your circadian rhythm and gut-brain communication.
                     </div>
                 </div>
 
                 <!-- Q2 -->
                 <div class="question-card" id="q2" style="display: none;">
-                    <div class="question-title">🎈 Do you experience bloating after meals?</div>
+                    <div class="question-title">2. The Afternoon Slump</div>
+                    <p style="margin-bottom: 15px; font-weight: 500;">It’s 3:00 PM. What is your gut telling you?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="answer(2, 'yes')">Almost every meal.</button>
-                        <button class="option-btn" onclick="answer(2, 'sometimes')">Only with certain foods.</button>
-                        <button class="option-btn" onclick="answer(2, 'no')">Rarely or never.</button>
+                        <button class="option-btn" onclick="answer(2, 'A')">A) I need caffeine or a sugary snack to
+                            survive the afternoon.</button>
+                        <button class="option-btn" onclick="answer(2, 'B')">B) My stomach is bloated even if I haven't
+                            eaten much.</button>
+                        <button class="option-btn" onclick="answer(2, 'C')">C) I feel "brain fog" so thick I can't
+                            remember what I planned for dinner.</button>
+                    </div>
+                    <div class="science-box" id="science-q2">
+                        <strong>The Science:</strong> Screens for blood sugar dysregulation and gut-derived inflammation
+                        that causes cognitive fatigue.
                     </div>
                 </div>
 
                 <!-- Q3 -->
                 <div class="question-card" id="q3" style="display: none;">
-                    <div class="question-title">🧠 How would you describe your mental clarity?</div>
+                    <div class="question-title">3. The "Unbutton the Pants" Test</div>
+                    <p style="margin-bottom: 15px; font-weight: 500;">How often do you feel uncomfortably bloated after
+                        a "healthy" meal?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="answer(3, 'foggy')">Brain fog city. Hard to focus.</button>
-                        <button class="option-btn" onclick="answer(3, 'sharp')">Sharp and focused.</button>
-                        <button class="option-btn" onclick="answer(3, 'forgetful')">A bit forgetful ("mom
-                            brain").</button>
+                        <button class="option-btn" onclick="answer(3, 'A')">A) Almost every day, especially by the
+                            evening.</button>
+                        <button class="option-btn" onclick="answer(3, 'B')">B) Only when I’m particularly stressed or
+                            rushed.</button>
+                        <button class="option-btn" onclick="answer(3, 'C')">C) Rarely, I’m more concerned with my low
+                            energy than my digestion.</button>
+                    </div>
+                    <div class="science-box" id="science-q3">
+                        <strong>The Science:</strong> Identifies potential dysbiosis or SIBO, which are common in
+                        high-stress professionals and moms.
                     </div>
                 </div>
+
+                <!-- Q4 -->
+                <div class="question-card" id="q4" style="display: none;">
+                    <div class="question-title">4. The Fertility & Cycle Signal</div>
+                    <p style="margin-bottom: 15px; font-weight: 500;">How has your cycle been lately?</p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="answer(4, 'A')">A) My PMS is at an all-time high (mood
+                            swings, intense cravings).</button>
+                        <button class="option-btn" onclick="answer(4, 'B')">B) We are trying to conceive, but I feel
+                            like my body is too "burned out" to cooperate.</button>
+                        <button class="option-btn" onclick="answer(4, 'C')">C) My periods are irregular or I feel
+                            "hormonal" all month long.</button>
+                    </div>
+                    <div class="science-box" id="science-q4">
+                        <strong>The Science:</strong> The gut microbiome directly impacts estrogen metabolism and
+                        hormone balance, which is critical for fertility and cycle health.
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="question-card" id="q5" style="display: none;">
+                    <div class="question-title">5. The Decision Fatigue Test</div>
+                    <p style="margin-bottom: 15px; font-weight: 500;">When you walk into the grocery store, how do you
+                        feel?</p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="answer(5, 'A')">A) Overwhelmed. I know what's "healthy," but
+                            I’m too tired to figure out how to cook it.</button>
+                        <button class="option-btn" onclick="answer(5, 'B')">B) Automatic. I buy the same 5 things
+                            because I don't have the mental energy for a new plan.</button>
+                        <button class="option-btn" onclick="answer(5, 'C')">C) Frustrated. I’m buying the "right" foods,
+                            but I still feel like garbage.</button>
+                    </div>
+                    <div class="science-box" id="science-q5">
+                        <strong>The Science:</strong> Assesses decision fatigue, helping us tailor our meal planning
+                        services to your specific mental load.
+                    </div>
+                </div>
+
+                <!-- Continue Button (Hidden) -->
+                <div style="text-align: right; margin-top: 20px;">
+                    <button id="next-btn" class="btn btn-secondary" style="display: none;" onclick="nextQuestion()">Next
+                        Question &rarr;</button>
+                </div>
+
             </div>
 
             <!-- Results Section -->
             <div class="results-section" id="results">
                 <div class="results-card">
-                    <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Your Energy Audit Complete</h2>
-                    <p style="font-size: 1.2rem; margin-bottom: 30px;">
-                        It looks like your gut health might be the hidden anchor dragging down your energy.
-                        You shouldn't have to power through the fatigue.
+                    <h2 class="result-title" id="res-title">The "Adrenal-Gut" Burnout</h2>
+                    <p class="result-text" id="res-desc">
+                        Your stress levels are "stealing" the energy your gut needs to digest properly. You aren't just
+                        tired; your body is struggling to absorb the nutrients from your food.
                     </p>
+
                     <div
                         style="background: white; padding: 20px; border-radius: 15px; margin-bottom: 30px; border-left: 5px solid var(--color-secondary);">
-                        <strong>Dietitian's Insight:</strong> Bloating and afternoon crashes are classic signs of
-                        metabolic imbalance or dybiosis.
+                        <strong>Expert Analysis:</strong> Stop guessing. As a Licensed RDN, I specialize in helping
+                        women in your exact shoes.
                     </div>
-                    <a href="mailto:foodasmedicine@guttienutrition.com?subject=I%20Took%20The%20Audit%20-%20Let's%20Chat"
-                        class="btn btn-primary btn-pulse btn-liquid">Book Your Free Discovery Call</a>
-                    <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.7;">Let's review your results together (No
-                        cost).</p>
+
+                    <a href="mailto:foodasmedicine@guttienutrition.com?subject=I%20Got%20My%20Energy%20Audit%20Results%20-%20Let's%20Chat"
+                        class="btn btn-primary btn-pulse btn-liquid">Book your 15-Minute 'Matriarch Energy' Discovery
+                        Call</a>
                 </div>
             </div>
 
@@ -236,7 +338,9 @@
 
     <script>
         let currentQuestion = 1;
-        const totalQuestions = 3;
+        const totalQuestions = 5;
+        let scores = { A: 0, B: 0, C: 0 };
+        let history = {};
 
         function startQuiz() {
             document.getElementById('intro').style.display = 'none';
@@ -245,20 +349,44 @@
         }
 
         function answer(qIndex, value) {
-            // Visual feedback
-            const currentCard = document.getElementById('q' + qIndex);
+            // Track score
+            scores[value]++;
+            history[qIndex] = value;
 
-            // Wait brief moment then show next
-            setTimeout(() => {
-                currentCard.style.display = 'none';
-                if (qIndex < totalQuestions) {
-                    document.getElementById('q' + (qIndex + 1)).style.display = 'block';
-                    currentQuestion++;
-                    updateProgress();
-                } else {
-                    showResults();
-                }
-            }, 300);
+            // Show Science
+            document.getElementById('science-q' + qIndex).style.display = 'block';
+
+            // Highlight selection
+            const buttons = document.querySelectorAll('#q' + qIndex + ' .option-btn');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            event.target.classList.add('selected');
+
+            // Show Next Button
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.style.display = 'inline-block';
+
+            // If last question, change text
+            if (qIndex === totalQuestions) {
+                nextBtn.innerText = "See My Results";
+                nextBtn.classList.remove('btn-secondary');
+                nextBtn.classList.add('btn-primary');
+            }
+        }
+
+        function nextQuestion() {
+            // Hide current
+            document.getElementById('q' + currentQuestion).style.display = 'none';
+            document.getElementById('next-btn').style.display = 'none';
+
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                document.getElementById('q' + currentQuestion).style.display = 'block';
+                // Scroll to top of card
+                document.querySelector('.audit-container').scrollIntoView({ behavior: 'smooth' });
+                updateProgress();
+            } else {
+                calculateAndShowResults();
+            }
         }
 
         function updateProgress() {
@@ -266,10 +394,28 @@
             document.getElementById('progress').style.width = percentage + '%';
         }
 
-        function showResults() {
+        function calculateAndShowResults() {
             document.getElementById('quiz-content').style.display = 'none';
             document.getElementById('progress').style.width = '100%';
+
+            // Logic: Default to Adrenal. If Hormone answers (especially Q4 B/C or general B majority) -> Hormone.
+            // We'll use a simple Majority B rule for Hormone, else Adrenal (A/C).
+
+            const titleEl = document.getElementById('res-title');
+            const descEl = document.getElementById('res-desc');
+
+            // Check for Hormone Mismatch (Mostly B's)
+            if (scores['B'] > scores['A'] && scores['B'] > scores['C']) {
+                titleEl.innerText = "The \"Hormone-Microbiome\" Mismatch";
+                descEl.innerText = "Your gut and hormones are out of sync. This is common when trying to conceive or managing a busy household, leading to those 'wired but tired' nights.";
+            } else {
+                // Default to Adrenal (Mostly A or C)
+                titleEl.innerText = "The \"Adrenal-Gut\" Burnout";
+                descEl.innerText = "Your stress levels are 'stealing' the energy your gut needs to digest properly. You aren't just tired; your body is struggling to absorb the nutrients from your food.";
+            }
+
             document.getElementById('results').style.display = 'block';
+            document.querySelector('.audit-container').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
