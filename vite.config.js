@@ -23,6 +23,7 @@ export default defineConfig({
         blogSibo: resolve(__dirname, 'blog-sibo.html'),
         blogMomBurnout: resolve(__dirname, 'blog-mom-burnout.html'),
         blogFertility: resolve(__dirname, 'blog-fertility.html'),
+        blogFourthTrimester: resolve(__dirname, 'blog-fourth-trimester.html'),
         confirmation: resolve(__dirname, 'confirmation.html'),
         quiz: resolve(__dirname, 'quiz.html'),
       },
