@@ -1148,6 +1148,20 @@ footer {
         padding: 60px 0;
         /* Tighter spacing */
     }
+
+    /* Footer Mobile Optimization */
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .footer-nav-link {
+        margin: 5px 0;
+        display: block;
+        font-size: 1.1rem;
+        /* Larger touch target */
+    }
 }
 
 /* --- VIDEO MODAL (Restored) --- */
