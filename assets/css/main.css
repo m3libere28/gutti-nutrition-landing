@@ -156,7 +156,7 @@ img {
 
 
 /* Mobile Utility to hide elements */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .desktop-only {
         display: none !important;
     }
