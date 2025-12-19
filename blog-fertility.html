@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prepping for Pregnancy: Your Microbiome & Fertility | Guttie Nutrition</title>
+    <meta name="description"
+        content="Trying to conceive? Discover the Estrobolome: the gut bacteria that manage your hormones and fertility. Science-based nutrition for pregnancy prep.">
+    <link rel="icon" type="image/png" href="/assets/favicon-A9-UyUix.png?v=3">
+    <link rel="canonical" href="https://www.guttienutrition.com/blog-fertility.html" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Custom Theme Colors for "Fertility/Clinical" - Soft Pink & Clinical Teal */
+        :root {
+            --color-primary: #FF8BA7;
+            /* Soft Pink */
+            --color-primary-dark: #FF6B8B;
+            --color-secondary: #48C6B1;
+            /* Clinical Teal */
+            --color-secondary-light: #E0F7FA;
+            --container-width: 1200px;
+            --radius-lg: 24px;
+        }
+
+        .post-header {
+            padding: 140px 0 60px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .post-category {
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .post-header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--color-primary-dark);
+            line-height: 1.2;
+            margin-bottom: 30px;
+            font-family: var(--font-heading);
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Layout */
+        .post-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 60px;
+            margin-bottom: 100px;
+        }
+
+        @media (max-width: 900px) {
+            .post-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .post-sidebar {
+                display: none;
+            }
+        }
+
+        /* Content */
+        .post-content {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-text);
+        }
+
+        .post-content h2 {
+            margin: 40px 0 20px;
+            color: var(--color-primary-dark);
+            font-size: 1.5rem;
+            font-family: var(--font-heading);
+        }
+
+        .post-content h3 {
+            margin: 30px 0 15px;
+            color: var(--color-secondary);
+            font-size: 1.3rem;
+            font-family: var(--font-heading);
+        }
+
+        .post-content p {
+            margin-bottom: 20px;
+        }
+
+        .post-content ul {
+            margin: 0 0 20px 20px;
+        }
+
+        .post-content li {
+            margin-bottom: 10px;
+        }
+
+        /* RDN Tip Box */
+        .rdn-tip {
+            background-color: var(--color-secondary-light);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid var(--color-secondary);
+            margin: 30px 0;
+            font-size: 1rem;
+        }
+
+        .rdn-tip strong {
+            color: var(--color-secondary);
+            display: block;
+            margin-bottom: 8px;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+        }
+
+        /* Sidebar */
+        .post-sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .sidebar-widget {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--color-primary-dark);
+            border-bottom: 2px solid var(--color-secondary-light);
+            padding-bottom: 10px;
+            font-family: var(--font-heading);
+        }
+
+        .toc-link {
+            display: block;
+            color: var(--color-text-light);
+            text-decoration: none;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .toc-link:hover {
+            color: var(--color-primary);
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-btn {
+            background: var(--color-secondary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 20px;
+            font-family: var(--font-heading);
+            transition: transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .infographic-placeholder {
+            background: var(--color-secondary-light);
+            border: 2px dashed var(--color-secondary);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            text-align: center;
+            color: var(--color-secondary);
+            margin: 40px 0;
+            font-weight: bold;
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/main-_2oSX-eH.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-CQ5FlgvV.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-content container">
+            <a href="index.html" class="brand" aria-label="Guttie Nutrition Homepage">
+                <img src="/assets/logo-Cv-xR-w-.png" alt="Guttie Nutrition Logo" class="brand-logo">
+                <div>Guttie<span>Nutrition</span></div>
+            </a>
+            <div class="desktop-only nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="nav-link">Services <span style="font-size: 0.8em;">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="weight-management.html" class="dropdown-item">Weight Loss</a>
+                        <a href="gut-health.html" class="dropdown-item">Gut Health</a>
+                        <a href="raising-confident-eaters.html" class="dropdown-item">Picky Eaters</a>
+                        <a href="maternity-care.html" class="dropdown-item">Maternity Care</a>
+                        <a href="wellness-coaching.html" class="dropdown-item">Wellness Coaching</a>
+                    </div>
+                </div>
+                <a href="resources.html" class="nav-link active">Resources</a>
+                <a href="quiz.html" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Free Energy
+                    Audit</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="weight-management.html" class="mobile-nav-link">Weight Loss</a>
+        <a href="gut-health.html" class="mobile-nav-link">Gut Health</a>
+        <a href="raising-confident-eaters.html" class="mobile-nav-link">Picky Eaters</a>
+        <a href="maternity-care.html" class="mobile-nav-link">Maternity Care</a>
+        <a href="wellness-coaching.html" class="mobile-nav-link">Wellness Coaching</a>
+        <a href="resources.html" class="mobile-nav-link active">Resources</a>
+        <a href="quiz.html" class="mobile-nav-link">Free Energy Audit</a>
+    </div>
+
+    <article>
+        <header class="post-header">
+            <span class="post-category">Maternity & Fertility</span>
+            <h1>Prepping for Pregnancy: Your Microbiome & Fertility</h1>
+            <div class="post-meta">
+                <img src="/assets/emily_profile_update-BUSyG7JJ.jpg" alt="Emily Torres-Medaglia" class="author-img">
+                <div>
+                    <strong>Emily Torres-Medaglia, RDN</strong><br>
+                    <span>Maternity • 5 min read</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="container post-layout">
+
+            <!-- Main Content -->
+            <div class="post-content">
+                <!-- Using placeholder image since generation failed -->
+                <div class="post-hero-image"
+                    style="margin-bottom: 40px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <img src="/assets/maternity_guttie_v3-D9OYVRJ-.png" alt="Pregnant woman symbol"
+                        style="width: 100%; height: auto; display: block; background: #FFF0F5; padding: 20px;">
+                </div>
+
+
+                <p>If you’re trying to conceive, you’ve likely been told to take your prenatal and track your window.
+                    But there is a secret guest at the fertility table: your <strong>Estrobolome</strong>. This is a
+                    specific group of bacteria in your gut that acts as a traffic controller for your hormones.</p>
+
+                <p>When your gut is out of balance, your body can’t clear out old estrogen properly. This creates a
+                    "traffic jam" of hormones that can lead to:</p>
+                <ul>
+                    <li>PMS & painful periods</li>
+                    <li>Irregular cycles</li>
+                    <li>Difficulty conceiving</li>
+                </ul>
+
+                <p>Preparing for pregnancy isn't just about the "waiting game"; it’s about tending to the soil of your
+                    microbiome so your body feels safe and nourished enough to grow a life.</p>
+
+                <h2 id="estrobolome">What is the Estrobolome?</h2>
+                <p>Think of your Estrobolome as a recycling center. It produces an enzyme called
+                    <em>beta-glucuronidase</em>. When this enzyme is balanced, your body recycles just the right amount
+                    of estrogen and excretes the rest.</p>
+
+                <div class="rdn-tip">
+                    <strong>💡 RDN Insight:</strong>
+                    If your gut bacteria are overgrown (dysbiosis), they might produce too much of this enzyme, causing
+                    your body to reabsorb "trash" estrogen. This is Estrogen Dominance.
+                </div>
+
+                <!-- Placeholder for Estrobolome Infographic -->
+                <div class="infographic-placeholder">
+                    [Infographic: The Estrobolome Traffic Controller]<br>
+                    <span style="font-size: 0.9rem; font-weight: normal;">Visualizing Gut Bacteria managing Estrogen
+                        flow: Recycled vs. Excreted.</span>
+                </div>
+
+                <h2 id="steps-to-prep">3 Steps to Nourish Your Fertility</h2>
+                <ol style="margin-left: 20px; margin-bottom: 30px;">
+                    <li style="margin-bottom: 15px;"><strong>Eat Cruciferous Veggies Daily:</strong> Broccoli,
+                        cauliflower, and Brussels sprouts contain DIM, which helps your liver process estrogen safely.
+                    </li>
+                    <li style="margin-bottom: 15px;"><strong>Reduce Plastic Exposure:</strong> Plastics contain
+                        xenoestrogens (fake estrogens) that confuse your traffic controllers. Switch to glass where
+                        possible.</li>
+                    <li style="margin-bottom: 15px;"><strong>Diverse Fiber = Diverse Microbiome:</strong> The more types
+                        of plants you eat, the more robust your Estrobolome becomes.</li>
+                </ol>
+
+                <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+
+                <h3>Evidence-based references</h3>
+                <ul style="font-size: 0.9rem; color: var(--color-text-light);">
+                    <li>Baker, J. M., et al. (2017). Estrogen–gut microbiome axis: Review and priorities for women’s
+                        health. <em>Maturitas</em>.</li>
+                    <li>Sirota, I., et al. (2014). The microbiome and reproductive health. <em>Journal of Assisted
+                            Reproduction and Genetics</em>.</li>
+                </ul>
+
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="post-sidebar">
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">All Articles</h3>
+                    <a href="resources.html"
+                        style="color: var(--color-primary); font-weight: bold; text-decoration: none;">&larr; Back to
+                        Hub</a>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">Table of Contents</h3>
+                    <a href="#estrobolome" class="toc-link">What is the Estrobolome?</a>
+                    <a href="#steps-to-prep" class="toc-link">3 Steps to Fertility</a>
+                </div>
+
+                <div class="sidebar-widget cta-box">
+                    <h3 style="color: white; margin-bottom: 10px;">Preparing for Baby?</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">Ensure your body is ready. Book a Maternity
+                        Nutrition Audit.</p>
+                    <a href="maternity-care.html" class="cta-btn">Book Maternity Call</a>
+                </div>
+            </aside>
+
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html" class="footer-nav-link">Home</a>
+                <a href="gut-health.html" class="footer-nav-link">Services</a>
+                <a href="resources.html" class="footer-nav-link">Resources</a>
+                <a href="mailto:foodasmedicine@guttienutrition.com" class="footer-nav-link">Email Us</a>
+                <a href="https://g.page/r/CUcHIbCHOZpWEBM/review" class="footer-nav-link" target="_blank"
+                    style="color: #FFD700; font-weight: bold;">⭐ Leave a Review</a>
+                <a href="https://my.practicebetter.io/" class="footer-nav-link" target="_blank"
+                    rel="noopener noreferrer" aria-label="Client Portal (Footer)">Client Portal</a>
+            </div>
+            <p style="text-align: center; opacity: 0.6; font-size: 0.9rem; margin-bottom: 10px;">Proudly serving Fort
+                Lauderdale, Miami, and South Florida.</p>
+            <p style="text-align: center; opacity: 0.4; font-size: 0.8rem;">
+                &copy; 2025 Con Amor Marketing LLC. All Rights Reserved.
+            </p>
+
+            <!-- Blog Specific Medical Disclaimer -->
+            <div
+                style="font-size: 0.75rem; opacity: 0.6; margin-top: 30px; max-width: 900px; margin-left: auto; margin-right: auto; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 20px; color: var(--color-text);">
+                <p style="margin-bottom: 10px;"><strong>FDA Disclaimer:</strong> These statements have not been
+                    evaluated by the Food and Drug Administration. This service is not intended to diagnose, treat,
+                    cure, or prevent any disease.</p>
+                <p><strong>Medical Disclaimer:</strong> The information provided on this website is for educational and
+                    informational purposes only and does not constitute medical advice, diagnosis, or treatment. Use of
+                    this site does not establish a patient-provider relationship. Always seek the advice of your
+                    physician or other qualified health provider with any questions you may have regarding a medical
+                    condition.</p>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
