@@ -19,15 +19,20 @@
     <link rel="stylesheet" href="assets/css/main.css">
 
     <style>
-        /* Blog Specific Overrides matching blog-bloating.html style but pulling from global mostly */
+        /* Custom Theme Colors for "Burnout/Calm" - Soft Lavender & Mint */
         :root {
+            --color-primary: #9B7FE6;
+            /* Soft Purple */
+            --color-primary-dark: #7A5DC7;
+            --color-secondary: #48C6B1;
+            /* Mint/Teal */
+            --color-secondary-light: #E0F7FA;
             --container-width: 1200px;
             --radius-lg: 24px;
         }
 
         .post-header {
             padding: 140px 0 60px;
-            /* Adjusted for fixed nav */
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
@@ -45,7 +50,7 @@
 
         .post-header h1 {
             font-size: clamp(2rem, 4vw, 3rem);
-            color: var(--color-primary-dark, #2C3E50);
+            color: var(--color-primary-dark);
             line-height: 1.2;
             margin-bottom: 30px;
             font-family: var(--font-heading);
@@ -103,8 +108,42 @@
             font-family: var(--font-heading);
         }
 
+        .post-content h3 {
+            margin: 30px 0 15px;
+            color: var(--color-secondary);
+            font-size: 1.3rem;
+            font-family: var(--font-heading);
+        }
+
         .post-content p {
             margin-bottom: 20px;
+        }
+
+        .post-content ul {
+            margin: 0 0 20px 20px;
+        }
+
+        .post-content li {
+            margin-bottom: 10px;
+        }
+
+        /* RDN Tip Box */
+        .rdn-tip {
+            background-color: var(--color-secondary-light);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid var(--color-secondary);
+            margin: 30px 0;
+            font-size: 1rem;
+        }
+
+        .rdn-tip strong {
+            color: var(--color-secondary);
+            /* Darker teal/mint */
+            display: block;
+            margin-bottom: 8px;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
         }
 
         /* Sidebar */
@@ -127,20 +166,33 @@
             font-size: 1.2rem;
             margin-bottom: 20px;
             color: var(--color-primary-dark);
-            border-bottom: 2px solid var(--color-secondary-light, #E9F7D9);
+            border-bottom: 2px solid var(--color-secondary-light);
             padding-bottom: 10px;
             font-family: var(--font-heading);
         }
 
+        .toc-link {
+            display: block;
+            color: var(--color-text-light);
+            text-decoration: none;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .toc-link:hover {
+            color: var(--color-primary);
+        }
+
         .cta-box {
-            background: linear-gradient(135deg, #5A8DEE, #7B61FF);
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
             color: white;
             text-align: center;
         }
 
         .cta-btn {
             background: var(--color-secondary);
-            color: var(--color-text);
+            color: white;
             padding: 12px 25px;
             border-radius: 50px;
             text-decoration: none;
@@ -148,12 +200,28 @@
             display: inline-block;
             margin-top: 20px;
             font-family: var(--font-heading);
+            transition: transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
         }
 
         .navbar.scrolled {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .infographic-placeholder {
+            background: var(--color-secondary-light);
+            border: 2px dashed var(--color-secondary);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            text-align: center;
+            color: var(--color-secondary);
+            margin: 40px 0;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -220,8 +288,6 @@
 
             <!-- Main Content -->
             <div class="post-content">
-                <!-- Using a placeholder/fallback image since generation failed/skipped. 
-                     Ideally we would use the generated image: assets/blog_burnout_mom_hero.jpg -->
                 <div class="post-hero-image"
                     style="margin-bottom: 40px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                     <img src="assets/hero_maternity_brand.jpg" alt="Mother smiling and relaxed"
@@ -234,18 +300,50 @@
                     through sludge. But what if that "mom brain" and afternoon slump aren't just about your schedule?
                 </p>
 
+                <div class="rdn-tip">
+                    <strong>💡 RDN Insight:</strong>
+                    "Mom brain" isn't just lack of sleep—it’s inflammation. When your gut is stressed, your brain is
+                    fatigued.
+                </div>
+
                 <p>Science is now showing us that your gut is actually your "second brain." When you are chronically
                     stressed—juggling the mental load of the matriarch—your body stays in a "fight or flight" mode.</p>
 
-                <p>This diverts blood flow away from your digestion, leading to that uncomfortable bloating and the
-                    feeling that your battery just won't charge. By focusing on your microbiome, you aren't just fixing
-                    your stomach; you’re reclaiming your mental clarity and your spark.</p>
+                <p>This diverts blood flow away from your digestion, leading to:</p>
+                <ul>
+                    <li>Uncomfortable bloating after meals</li>
+                    <li>Nutrient malabsorption (low energy)</li>
+                    <li>That feeling that your "battery" just won't charge</li>
+                </ul>
 
-                <h2>The Science Connection</h2>
-                <p>The connection between our gut and our brain is real and powerful. Research has shown that the
-                    microbiome plays a significant role in influencing anxiety and depression (Foster & Neufeld, 2013).
-                    Furthermore, chronic stress can directly alter our gut microbiota, creating a cycle that affects our
-                    mood and energy levels (Madison & Kiecolt-Glaser, 2019).</p>
+                <p>By focusing on your microbiome, you aren't just fixing your stomach; you’re reclaiming your mental
+                    clarity and your spark.</p>
+
+                <h2 id="connection">The Science of Stress & Gut Health</h2>
+                <p>The connection between our gut and our brain is real and powerful. This is known as the
+                    <strong>Gut-Brain Axis</strong>.</p>
+
+                <!-- Placeholder for future infographic generation -->
+                <div class="infographic-placeholder">
+                    [Infographic: The Cycle of Stress & Gut Health]<br>
+                    <span style="font-size: 0.9rem; font-weight: normal;">Visualizing how stress alters gut bacteria ->
+                        increases inflammation -> causes fatigue.</span>
+                </div>
+
+                <p>Research has shown that the microbiome plays a significant role in influencing anxiety and depression
+                    (Foster & Neufeld, 2013). Furthermore, chronic stress can directly alter our gut microbiota,
+                    creating a cycle that affects our mood and energy levels (Madison & Kiecolt-Glaser, 2019).</p>
+
+                <h3 id="steps">3 Steps to Reclaim Your Energy</h3>
+                <ol style="margin-left: 20px; margin-bottom: 30px;">
+                    <li style="margin-bottom: 15px;"><strong>Prioritize "Rest & Digest":</strong> Take 3 deep breaths
+                        before eating. It sounds simple, but it switches your nervous system from fight-or-flight to
+                        digestion mode.</li>
+                    <li style="margin-bottom: 15px;"><strong>Add Prebiotics, Not Just Probiotics:</strong> Feed your
+                        good bacteria with foods like bananas, oats, and asparagus.</li>
+                    <li style="margin-bottom: 15px;"><strong>Hydrate with Minerals:</strong> Plain water isn't enough
+                        when you're stressed. Add a pinch of sea salt or lemon.</li>
+                </ol>
 
                 <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
 
@@ -254,8 +352,7 @@
                     <li>Foster, J. A., & Neufeld, K. A. M. (2013). Gut–brain axis: how the microbiome influences anxiety
                         and depression. <em>Trends in Neurosciences</em>.</li>
                     <li>Madison, A., & Kiecolt-Glaser, J. K. (2019). Stress, depression, diet, and the gut microbiota.
-                        <em>Current Opinion in Behavioral Sciences</em>.
-                    </li>
+                        <em>Current Opinion in Behavioral Sciences</em>.</li>
                 </ul>
 
             </div>
@@ -267,6 +364,12 @@
                     <a href="resources.html"
                         style="color: var(--color-primary); font-weight: bold; text-decoration: none;">&larr; Back to
                         Hub</a>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">Table of Contents</h3>
+                    <a href="#connection" class="toc-link">Science of Stress</a>
+                    <a href="#steps" class="toc-link">3 Steps to Energy</a>
                 </div>
 
                 <div class="sidebar-widget cta-box">
@@ -288,7 +391,6 @@
                 <a href="gut-health.html" class="footer-nav-link">Services</a>
                 <a href="resources.html" class="footer-nav-link">Resources</a>
                 <a href="mailto:foodasmedicine@guttienutrition.com" class="footer-nav-link">Email Us</a>
-                <a href="tel:+13059894160" class="footer-nav-link">Call: (305) 989-4160</a>
                 <a href="https://g.page/r/CUcHIbCHOZpWEBM/review" class="footer-nav-link" target="_blank"
                     style="color: #FFD700; font-weight: bold;">⭐ Leave a Review</a>
                 <a href="https://my.practicebetter.io/" class="footer-nav-link" target="_blank"
@@ -299,6 +401,19 @@
             <p style="text-align: center; opacity: 0.4; font-size: 0.8rem;">
                 &copy; 2025 Con Amor Marketing LLC. All Rights Reserved.
             </p>
+
+            <!-- Blog Specific Medical Disclaimer -->
+            <div
+                style="font-size: 0.75rem; opacity: 0.6; margin-top: 30px; max-width: 900px; margin-left: auto; margin-right: auto; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 20px; color: var(--color-text);">
+                <p style="margin-bottom: 10px;"><strong>FDA Disclaimer:</strong> These statements have not been
+                    evaluated by the Food and Drug Administration. This service is not intended to diagnose, treat,
+                    cure, or prevent any disease.</p>
+                <p><strong>Medical Disclaimer:</strong> The information provided on this website is for educational and
+                    informational purposes only and does not constitute medical advice, diagnosis, or treatment. Use of
+                    this site does not establish a patient-provider relationship. Always seek the advice of your
+                    physician or other qualified health provider with any questions you may have regarding a medical
+                    condition.</p>
+            </div>
         </div>
     </footer>
 
