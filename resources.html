@@ -29,7 +29,10 @@
             padding: 180px 0 100px;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, #eef2ff 0%, #fff 100%);
+            background: #F8FAFC;
+            /* Fallback */
+            background: radial-gradient(circle at top right, #eef2ff 0%, #fff 60%);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         /* Layout for Hero Content */
@@ -263,7 +266,9 @@
             right: -100px;
             width: 600px;
             height: 600px;
-            background: rgba(137, 217, 52, 0.15);
+            background: rgba(137, 217, 52, 0.1);
+            z-index: 0;
+            pointer-events: none;
         }
 
         .blob-2 {
