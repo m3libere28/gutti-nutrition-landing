@@ -246,6 +246,38 @@ img {
     color: var(--color-primary, #5A8DEE);
 }
 
+/* --- NAVBAR INVERSE (For Light Background Pages) --- */
+/* Use this class on pages with white/light hero sections */
+.navbar-inverse .brand {
+    color: var(--color-primary, #5A8DEE);
+    text-shadow: none;
+}
+
+.navbar-inverse .brand-logo {
+    filter: none;
+}
+
+.navbar-inverse .nav-link {
+    color: var(--color-text, #2C3E50);
+}
+
+.navbar-inverse .nav-link::before {
+    background: rgba(90, 141, 238, 0.1);
+}
+
+.navbar-inverse .nav-link:hover {
+    color: var(--color-primary, #5A8DEE);
+}
+
+.navbar-inverse .nav-link.active {
+    color: var(--color-primary, #5A8DEE);
+}
+
+/* Mobile Toggle for Inverse */
+.navbar-inverse .mobile-menu-btn span {
+    background-color: var(--color-primary, #5A8DEE);
+}
+
 /* Dropdown */
 .dropdown {
     position: relative;
