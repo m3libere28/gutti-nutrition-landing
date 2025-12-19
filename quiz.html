@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gut Health & Energy Audit | Guttie Nutrition</title>
+    <meta name="description"
+        content="Take this free 2-minute audit to discover why you're feeling drained, bloated, or burnt out. Get personalized insights from a Dietitian Nutritionist.">
+    <link rel="icon" type="image/png" href="/assets/favicon-A9-UyUix.png?v=3">
+    <link rel="canonical" href="https://www.guttienutrition.com/quiz.html" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #F8FAFC;
+        }
+
+        .audit-container {
+            max-width: 800px;
+            margin: 140px auto 100px;
+            padding: 40px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(52, 96, 197, 0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .audit-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .audit-header h1 {
+            font-size: 2.5rem;
+            color: var(--color-primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .audit-header p {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+        }
+
+        .question-card {
+            background: #F1F5F9;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .question-card.active {
+            border: 2px solid var(--color-primary);
+            background: #E0F2FE;
+        }
+
+        .question-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-family: var(--font-heading);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .option-btn {
+            padding: 15px;
+            border: 2px solid white;
+            background: white;
+            border-radius: 15px;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-weight: 600;
+            color: var(--color-text);
+            transition: all 0.2s;
+            text-align: left;
+        }
+
+        .option-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-color: var(--color-secondary);
+        }
+
+        .option-btn.selected {
+            background: var(--color-secondary);
+            color: white;
+            border-color: var(--color-secondary);
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: #E2E8F0;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--color-secondary);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .results-section {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .results-card {
+            background: linear-gradient(135deg, #eef2ff 0%, #fff 100%);
+            padding: 40px;
+            border-radius: 30px;
+            border: 2px solid #E0F2FE;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/main-_2oSX-eH.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-CQ5FlgvV.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-content container">
+            <a href="index.html" class="brand" aria-label="Guttie Nutrition Homepage">
+                <img src="/assets/logo-Cv-xR-w-.png" alt="Guttie Nutrition Logo" class="brand-logo">
+                <div>Guttie<span>Nutrition</span></div>
+            </a>
+            <div class="desktop-only nav-links">
+                <a href="index.html" class="nav-link" style="color: var(--color-text);">Home</a>
+                <a href="resources.html" class="nav-link" style="color: var(--color-text);">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="audit-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress"></div>
+            </div>
+
+            <!-- Intro -->
+            <div class="audit-header" id="intro">
+                <h1>Gut-Health & Energy Audit</h1>
+                <p>Let's find out where your energy is leaking. This takes 60 seconds.</p>
+                <button class="btn btn-primary btn-pulse" onclick="startQuiz()" style="margin-top: 20px;">Start Audit
+                    →</button>
+            </div>
+
+            <!-- Quiz Content (Hidden Initially) -->
+            <div id="quiz-content" style="display: none;">
+                <!-- Q1 -->
+                <div class="question-card" id="q1">
+                    <div class="question-title">⚡ How are your energy levels at 3 PM?</div>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="answer(1, 'crash')">I need coffee or a nap ASAP.</button>
+                        <button class="option-btn" onclick="answer(1, 'steady')">I'm fine, steady energy.</button>
+                        <button class="option-btn" onclick="answer(1, 'jittery')">Anxious and jittery.</button>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question-card" id="q2" style="display: none;">
+                    <div class="question-title">🎈 Do you experience bloating after meals?</div>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="answer(2, 'yes')">Almost every meal.</button>
+                        <button class="option-btn" onclick="answer(2, 'sometimes')">Only with certain foods.</button>
+                        <button class="option-btn" onclick="answer(2, 'no')">Rarely or never.</button>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question-card" id="q3" style="display: none;">
+                    <div class="question-title">🧠 How would you describe your mental clarity?</div>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="answer(3, 'foggy')">Brain fog city. Hard to focus.</button>
+                        <button class="option-btn" onclick="answer(3, 'sharp')">Sharp and focused.</button>
+                        <button class="option-btn" onclick="answer(3, 'forgetful')">A bit forgetful ("mom
+                            brain").</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="results">
+                <div class="results-card">
+                    <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Your Energy Audit Complete</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 30px;">
+                        It looks like your gut health might be the hidden anchor dragging down your energy.
+                        You shouldn't have to power through the fatigue.
+                    </p>
+                    <div
+                        style="background: white; padding: 20px; border-radius: 15px; margin-bottom: 30px; border-left: 5px solid var(--color-secondary);">
+                        <strong>Dietitian's Insight:</strong> Bloating and afternoon crashes are classic signs of
+                        metabolic imbalance or dybiosis.
+                    </div>
+                    <a href="mailto:foodasmedicine@guttienutrition.com?subject=I%20Took%20The%20Audit%20-%20Let's%20Chat"
+                        class="btn btn-primary btn-pulse btn-liquid">Book Your Free Discovery Call</a>
+                    <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.7;">Let's review your results together (No
+                        cost).</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        let currentQuestion = 1;
+        const totalQuestions = 3;
+
+        function startQuiz() {
+            document.getElementById('intro').style.display = 'none';
+            document.getElementById('quiz-content').style.display = 'block';
+            updateProgress();
+        }
+
+        function answer(qIndex, value) {
+            // Visual feedback
+            const currentCard = document.getElementById('q' + qIndex);
+
+            // Wait brief moment then show next
+            setTimeout(() => {
+                currentCard.style.display = 'none';
+                if (qIndex < totalQuestions) {
+                    document.getElementById('q' + (qIndex + 1)).style.display = 'block';
+                    currentQuestion++;
+                    updateProgress();
+                } else {
+                    showResults();
+                }
+            }, 300);
+        }
+
+        function updateProgress() {
+            const percentage = ((currentQuestion - 1) / totalQuestions) * 100;
+            document.getElementById('progress').style.width = percentage + '%';
+        }
+
+        function showResults() {
+            document.getElementById('quiz-content').style.display = 'none';
+            document.getElementById('progress').style.width = '100%';
+            document.getElementById('results').style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>
