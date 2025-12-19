@@ -21,16 +21,16 @@
     <style>
         /* Resources Page Specific Styles */
         body {
-            background-color: #F8FAFC;
+            background-color: #F8FAFC !important;
         }
 
         .page-header {
             padding: 180px 0 100px;
             position: relative;
             overflow: hidden;
-            background: #F8FAFC;
+            background: #F8FAFC !important;
             /* Fallback */
-            background: radial-gradient(circle at top right, #eef2ff 0%, #fff 60%);
+            background: radial-gradient(circle at top right, #eef2ff 0%, #fff 60%) !important;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
@@ -133,8 +133,8 @@
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
             padding-bottom: 120px;
-            margin-top: -60px;
-            /* Overlap with hero */
+            margin-top: 50px;
+            /* Removed negative margin to prevent overlap issues */
             position: relative;
             z-index: 10;
         }
@@ -301,7 +301,7 @@
     </style>
 
   <script type="module" crossorigin src="/assets/main-_2oSX-eH.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-CQ5FlgvV.css">
+  <link rel="stylesheet" crossorigin href="/assets/resources-CQ5FlgvV.css">
 </head>
 
 <body>
