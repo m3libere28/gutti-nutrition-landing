@@ -1,10 +1,11 @@
 /* --- CSS VARIABLES & RESET --- */
 :root {
     /* Brand Colors - Exact Match from App */
-    --color-primary: #5A8DEE;
-    /* Royal Blue */
+    --color-primary: #3460C5;
+    /* Darker Blue for accessible contrast (4.5:1+) */
+    /* --color-primary: #5A8DEE; Original */
     --color-primary-light: #7B61FF;
-    --color-primary-dark: #3F72D3;
+    --color-primary-dark: #2A4EA3;
 
     --color-secondary: #89D934;
     /* Fresh Lime */
@@ -16,8 +17,10 @@
     --color-bg: #F8FAFC;
     /* Slate 50 */
     --color-surface: #FFFFFF;
-    --color-text: #2C3E50;
+    --color-text: #1E293B;
+    /* Darker Slate 800 */
     --color-text-light: #334155;
+    /* Slate 700 for better contrast */
     /* Darkened from #475569 for strict contrast */
     --color-secondary-text: #365E0E;
     /* Deep Green for accessible text */
@@ -332,11 +335,14 @@ img {
     justify-content: center;
     align-items: center;
     gap: 30px;
-    transition: right 0.4s;
+    transition: right 0.4s, visibility 0.4s;
+    visibility: hidden;
+    /* Hide from Screen Readers when closed */
 }
 
 .mobile-menu-overlay.open {
     right: 0;
+    visibility: visible;
 }
 
 .mobile-nav-link {
@@ -924,7 +930,8 @@ img {
 
 /* Footer */
 footer {
-    background: #1A2633;
+    background: #111827;
+    /* Darker Slate 900 */
     color: white;
     padding: 60px 0 30px;
     text-align: center;
@@ -938,12 +945,14 @@ footer {
 }
 
 .footer-links a {
-    opacity: 0.7;
+    opacity: 0.9;
+    color: white;
 }
 
 .footer-links a:hover {
     opacity: 1;
     color: var(--color-secondary);
+    text-decoration: underline;
 }
 
 .footer-nav-link {
