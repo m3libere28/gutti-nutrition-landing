@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond "Just One More Bite": A Dietitian’s Guide to Raising Adventurous Eaters | Guttie Nutrition</title>
+    <meta name="description"
+        content="Stop the dinner time battles. Learn how Division of Responsibility and sensory strategies can help your picky eater thrive.">
+    <link rel="icon" type="image/png" href="assets/favicon.png?v=3">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="navbar_v2.css?v=dropdown_v3">
+
+    <style>
+        :root {
+            --color-primary: #5A8DEE;
+            --color-primary-dark: #3F72D3;
+            --color-secondary: #89D934;
+            --color-secondary-light: #E9F7D9;
+            --color-bg: #F8FAFC;
+            --color-surface: #FFFFFF;
+            --color-text: #2C3E50;
+            --color-text-light: #64748B;
+            --font-heading: 'Fredoka', sans-serif;
+            --font-body: 'Quicksand', sans-serif;
+            --container-width: 1200px;
+            --radius-lg: 24px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Post Header */
+        .post-header {
+            padding: 120px 0 60px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .post-category {
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .post-header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--color-primary-dark);
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Layout */
+        .post-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 60px;
+            margin-bottom: 100px;
+        }
+
+        @media (max-width: 900px) {
+            .post-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .post-sidebar {
+                display: none;
+            }
+        }
+
+        /* Content */
+        .post-content {
+            background: var(--color-surface);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            font-size: 1.1rem;
+        }
+
+        .post-content h2 {
+            margin: 40px 0 20px;
+            color: var(--color-primary-dark);
+            font-size: 1.5rem;
+        }
+
+        .post-content h3 {
+            margin: 30px 0 15px;
+            color: var(--color-secondary);
+            font-size: 1.3rem;
+        }
+
+        .post-content p {
+            margin-bottom: 20px;
+        }
+
+        .post-content ul {
+            margin: 0 0 20px 20px;
+        }
+
+        .post-content li {
+            margin-bottom: 10px;
+        }
+
+        .rdn-tip {
+            background-color: var(--color-secondary-light);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid var(--color-secondary);
+            margin: 30px 0;
+            font-size: 1rem;
+        }
+
+        .rdn-tip strong {
+            color: var(--color-secondary-text, #365E0E);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .visual-block {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .visual-block img {
+            max-width: 100%;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .visual-caption {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Sidebar */
+        .post-sidebar {
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .sidebar-widget {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--color-primary-dark);
+            border-bottom: 2px solid var(--color-secondary-light);
+            padding-bottom: 10px;
+        }
+
+        .toc-link {
+            display: block;
+            color: var(--color-text-light);
+            text-decoration: none;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .toc-link:hover {
+            color: var(--color-primary);
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #FF9F43, #FF6B6B);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-btn {
+            background: white;
+            color: var(--color-text);
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-nav-link {
+            color: var(--color-text);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation (Same as Main) -->
+    <nav class="navbar navbar-inverse" id="navbar">
+        <div class="nav-content container">
+            <a href="index.html" class="brand">
+                <img src="assets/logo.png" alt="Guttie Nutrition Logo" class="brand-logo">
+                <div>Guttie<span>Nutrition</span></div>
+            </a>
+            <div class="desktop-only nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="nav-link">Services <span style="font-size: 0.8em;">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="weight-management.html" class="dropdown-item">Weight Loss</a>
+                        <a href="gut-health.html" class="dropdown-item">Gut Health</a>
+                        <a href="raising-confident-eaters.html" class="dropdown-item">Picky Eaters</a>
+                        <a href="maternity-care.html" class="dropdown-item">Maternity Care</a>
+                        <a href="wellness-coaching.html" class="dropdown-item">Wellness Coaching</a>
+                    </div>
+                </div>
+                <a href="resources.html" class="nav-link active">Resources</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="weight-management.html" class="mobile-nav-link">Weight Loss</a>
+        <a href="gut-health.html" class="mobile-nav-link">Gut Health</a>
+        <a href="raising-confident-eaters.html" class="mobile-nav-link">Picky Eaters</a>
+        <a href="maternity-care.html" class="mobile-nav-link">Maternity Care</a>
+        <a href="wellness-coaching.html" class="mobile-nav-link">Wellness Coaching</a>
+        <a href="resources.html" class="mobile-nav-link active">Resources</a>
+    </div>
+
+    <article>
+        <header class="post-header">
+            <span class="post-category" style="color: #FF9F43;">Pediatric Nutrition</span>
+            <h1>Beyond "Just One More Bite": A Dietitian’s Guide to Raising Adventurous Eaters</h1>
+            <div class="post-meta">
+                <img src="assets/emily_profile_update.jpg" alt="Emily Torres-Medaglia" class="author-img">
+                <div>
+                    <strong>Emily Torres-Medaglia, RDN</strong><br>
+                    <span>December 17, 2025 • 7 min read</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="container post-layout">
+
+            <!-- Main Content -->
+            <div class="post-content">
+                <!-- Hero Image -->
+                <div class="post-hero-image"
+                    style="margin-bottom: 40px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <img src="assets/blog_pediatric_header.png"
+                        alt="Happy toddler exploring colorful fruits and vegetables"
+                        style="width: 100%; height: auto; display: block;">
+                </div>
+
+                <p>If dinner time in your house feels more like a negotiation room than a family meal, you aren't alone.
+                    As a pediatric dietitian (and someone who works with families every day), I know the heavy weight of
+                    "parental food guilt." You worry if they’re getting enough iron, if their growth is on track, or if
+                    they’ll ever eat something that isn't white, beige, or processed.</p>
+
+                <p>When you have a picky eater, the standard advice of "just hide the veggies" or "don't worry, they’ll
+                    eat when they’re hungry" often falls flat. True progress isn't about tricking your child; it's about
+                    understanding the sensory and developmental "why" behind their food aversions.</p>
+
+                <p>Let's break down how we move from power struggles to a peaceful table.</p>
+
+                <h2 id="understanding-why">1. Understanding the "Why": Sensory vs. Behavioral</h2>
+                <p>For many children, a refusal to eat broccoli isn't "naughtiness"—it’s a sensory overload.</p>
+                <ul>
+                    <li><strong>The Sensory Component:</strong> Some children are "super-tasters." A bitter note in a
+                        vegetable that tastes mild to you might taste like battery acid to them. Others struggle with
+                        textures—the "squish" of a tomato or the "crunch" of an onion can trigger a genuine gag reflex.
+                    </li>
+                    <li><strong>The Developmental Component:</strong> Between ages 2 and 5, "neophobia" (fear of new
+                        things) peaks. It’s an evolutionary survival instinct!</li>
+                </ul>
+
+                <div class="rdn-tip">
+                    <strong>RDN Tip:</strong> Instead of focusing on the amount eaten, focus on food exploration. Can
+                    they touch the food? Smell it? Give it a "lick test"? These are all huge wins that lead to eventual
+                    tasting.
+                </div>
+
+                <h2 id="dor">2. The Division of Responsibility</h2>
+                <p>One of the most transformative tools I teach parents is the Division of Responsibility (DOR),
+                    developed by Ellyn Satter.</p>
+
+                <div class="visual-block">
+                    <img src="assets/blog_pediatric_infographic.png" alt="Division of Responsibility Infographic">
+                    <p class="visual-caption">When parents and children stick to their roles, mealtime stress
+                        disappears.</p>
+                </div>
+
+                <ul>
+                    <li><strong>The Parent’s Job:</strong> You decide <em>what</em> is served, <em>when</em> it is
+                        served, and <em>where</em> it is served.</li>
+                    <li><strong>The Child’s Job:</strong> They decide <em>if</em> they eat and <em>how much</em> they
+                        eat from what you provided.</li>
+                </ul>
+
+                <p>When you stop "policing" the plate, the pressure lifts. When the pressure lifts, children feel safe
+                    enough to get curious about new foods.</p>
+
+                <h2 id="food-bridge">3. The "Food Bridge" Strategy</h2>
+                <p>We often try to jump from chicken nuggets to grilled salmon in one day. That jump is too big.
+                    Instead, use "Food Bridges."</p>
+
+                <div class="visual-block">
+                    <img src="assets/blog_pediatric_food_bridge.png" alt="Food Bridge Strategy Visual">
+                    <p class="visual-caption">Small steps make new foods less scary.</p>
+                </div>
+
+                <ul>
+                    <li>If your child loves crunchy salty snacks (pretzels), try thin apple slices with a tiny bit of
+                        salt, or roasted chickpeas.</li>
+                    <li>If they love smooth textures (yogurt), try a blended mild soup or a smoothie with a "hidden"
+                        neutral veggie like frozen cauliflower.</li>
+                </ul>
+
+                <h2 id="gut-picky-connection">4. Gut Health and the "Picky" Connection</h2>
+                <p>Did you know that the microbiome can actually influence food preferences? An overgrowth of certain
+                    bacteria or yeast in a child’s gut can drive cravings for simple sugars and refined carbs, making
+                    nutrient-dense foods even less appealing.</p>
+
+                <div class="rdn-tip">
+                    <strong>RDN Tip:</strong> By gently supporting a child’s gut health with the right fibers and
+                    probiotics, we can sometimes "reset" their palate from the inside out.
+                </div>
+
+                <h2 id="safe-plate">5. Creating a "Safe" Plate</h2>
+                <p>Never serve a plate of only new or challenging foods. Always include at least one "safe"
+                    food—something you know they generally accept. This prevents the "adrenal spike" of fear when they
+                    sit down to eat, allowing their digestive system to stay in a "rest and digest" state.</p>
+
+                <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+
+                <h2 id="turn-the-table">Let’s Turn the Table Together</h2>
+                <p>Raising a healthy eater is a marathon, not a sprint. You don't have to do it through trial and error.
+                    Whether your child has extreme sensory aversions, growth concerns, or you just want to start them
+                    off on the right nutritional foot, I’m here to help.</p>
+
+                <div
+                    style="margin-top: 40px; margin-bottom: 40px; padding: 20px; background: #f8fafc; border-left: 4px solid var(--color-text-light); font-size: 0.85rem; color: var(--color-text-light);">
+                    <strong>Disclaimer:</strong> This content is for educational purposes and does not replace
+                    individualized medical care. Nutrition and digestive health recommendations should be personalized
+                    and discussed with a qualified healthcare provider.
+                </div>
+
+                <div class="cta-box" style="margin-top: 50px; padding: 40px; border-radius: 20px;">
+                    <h3 style="color: white; margin-bottom: 20px;">Ready to end the dinner time battles?</h3>
+                    <p style="color: white; opacity: 0.9;">Let’s create a customized, stress-free plan to nourish your
+                        little one’s growing body and mind.</p>
+                    <a href="raising-confident-eaters.html" class="cta-btn">Book Pediatric Discovery Call</a>
+                </div>
+
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="post-sidebar">
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">All Articles</h3>
+                    <a href="resources.html"
+                        style="color: var(--color-primary); font-weight: bold; text-decoration: none;">&larr; Back to
+                        Hub</a>
+                </div>
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">Table of Contents</h3>
+                    <a href="#understanding-why" class="toc-link">1. Sensory vs. Behavior</a>
+                    <a href="#dor" class="toc-link">2. Division of Responsibility</a>
+                    <a href="#food-bridge" class="toc-link">3. Food Bridges</a>
+                    <a href="#gut-picky-connection" class="toc-link">4. Gut Connection</a>
+                    <a href="#safe-plate" class="toc-link">5. Safe Plate Strategy</a>
+                    <a href="#turn-the-table" class="toc-link">Conclusion</a>
+                </div>
+
+                <div class="sidebar-widget cta-box">
+                    <h3 style="color: white; margin-bottom: 10px;">Picky Eater?</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">Stop the power struggles. Get a plan that works.</p>
+                    <a href="raising-confident-eaters.html" class="cta-btn">View Program</a>
+                </div>
+            </aside>
+
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <div style="margin-bottom: 20px;">
+                <a href="index.html" class="footer-nav-link">Home</a>
+                <a href="resources.html" class="footer-nav-link">All Articles</a>
+                <a href="mailto:foodasmedicine@guttienutrition.com" class="footer-nav-link">Contact</a>
+            </div>
+            <p>&copy; 2025 Guttie Nutrition.</p>
+
+            <div
+                style="font-size: 0.75rem; opacity: 0.6; margin-top: 30px; max-width: 900px; margin-left: auto; margin-right: auto; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 20px; color: var(--color-text);">
+                <p style="margin-bottom: 10px;"><strong>FDA Disclaimer:</strong> These statements have not been
+                    evaluated by the Food and Drug Administration. This service is not intended to diagnose, treat,
+                    cure, or prevent any disease.</p>
+                <p><strong>Medical Disclaimer:</strong> The information provided on this website is for educational and
+                    informational
+                    purposes only and does not constitute medical advice, diagnosis, or treatment. Use of this site does
+                    not
+                    establish a patient-provider relationship. Always seek the advice of
+                    your physician or other qualified health provider with any questions you may have regarding a
+                    medical
+                    condition.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="main.js"></script>
+
+</body>
+
+</html>

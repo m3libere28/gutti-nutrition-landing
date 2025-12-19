@@ -1,0 +1,25 @@
+.gutti-button {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    border-radius: 999px;
+    width: 100%;
+    max-width: 320px;
+    box-shadow: 0 6px 0px var(--color-primary-dark), 0 10px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s, box-shadow 0.1s;
+    margin-bottom: 1rem;
+    text-transform: none;
+    /* Keep natural case */
+    display: block;
+    /* Ensure Link behaves like a block box */
+    text-align: center;
+    text-decoration: none;
+    /* Remove underline for links */
+}
+
+.gutti-button:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0px var(--color-primary-dark), 0 5px 5px rgba(0, 0, 0, 0.1);
+}

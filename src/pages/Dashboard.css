@@ -1,0 +1,223 @@
+/* Dash Layout */
+.dashboard-container {
+    padding: 25px;
+    padding-top: 60px;
+    padding-bottom: 100px;
+    /* Space for fixed Bottom Nav */
+    max-width: 600px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+.header-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.guttie-avatar-logo {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.guttie-avatar-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+.greeting h1 {
+    font-size: 1.8rem;
+    color: var(--color-primary-dark);
+    margin: 0;
+}
+
+.greeting p {
+    color: var(--color-text-light);
+    margin: 0;
+}
+
+/* Habit Rings */
+.habit-section {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.habit-ring {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    box-shadow: var(--shadow-sm);
+    border: 4px solid #f1f5f9;
+}
+
+.habit-ring::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    background: conic-gradient(var(--c) calc(var(--p)*1%), transparent 0);
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #fff 0);
+    mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #fff 0);
+}
+
+.ring-blue {
+    --c: #5A8DEE;
+}
+
+.ring-green {
+    --c: #89D934;
+}
+
+.ring-orange {
+    --c: #FFA726;
+}
+
+.habit-ring .icon {
+    font-size: 1.2rem;
+    z-index: 1;
+}
+
+.habit-ring .label {
+    font-size: 0.6rem;
+    color: #94a3b8;
+    font-weight: 700;
+    margin-top: 2px;
+    z-index: 1;
+}
+
+/* Appointment Card - Light Style */
+.appointment-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: var(--radius-lg);
+    margin-bottom: 35px;
+    box-shadow: 0 10px 25px -5px rgba(90, 141, 238, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.premium-gradient {
+    background: linear-gradient(to right, rgba(224, 242, 254, 0.8), rgba(255, 255, 255, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    color: var(--color-text);
+}
+
+.appt-time {
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding-right: 15px;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    margin-right: 15px;
+    color: var(--color-primary);
+}
+
+.appt-info h4 {
+    color: var(--color-primary-dark);
+    font-size: 1rem;
+    margin-bottom: 4px;
+    margin-top: 0;
+}
+
+.status-badge {
+    background: rgba(90, 141, 238, 0.1);
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.join-btn {
+    margin-left: auto;
+    background: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    color: var(--color-primary);
+}
+
+/* Widgets & Sections */
+.section-title {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: var(--color-text);
+}
+
+.quick-actions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.action-tile {
+    /* Glass panel styles inherited from class */
+    padding: 15px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text);
+    gap: 8px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.action-tile:active {
+    transform: scale(0.95);
+}
+
+.tile-icon {
+    font-size: 1.5rem;
+}
+
+/* Emily Banner */
+.emily-banner {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    background: linear-gradient(to right, rgba(236, 252, 203, 0.5), rgba(255, 255, 255, 0.8));
+}
+
+.emily-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+    border: 2px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.emily-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}

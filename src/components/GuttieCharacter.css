@@ -1,0 +1,171 @@
+.guttie-character-comp {
+    position: relative;
+    width: 150px;
+    height: 180px;
+    /* Scalable internal coordinate system or just fixed for now */
+}
+
+.guttie-body {
+    width: 140px;
+    height: 160px;
+    background: linear-gradient(145deg, #89D934, #76bd2d);
+    /* Gradient Green */
+    border-radius: 70px 70px 70px 70px;
+    position: relative;
+    box-shadow:
+        inset 10px 10px 30px rgba(255, 255, 255, 0.6),
+        inset -10px -10px 30px rgba(0, 0, 0, 0.1),
+        0 20px 40px rgba(118, 189, 45, 0.3);
+    /* Colored Shadow */
+    animation: breathe 4s ease-in-out infinite;
+    transform-origin: center bottom;
+}
+
+.face {
+    position: absolute;
+    top: 40px;
+    left: 25px;
+    /* Centered relative to 140px width approx */
+    width: 90px;
+    height: 80px;
+}
+
+.eye {
+    width: 22px;
+    height: 28px;
+    background: #1a1a1a;
+    border-radius: 50%;
+    position: absolute;
+    overflow: hidden;
+    animation: blink 4s infinite;
+}
+
+.pupil {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+}
+
+.eye.left {
+    top: 0;
+    left: 10px;
+}
+
+.eye.right {
+    top: 0;
+    right: 10px;
+}
+
+.mouth {
+    width: 34px;
+    height: 34px;
+    background: #8B0000;
+    border-radius: 0 0 34px 34px;
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tongue {
+    width: 24px;
+    height: 15px;
+    background: #ff6b6b;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cheek {
+    width: 15px;
+    height: 10px;
+    background: rgba(255, 107, 107, 0.4);
+    border-radius: 50%;
+    position: absolute;
+    top: 35px;
+}
+
+.cheek.left {
+    left: 0;
+}
+
+.cheek.right {
+    right: 0;
+}
+
+.hand {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(145deg, #89D934, #76bd2d);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0px;
+    right: -15px;
+    box-shadow:
+        inset 2px 2px 5px rgba(255, 255, 255, 0.4),
+        2px 2px 5px rgba(0, 0, 0, 0.1);
+    transform-origin: 0% 100%;
+    /* Pivot from attachment */
+}
+
+.hand.wave-animation {
+    animation: wave 1.5s infinite ease-in-out;
+}
+
+/* Animations */
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-20deg) translateY(-5px);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+
+    75% {
+        transform: rotate(-20deg) translateY(-5px);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    96%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    98% {
+        transform: scaleY(0.1);
+    }
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: scale(1) translateY(0);
+        border-radius: 70px 70px 70px 70px;
+    }
+
+    50% {
+        transform: scale(1.02) translateY(-2px);
+        border-radius: 72px 68px 72px 68px;
+    }
+}

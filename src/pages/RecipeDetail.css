@@ -1,0 +1,139 @@
+.recipe-detail-page {
+    position: relative;
+    background: white;
+    min-height: 100vh;
+    padding-bottom: 80px;
+}
+
+.recipe-hero {
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.back-bubble {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    border: none;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-sheet {
+    margin-top: -40px;
+    border-radius: 30px 30px 0 0;
+    background: white;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.05);
+    min-height: 60vh;
+}
+
+.recipe-cat-tag {
+    color: var(--color-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.recipe-title-lg {
+    font-size: 2rem;
+    color: var(--color-primary-dark);
+    margin: 10px 0 20px;
+    line-height: 1.2;
+}
+
+.recipe-meta-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.meta-pill {
+    background: #f1f5f9;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text);
+    white-space: nowrap;
+}
+
+.recipe-desc {
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.ingredients-section h3,
+.instructions-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--color-text);
+}
+
+.ing-list {
+    list-style: none;
+    /* remove dots */
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.ing-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    align-items: center;
+}
+
+.ing-list li::before {
+    content: '•';
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin-right: 10px;
+    line-height: 0;
+}
+
+.inst-list {
+    list-style: none;
+    padding: 0;
+}
+
+.inst-list li {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.step-num {
+    background: var(--color-primary);
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.step-text {
+    line-height: 1.5;
+    color: var(--color-text);
+}

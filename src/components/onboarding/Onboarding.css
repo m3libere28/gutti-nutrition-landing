@@ -1,0 +1,101 @@
+.step-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    transition: all 0.3s;
+}
+
+.dot.active {
+    background: var(--color-primary);
+    width: 20px;
+    border-radius: 10px;
+}
+
+.onboarding-content {
+    flex: 1;
+    width: 100%;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.onboarding-content h2 {
+    font-size: 1.8rem;
+    color: var(--color-text);
+    margin-bottom: 10px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid #e2e8f0;
+    font-size: 1.1rem;
+    font-family: var(--font-main);
+    outline: none;
+    transition: border-color 0.2s;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.input-field:focus {
+    border-color: var(--color-primary);
+}
+
+.option-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.option-btn {
+    padding: 15px;
+    border-radius: 15px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    font-weight: 600;
+    color: var(--color-text);
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+}
+
+.option-btn:hover,
+.option-btn:focus {
+    border-color: var(--color-primary);
+    background: #f0f9ff;
+    transform: translateY(-2px);
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease-out;
+}
+
+.onboarding-logo {
+    width: 180px;
+    /* Bigger on Desktop */
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+    position: relative;
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .onboarding-logo {
+        width: 60px;
+        /* Extremely constrained based on 'outside of frame' feedback */
+        max-width: 40%;
+        /* Ensure it never pushes bounds */
+        height: auto;
+        margin-bottom: 10px;
+    }
+}

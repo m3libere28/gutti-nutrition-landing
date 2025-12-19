@@ -1,0 +1,164 @@
+.needs-calculator-widget {
+    background: white;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    border: 1px solid #f1f5f9;
+}
+
+.calc-header {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background: linear-gradient(120deg, #f6d365 0%, #fda085 100%) !important;
+    /* Forces update */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.calc-header:hover {
+    opacity: 0.95;
+}
+
+.calc-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.05rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-arrow {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.calc-body {
+    padding: 20px;
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    padding: 8px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #fca5a5;
+    box-shadow: 0 0 0 2px rgba(252, 165, 165, 0.2);
+}
+
+.calc-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ef4444;
+    /* Guttie Red/Action color */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.calc-btn:active {
+    transform: scale(0.98);
+}
+
+.results-panel {
+    margin-top: 20px;
+    padding: 15px;
+    background: #fff1f2;
+    border-radius: 12px;
+    border: 1px solid #fecdd3;
+}
+
+.res-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: #475569;
+}
+
+.res-row.highlight {
+    font-size: 1.1rem;
+    color: #be123c;
+    border-bottom: 1px solid #ffdae0;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.res-row.water {
+    margin-top: 12px;
+    padding-top: 8px;
+    border-top: 1px dashed #ffdae0;
+    color: #0ea5e9;
+}
+
+.disclaimer {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    margin-top: 10px;
+    text-align: center;
+    font-style: italic;
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Mobile Tweaks */
+@media (max-width: 480px) {
+    .input-grid {
+        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+        /* Keep side-by-side for age/weight as they are small */
+    }
+
+    /* Force Height inputs to share space or stack */
+    .form-group.double-input div {
+        flex: 1;
+    }
+
+    .form-group input {
+        min-width: 0;
+        /* Prevent flex blowouts */
+    }
+}

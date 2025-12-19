@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why You’re Doing Everything “Right” but Still Not Losing Weight | Guttie Nutrition</title>
+    <meta name="description"
+        content="A physiology-based explanation of weight plateaus. Energy balance, stress, sleep, and medical factors all play a role.">
+    <link rel="icon" type="image/png" href="assets/favicon.png?v=3">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="navbar_v2.css?v=dropdown_v3">
+
+    <style>
+        :root {
+            --color-primary: #5A8DEE;
+            --color-primary-dark: #3F72D3;
+            --color-secondary: #89D934;
+            --color-secondary-light: #E9F7D9;
+            --color-bg: #F8FAFC;
+            --color-surface: #FFFFFF;
+            --color-text: #2C3E50;
+            --color-text-light: #64748B;
+            --font-heading: 'Fredoka', sans-serif;
+            --font-body: 'Quicksand', sans-serif;
+            --container-width: 1200px;
+            --radius-lg: 24px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Post Header */
+        .post-header {
+            padding: 120px 0 60px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .post-category {
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .post-header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--color-primary-dark);
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Layout */
+        .post-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 60px;
+            margin-bottom: 100px;
+        }
+
+        @media (max-width: 900px) {
+            .post-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .post-sidebar {
+                display: none;
+            }
+        }
+
+        /* Content */
+        .post-content {
+            background: var(--color-surface);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            font-size: 1.1rem;
+        }
+
+        .post-content h2 {
+            margin: 40px 0 20px;
+            color: var(--color-primary-dark);
+            font-size: 1.5rem;
+        }
+
+        .post-content h3 {
+            margin: 30px 0 15px;
+            color: var(--color-secondary);
+            font-size: 1.3rem;
+        }
+
+        .post-content p {
+            margin-bottom: 20px;
+        }
+
+        .post-content ul {
+            margin: 0 0 20px 20px;
+        }
+
+        .post-content li {
+            margin-bottom: 10px;
+        }
+
+        .rdn-tip {
+            background-color: var(--color-secondary-light);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid var(--color-secondary);
+            margin: 30px 0;
+            font-size: 1rem;
+        }
+
+        .rdn-tip strong {
+            color: var(--color-secondary-text, #365E0E);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .placeholder-img {
+            width: 100%;
+            height: 300px;
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-weight: bold;
+            border-radius: var(--radius-lg);
+            margin-bottom: 40px;
+        }
+
+        /* Sidebar */
+        .post-sidebar {
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .sidebar-widget {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--color-primary-dark);
+            border-bottom: 2px solid var(--color-secondary-light);
+            padding-bottom: 10px;
+        }
+
+        .toc-link {
+            display: block;
+            color: var(--color-text-light);
+            text-decoration: none;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .toc-link:hover {
+            color: var(--color-primary);
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #5A8DEE, #7B61FF);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-btn {
+            background: var(--color-secondary);
+            color: var(--color-text);
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-nav-link {
+            color: var(--color-text);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation (Same as Main) -->
+    <nav class="navbar navbar-inverse" id="navbar">
+        <div class="nav-content container">
+            <a href="index.html" class="brand">
+                <img src="assets/logo.png" alt="Guttie Nutrition Logo" class="brand-logo">
+                <div>Guttie<span>Nutrition</span></div>
+            </a>
+            <div class="desktop-only nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="nav-link">Services <span style="font-size: 0.8em;">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="weight-management.html" class="dropdown-item">Weight Loss</a>
+                        <a href="gut-health.html" class="dropdown-item">Gut Health</a>
+                        <a href="raising-confident-eaters.html" class="dropdown-item">Picky Eaters</a>
+                        <a href="maternity-care.html" class="dropdown-item">Maternity Care</a>
+                        <a href="wellness-coaching.html" class="dropdown-item">Wellness Coaching</a>
+                    </div>
+                </div>
+                <a href="resources.html" class="nav-link active">Resources</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="weight-management.html" class="mobile-nav-link">Weight Loss</a>
+        <a href="gut-health.html" class="mobile-nav-link">Gut Health</a>
+        <a href="raising-confident-eaters.html" class="mobile-nav-link">Picky Eaters</a>
+        <a href="maternity-care.html" class="mobile-nav-link">Maternity Care</a>
+        <a href="wellness-coaching.html" class="mobile-nav-link">Wellness Coaching</a>
+        <a href="resources.html" class="mobile-nav-link active">Resources</a>
+    </div>
+
+    <article>
+        <header class="post-header">
+            <span class="post-category">Weight Management</span>
+            <h1>Why You’re Doing Everything “Right” but Still Not Losing Weight</h1>
+            <div class="post-meta">
+                <img src="assets/emily_profile_update.jpg" alt="Emily Torres-Medaglia" class="author-img">
+                <div>
+                    <strong>Emily Torres-Medaglia, RDN</strong><br>
+                    <span>December 17, 2025 • 7 min read</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="container post-layout">
+
+            <!-- Main Content -->
+            <div class="post-content">
+                <!-- Hero Image -->
+                <div class="post-hero-image"
+                    style="margin-bottom: 40px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <img src="assets/blog_metabolism_hero.jpg"
+                        alt="Woman standing on scale with digital metabolism visualization"
+                        style="width: 100%; height: auto; display: block;">
+                </div>
+
+                <p>Weight regulation is complex and influenced by biology, environment, behavior, and health status.
+                    Plateaus do not mean failure or a broken metabolism.</p>
+                <p>Let's look at the physiology-based explanations for when the scale won't budge.</p>
+
+                <h2 id="energy-balance">1. Energy balance still matters (but it’s not the whole story)</h2>
+                <p>Weight change requires an energy imbalance, but many factors influence how the body responds,
+                    including:</p>
+                <ul>
+                    <li>Hormonal regulation</li>
+                    <li>Sleep</li>
+                    <li>Stress</li>
+                    <li>Medication effects</li>
+                    <li>Adaptive metabolic responses</li>
+                </ul>
+
+                <h2 id="sleep-stress">2. Sleep and stress play a major role</h2>
+                <p>Chronic sleep deprivation is associated with:</p>
+                <ul>
+                    <li>Increased hunger hormones (ghrelin)</li>
+                    <li>Reduced satiety signaling (leptin)</li>
+                    <li>Altered insulin sensitivity</li>
+                </ul>
+                <p>High stress can increase cortisol, which may influence appetite, food choices, and fat distribution.
+                </p>
+
+                <div class="post-image-container" style="margin: 30px 0; text-align: center;">
+                    <img src="assets/blog_metabolism_infographic.png" alt="Stress-Cortisol Weight Cycle Diagram"
+                        style="width: 100%; max-width: 800px; border-radius: var(--radius-lg); box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                </div>
+
+                <h2 id="microbiome">3. The gut microbiome: promising but not deterministic</h2>
+                <p>Research suggests associations between gut microbiota patterns and metabolism, but:</p>
+                <ul>
+                    <li>The microbiome does not override calories</li>
+                    <li>It does not independently cause weight gain</li>
+                    <li>Individual prediction is currently limited</li>
+                </ul>
+                <div class="rdn-tip">
+                    <strong>✔️ Perspective:</strong> Microbiome-supportive habits (fiber, diversity, regular meals) are
+                    beneficial for overall health, not guaranteed weight loss hacks.
+                </div>
+
+                <h2 id="medical-factors">4. Medical and medication factors</h2>
+                <p>Conditions that may affect weight loss include:</p>
+                <ul>
+                    <li>Thyroid disorders</li>
+                    <li>PCOS</li>
+                    <li>Insulin resistance</li>
+                    <li>Perimenopause/menopause</li>
+                    <li>Certain medications (antidepressants, steroids, beta blockers)</li>
+                </ul>
+                <p>These require medical evaluation, not dietary extremes.</p>
+
+                <h2 id="sustainable-management">Sustainable weight management focuses on:</h2>
+                <ul>
+                    <li>Adequate protein intake</li>
+                    <li>Balanced carbohydrate intake</li>
+                    <li>Sufficient sleep</li>
+                    <li>Resistance training</li>
+                    <li>Stress reduction</li>
+                    <li>Consistency over perfection</li>
+                </ul>
+
+                <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+
+                <h3>Evidence-based references</h3>
+                <ul style="font-size: 0.9rem; color: var(--color-text-light);">
+                    <li>Hall et al., Lancet, 2019</li>
+                    <li>NIH Obesity Research</li>
+                    <li>Spiegel et al., Annals of Internal Medicine, 2004</li>
+                    <li>Turnbaugh et al., Nature, 2006</li>
+                    <li>Jensen et al., AHA/ACC/TOS Guidelines, 2014</li>
+                </ul>
+
+                <div
+                    style="margin-top: 40px; padding: 20px; background: #f8fafc; border-left: 4px solid var(--color-text-light); font-size: 0.85rem; color: var(--color-text-light);">
+                    <strong>Disclaimer:</strong> This content is for educational purposes and does not replace
+                    individualized medical care. Nutrition and digestive health recommendations should be personalized
+                    and discussed with a qualified healthcare provider.
+                </div>
+
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="post-sidebar">
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">All Articles</h3>
+                    <a href="resources.html"
+                        style="color: var(--color-primary); font-weight: bold; text-decoration: none;">&larr; Back to
+                        Hub</a>
+                </div>
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">Table of Contents</h3>
+                    <a href="#energy-balance" class="toc-link">1. Energy Balance</a>
+                    <a href="#sleep-stress" class="toc-link">2. Sleep & Stress</a>
+                    <a href="#microbiome" class="toc-link">3. Microbiome Reality</a>
+                    <a href="#medical-factors" class="toc-link">4. Medical Factors</a>
+                    <a href="#sustainable-management" class="toc-link">Sustainable Steps</a>
+                </div>
+
+                <div class="sidebar-widget cta-box">
+                    <h3 style="color: white; margin-bottom: 10px;">Stuck Plateau?</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">Let’s look at the full picture of your physiology.
+                    </p>
+                    <a href="weight-management.html" class="cta-btn">Book Discovery Call</a>
+                </div>
+            </aside>
+
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <div style="margin-bottom: 20px;">
+                <a href="index.html" class="footer-nav-link">Home</a>
+                <a href="resources.html" class="footer-nav-link">All Articles</a>
+                <a href="mailto:foodasmedicine@guttienutrition.com" class="footer-nav-link">Contact</a>
+            </div>
+            <p>&copy; 2025 Guttie Nutrition.</p>
+
+            <div
+                style="font-size: 0.75rem; opacity: 0.6; margin-top: 30px; max-width: 900px; margin-left: auto; margin-right: auto; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 20px; color: var(--color-text);">
+                <p style="margin-bottom: 10px;"><strong>FDA Disclaimer:</strong> These statements have not been
+                    evaluated by the Food and Drug Administration. This service is not intended to diagnose, treat,
+                    cure, or prevent any disease.</p>
+                <p><strong>Medical Disclaimer:</strong> The information provided on this website is for educational and
+                    informational
+                    purposes only and does not constitute medical advice, diagnosis, or treatment. Use of this site does
+                    not
+                    establish a patient-provider relationship. Always seek the advice of
+                    your physician or other qualified health provider with any questions you may have regarding a
+                    medical
+                    condition.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="main.js"></script>
+
+</body>
+
+</html>

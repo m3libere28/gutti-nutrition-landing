@@ -1,0 +1,121 @@
+/* Subscription Card */
+.subscription-card {
+    background: linear-gradient(135deg, #2b32b2 0%, #1488cc 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 20px rgba(20, 136, 204, 0.3);
+}
+
+.sub-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.plan-badge {
+    background: #FFD700;
+    color: #333;
+    font-weight: 800;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    margin-right: 15px;
+}
+
+.plan-info h4 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.plan-info p {
+    margin: 0;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.feature-list {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.feature {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+}
+
+.manage-btn {
+    width: 100%;
+    background: white;
+    color: #1488cc;
+    border: none;
+    padding: 10px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* Settings Toggle */
+.settings-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+}
+
+.setting-left {
+    display: flex;
+    align-items: center;
+}
+
+.setting-icon {
+    font-size: 1.2rem;
+    margin-right: 15px;
+    width: 25px;
+    text-align: center;
+}
+
+.setting-label {
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: 0.95rem;
+}
+
+.toggle-switch {
+    width: 44px;
+    height: 24px;
+    background: #cbd5e1;
+    border-radius: 20px;
+    position: relative;
+    transition: background 0.3s;
+}
+
+.toggle-switch.on {
+    background: var(--color-primary);
+}
+
+.toggle-handle {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-switch.on .toggle-handle {
+    transform: translateX(20px);
+}

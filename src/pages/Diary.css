@@ -1,0 +1,135 @@
+.date-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    color: var(--color-text);
+}
+
+.nav-arrow {
+    font-size: 1.5rem;
+    padding: 0 15px;
+    color: #94a3b8;
+}
+
+.current-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+}
+
+.day {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.full-date {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.summary-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, #fff 0%, #f0f7ff 100%);
+}
+
+.macro-ring {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 6px solid #e2e8f0;
+    border-top-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.cals-rem {
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: var(--color-text);
+}
+
+.cals-label {
+    font-size: 0.7rem;
+    color: #64748b;
+}
+
+.macros-row {
+    display: flex;
+    gap: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.dot.pro {
+    background: #4caf50;
+}
+
+.dot.carb {
+    background: #ff9800;
+}
+
+.dot.fat {
+    background: #f44336;
+}
+
+.meal-card {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.meal-card:active {
+    transform: scale(0.98);
+}
+
+.meal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.meal-header h4 {
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.add-btn-mini {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}
+
+.empty-state {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    font-style: italic;
+}

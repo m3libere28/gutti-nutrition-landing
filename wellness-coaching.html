@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Coaching & Nutrition Counseling Florida | Guttie Nutrition</title>
+    <meta name="description"
+        content="Personalized wellness coaching to filter out the noise. Real science, tailored to your body. Book your strategy session today.">
+    <link rel="icon" type="image/png" href="assets/favicon.png?v=3">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Outfit Font for Premium Feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="navbar_v2.css?v=force_refresh_6">
+
+    <style>
+        /* --- CSS VARIABLES (Inherited + New Premium Palette) --- */
+        :root {
+            --color-primary: #5A8DEE;
+            --color-primary-dark: #3F72D3;
+            --color-secondary: #89D934;
+            --color-text: #2C3E50;
+            --color-text-light: #64748B;
+            --color-bg: #F8FAFC;
+            --color-surface: #FFFFFF;
+
+            /* --- BRAND COLORS (Guttie Core) --- */
+            /* Reverting to core brand identity as requested */
+            --color-primary: #5A8DEE;
+            /* Standard Blue */
+            --color-primary-dark: #3F72D3;
+            --color-secondary: #89D934;
+            /* Standard Green */
+            --color-secondary-light: #E9F7D9;
+            --color-earth: #8B7355;
+            /* Potato Brown */
+
+            --color-text: #2C3E50;
+            --color-text-light: #64748B;
+            --color-bg: #F8FAFC;
+            --color-surface: #FFFFFF;
+
+            /* Mapping previously used vars to Brand Colors for layout compatibility */
+            --color-sage: var(--color-secondary);
+            --color-blush: #FFF5F7;
+            /* Keeping a subtle pink for the 'Baby Shower' vibe IF needed, or use secondary-light */
+            --color-stone: var(--color-bg);
+            --color-charcoal: var(--color-primary-dark);
+
+            --font-heading: 'Fredoka', sans-serif;
+            --font-body: 'Quicksand', sans-serif;
+            --font-premium: 'Fredoka', sans-serif;
+            /* Reverting Premium font to Brand font */
+
+            --container-width: 1200px;
+            --section-padding: 100px;
+            --radius-xl: 32px;
+        }
+
+        /* --- RESET & BASE --- */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            /* Critical for mobile to prevent side-scroll */
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading);
+            color: var(--color-text);
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+
+
+
+
+
+
+        /* --- HERO SECTION (Adjusted for Fixed Nav) --- */
+        .hero {
+            position: relative;
+            height: 90vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            margin-bottom: var(--section-padding);
+            margin-top: 0;
+            /* Index has padding-top 80px, but this hero is full screen. */
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Filter for brand integration */
+            filter: brightness(0.9);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Darker overlay for White Text readability */
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            color: white;
+            /* Explicitly White */
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            font-weight: 500;
+            opacity: 0.95;
+            color: white;
+            /* Explicitly White */
+        }
+
+
+
+        /* --- SECTION 1: EMPATHY HOOK --- */
+        .section-empathy {
+            padding: var(--section-padding) 0;
+            background: var(--color-surface);
+            text-align: center;
+        }
+
+        .empathy-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-family: var(--font-premium);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-text-light);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--color-secondary);
+            padding-bottom: 5px;
+        }
+
+        .empathy-title {
+            font-size: 2.5rem;
+            color: var(--color-charcoal);
+            margin-bottom: 30px;
+        }
+
+        .empathy-text {
+            font-size: 1.15rem;
+            color: var(--color-text-light);
+            margin-bottom: 20px;
+        }
+
+        /* --- SECTION 2: THE REALITY (2-Col Grid) --- */
+        .section-reality {
+            padding: var(--section-padding) 0;
+            background: var(--color-secondary-light);
+            /* Switching to Brand Light Green */
+        }
+
+        .reality-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.25fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .reality-intro h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--color-charcoal);
+        }
+
+        .reality-intro p {
+            font-size: 1.1rem;
+            color: var(--color-text);
+        }
+
+        .reality-cards {
+            display: grid;
+            gap: 25px;
+        }
+
+        .reality-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius-xl);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease;
+            border-left: 5px solid var(--color-primary);
+        }
+
+        .reality-card:hover {
+            transform: translateX(10px);
+        }
+
+        .reality-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-number {
+            background: var(--color-primary-light);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .reality-card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .reality-card ul li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .reality-card ul li::before {
+            content: "•";
+            color: var(--color-secondary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Trimester list specific styling */
+        .trimester-list dt {
+            font-weight: 700;
+            font-family: var(--font-heading);
+            color: var(--color-secondary);
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
+        .trimester-list dd {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+
+        /* --- SECTION 3: CONCIERGE (3-Col Icons) --- */
+        .section-concierge {
+            padding: var(--section-padding) 0;
+            background: white;
+        }
+
+        .concierge-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .concierge-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-item {
+            background: var(--color-bg);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: left;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            background: white;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            /* Removed background clip to fix emoji visibility on Windows */
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-item p {
+            color: var(--color-text-light);
+            font-size: 1rem;
+        }
+
+        .feature-number {
+            position: absolute;
+            top: 20px;
+            top: 20px;
+            right: 20px;
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(137, 217, 52, 0.25);
+            /* Light Green Watermark */
+            font-family: var(--font-premium);
+        }
+
+        /* --- SECTION 4: SCIENCE (List) --- */
+        .section-science {
+            padding: 80px 0;
+            background: var(--color-primary-dark);
+            /* Brand Blue */
+            color: white;
+        }
+
+        .science-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .science-text h2 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .science-text p {
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+
+        .resource-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .resource-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: background 0.3s;
+        }
+
+        .resource-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .resource-icon {
+            font-size: 1.5rem;
+        }
+
+        .resource-info h4 {
+            font-size: 1.1rem;
+            color: var(--color-secondary);
+            margin-bottom: 5px;
+        }
+
+        .resource-info p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 2px;
+        }
+
+        .source-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        /* --- FINAL CTA --- */
+        .final-cta {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            position: relative;
+        }
+
+        /* --- FOOTER & MODAL --- */
+        footer {
+            background: #121a22;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-nav-link {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-nav-link:hover {
+            opacity: 1;
+            color: var(--color-secondary);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 40px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 12px;
+            position: relative;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .close-btn,
+        .close-btn-terms {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover,
+        .close-btn-terms:hover {
+            color: #000;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsiveness */
+        /* Responsiveness & Mobile Optimization */
+        /* Responsiveness & Mobile Optimization */
+        @media (max-width: 900px) {
+            :root {
+                --section-padding: 60px;
+                /* Reducing padding for mobile */
+            }
+
+            /* Stack Reality Section (Left Text over Right Cards) */
+            .reality-grid {
+                grid-template-columns: 1fr !important;
+                gap: 40px;
+            }
+
+            .reality-left.sticky-content {
+                position: static !important;
+                /* Disable sticky on mobile */
+                margin-bottom: 20px;
+            }
+
+            /* Stack Difference Grid (Icons) */
+            .difference-grid {
+                grid-template-columns: 1fr !important;
+                gap: 40px;
+            }
+
+            /* Stack Citations */
+            .citation-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Typography Adjustments */
+            .hero h1 {
+                font-size: 2.5rem !important;
+            }
+
+            .hero p {
+                font-size: 1.1rem !important;
+                padding: 0 10px;
+            }
+
+            .section-header h2 {
+                font-size: 2rem !important;
+            }
+
+            /* Ensure container doesn't overflow */
+            .container {
+                padding: 0 20px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-content container">
+            <a href="index.html" class="brand">
+                <img src="assets/logo.png" alt="Guttie Nutrition Logo" class="brand-logo">
+                <div>Guttie<span>Nutrition</span></div>
+            </a>
+            <div class="desktop-only nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="nav-link active">Services <span style="font-size: 0.8em;">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="weight-management.html" class="dropdown-item">Weight Loss</a>
+                        <a href="gut-health.html" class="dropdown-item">Gut Health</a>
+                        <a href="raising-confident-eaters.html" class="dropdown-item">Picky Eaters</a>
+                        <a href="maternity-care.html" class="dropdown-item">Maternity Care</a>
+                        <a href="wellness-coaching.html" class="dropdown-item">Wellness Coaching</a>
+                        <a href="resources.html" class="dropdown-item">Resources</a>
+
+                    </div>
+                </div>
+                <a href="resources.html" class="nav-link">Resources</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="weight-management.html" class="mobile-nav-link">Weight Loss</a>
+        <a href="gut-health.html" class="mobile-nav-link">Gut Health</a>
+        <a href="raising-confident-eaters.html" class="mobile-nav-link">Picky Eaters</a>
+        <a href="maternity-care.html" class="mobile-nav-link">Maternity Care</a>
+        <a href="wellness-coaching.html" class="mobile-nav-link active">Wellness Coaching</a>
+        <a href="resources.html" class="mobile-nav-link">Resources</a>
+
+
+    </div>
+
+
+    <!-- HERO SECTION -->
+    <header class="hero"
+        style="min-height: 80vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+
+        <!-- Video Background -->
+        <video autoplay muted loop playsinline class="hero-video"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+            <!-- PLACEHOLDER: Replace 'assets/wellness_hero.mp4' with your actual video file -->
+            <source src="assets/wellness_hero.mp4" type="video/mp4">
+        </video>
+
+        <!-- Dark Overlay (Adjust opacity to make text readable) -->
+        <div class="hero-overlay"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1;">
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2; text-align: center;">
+            <div class="reveal">
+                <h1 style="font-size: 3.5rem; margin-bottom: 20px; letter-spacing: -1px; color: white;">Your Personal
+                    Filter for <br><span style="color: var(--color-primary-light);">Nutrition Noise.</span></h1>
+                <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto 40px; color: rgba(255,255,255,0.95);">
+                    Real science, tailored to you. No trends, no fear-mongering.
+                </p>
+                <a href="mailto:foodasmedicine@guttienutrition.com" class="btn btn-primary btn-liquid">Book Your
+                    Strategy
+                    Session</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION 1: EMPATHY HOOK (Clearing the Fog) -->
+    <section class="section" style="background: white; padding: 120px 0;">
+        <div class="container" style="max-width: 800px; text-align: center;">
+            <div class="reveal">
+                <span class="section-tag"
+                    style="background: #ebf8ff; color: var(--color-primary-dark); padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; display: inline-block; margin-bottom: 20px;">The
+                    Problem</span>
+                <h2 style="font-size: 2.5rem; margin-bottom: 30px; color: var(--color-primary-dark);">Overwhelmed by the
+                    <span style="color: var(--color-secondary);">"Wellness" Industry?</span>
+                </h2>
+                <p style="font-size: 1.1rem; color: var(--color-text-light); margin-bottom: 20px;">
+                    You are smart and motivated. You want to be healthy. But every time you open Instagram, a new
+                    influencer tells you to fear a different food. One documentary says "Go Vegan," the next says
+                    "Carnivore is Key."
+                </p>
+                <div
+                    style="height: 2px; width: 100px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); margin: 40px auto;">
+                </div>
+                <h3 style="font-size: 1.5rem; color: var(--color-secondary);">
+                    You don't need more information. You need the <span
+                        style="color: var(--color-secondary); font-weight: 700;">right information</span> for your
+                    unique
+                    body.
+                </h3>
+                <p style="margin-top: 20px; font-weight: 500;">It is time to stop outsourcing your health to algorithms
+                    and start trusting science.</p>
+                <img src="assets/wellness_guttie_selfie.png" alt="Wellness Coaching for Nutrition & Lifestyle Balance"
+                    style="max-width: 180px; display: block; margin: 30px auto 0; mix-blend-mode: multiply; opacity: 0.9;">
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: THE REALITY (Sticky Layout) -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <div class="reality-grid"
+                style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: start;">
+
+                <!-- Sticky Left Text -->
+                <div class="reality-left sticky-content" style="position: sticky; top: 120px;">
+                    <span class="section-tag" style="color: var(--color-secondary);">Bio-Individuality</span>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: var(--color-primary-dark);">Why Generic
+                        Advice Fails.</h2>
+                    <p style="font-size: 1.1rem; color: var(--color-text-light); margin-bottom: 30px;">
+                        The "Perfect Diet" does not exist because Bio-Individuality is real. What works for a
+                        20-year-old male fitness influencer may wreck the hormones of a 35-year-old woman.
+                    </p>
+                    <div
+                        style="background: white; padding: 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-left: 4px solid var(--color-secondary);">
+                        <p style="font-weight: 600;">We move beyond "Good vs. Bad" food labels.</p>
+                    </div>
+                    <img src="assets/wellness_guttie_phone.png" alt="Confused about Nutrition Trends? Guttie Can Help"
+                        style="display: block; margin: 40px auto 0; max-width: 220px; mix-blend-mode: multiply;">
+                </div>
+
+                <!-- Scrolling Right Cards -->
+                <div class="reality-right">
+
+                    <!-- Card 1 -->
+                    <div class="feature-card reveal"
+                        style="background: white; padding: 40px; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.03);">
+                        <div class="icon-circle"
+                            style="width: 60px; height: 60px; background: #e6fffa; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 1.5rem;">
+                            🛡️</div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--color-primary-dark);">1. Safety
+                            First: The Supplement Audit</h3>
+                        <p style="margin-bottom: 15px; color: var(--color-text-light);">
+                            The supplement industry is unregulated, and "natural" does not mean safe. Unregulated herbal
+                            supplements are a leading cause of drug-induced liver injury. We review your entire stack to
+                            ensure:
+                        </p>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 8px;">✅ <strong>Safety:</strong> No interactions with your
+                                medications.</li>
+                            <li style="margin-bottom: 8px;">✅ <strong>Efficacy:</strong> You stop paying for expensive
+                                urine.</li>
+                            <li>✅ <strong>Purity:</strong> We recommend only third-party tested options.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="feature-card reveal"
+                        style="background: white; padding: 40px; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.03);">
+                        <div class="icon-circle"
+                            style="width: 60px; height: 60px; background: #ebf8ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 1.5rem;">
+                            🧠</div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--color-primary-dark);">2. The
+                            Psychology of "Clean Eating"</h3>
+                        <p style="margin-bottom: 15px; color: var(--color-text-light);">
+                            Obsessing over "purity" can lead to Orthorexia Nervosa. We dismantle the "Good Food vs. Bad
+                            Food" binary.
+                        </p>
+                        <div style="background: var(--color-bg); padding: 15px; border-radius: 10px;">
+                            <p><strong>The Goal:</strong> Food Confidence.</p>
+                            <p style="margin-top: 5px;"><strong>The Result:</strong> Eating a salad because it fuels
+                                you, and a cookie because it brings you joy—without a side of guilt.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="feature-card reveal"
+                        style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.03);">
+                        <div class="icon-circle"
+                            style="width: 60px; height: 60px; background: #fff5f7; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 1.5rem;">
+                            ⚡</div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--color-primary-dark);">3.
+                            Bio-Individual Glycemic Response</h3>
+                        <p style="color: var(--color-text-light);">
+                            Research shows that two people can eat the exact same food (like a banana) and have
+                            radically different blood sugar responses. We move beyond generic "Glycemic Index" charts
+                            and look at how <strong>your</strong> body handles fuel.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: THE PRIVATE PRACTICE DIFFERENCE (3-Column Icons) -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 60px;">
+                <span class="section-tag" style="color: var(--color-primary);">Objectivity & Lifestyle</span>
+                <h2 style="font-size: 2.5rem; color: var(--color-secondary);">High-Level Consulting for Your Health.
+                </h2>
+            </div>
+
+            <div class="difference-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
+                <!-- Item 1 -->
+                <div class="reveal diff-item" style="text-align: center;">
+                    <div
+                        style="font-size: 3rem; margin-bottom: 20px; opacity: 0.2; font-weight: 700; color: var(--color-primary);">
+                        01</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--color-primary-dark);">Unbiased
+                        Expertise</h3>
+                    <p style="font-size: 0.95rem; color: var(--color-text-light);">
+                        I work for you, not an insurance company or a supplement brand. I do not have a quota to fill or
+                        a product to push. My only metric for success is your long-term vitality.
+                    </p>
+                </div>
+                <!-- Item 2 -->
+                <div class="reveal diff-item" style="text-align: center; transition-delay: 0.2s;">
+                    <div
+                        style="font-size: 3rem; margin-bottom: 20px; opacity: 0.2; font-weight: 700; color: var(--color-primary);">
+                        02</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--color-primary-dark);">Lifestyle
+                        Integration</h3>
+                    <p style="font-size: 0.95rem; color: var(--color-text-light);">
+                        We build a plan that fits your career, travel, and social life. If a diet requires Tupperware at
+                        a wedding, it’s not a lifestyle; it’s a "diet prison." We build flexibility into the foundation.
+                    </p>
+                </div>
+                <!-- Item 3 -->
+                <div class="reveal diff-item" style="text-align: center; transition-delay: 0.4s;">
+                    <div
+                        style="font-size: 3rem; margin-bottom: 20px; opacity: 0.2; font-weight: 700; color: var(--color-primary);">
+                        03</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--color-primary-dark);">Media Literacy
+                        Training</h3>
+                    <p style="font-size: 0.95rem; color: var(--color-text-light);">
+                        I teach you how to spot a fad. You will learn to look at a headline and ask, "Is this a clinical
+                        study, or is this marketing?" empowering you to navigate the grocery store with confidence.
+                    </p>
+                    <img src="assets/wellness_guttie_mic.png" alt="Evidence-Based Nutrition Advice You Can Trust"
+                        style="max-width: 150px; margin-top: 20px; mix-blend-mode: multiply;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: TRUST THE SCIENCE (Resources) -->
+    <section class="section" style="background: #f1f5f9; padding: 100px 0;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <span class="section-tag"
+                    style="background: white; border: 1px solid #e2e8f0; padding: 8px 20px; border-radius: 30px;">Validated
+                    by Clinical Research</span>
+                <h2 style="margin-top: 20px; color: var(--color-primary-dark);">We don't follow trends. We follow data.
+                </h2>
+            </div>
+
+            <div class="citation-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+
+                <!-- Citation 1 -->
+                <div class="reveal citation-card"
+                    style="background: white; padding: 30px; border-radius: 12px; border-left: 4px solid var(--color-secondary); box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+                        <span
+                            style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-text-light);">Bio-Individuality</span>
+                        <span style="font-size: 1.2rem;">📄</span>
+                    </div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 10px; color: var(--color-primary-dark);">"Personalized
+                        Nutrition by Prediction of
+                        Glycemic Responses"</h3>
+                    <p
+                        style="font-size: 0.85rem; color: var(--color-primary); font-family: monospace; margin-bottom: 15px;">
+                        Source: Cell (Peer-Reviewed Journal)</p>
+                    <p style="font-size: 0.9rem; margin-bottom: 20px;"><strong>The Science:</strong> This landmark study
+                        proved that
+                        individual responses to food vary wildly based on the microbiome, debunking the
+                        "one-size-fits-all" diet approach.</p>
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/26590418/" target="_blank"
+                        style="color: var(--color-primary-dark); font-weight: 700; font-size: 0.9rem; text-decoration: none; border-bottom: 2px solid rgba(90, 141, 238, 0.2);">Read
+                        the Study &rarr;</a>
+                </div>
+
+                <!-- Citation 2 -->
+                <div class="reveal citation-card"
+                    style="background: white; padding: 30px; border-radius: 12px; border-left: 4px solid var(--color-secondary); box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition-delay: 0.1s;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+                        <span
+                            style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-text-light);">Supplement
+                            Safety</span>
+                        <span style="font-size: 1.2rem;">📄</span>
+                    </div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 10px; color: var(--color-primary-dark);">"Herbal and
+                        Dietary Supplement-Induced Liver
+                        Injury"</h3>
+                    <p
+                        style="font-size: 0.85rem; color: var(--color-primary); font-family: monospace; margin-bottom: 15px;">
+                        Source: Clinical Liver Disease (NCBI)</p>
+                    <p style="font-size: 0.9rem; margin-bottom: 20px;"><strong>The Science:</strong> Highlights the real
+                        risks of unregulated
+                        supplements and the importance of professional guidance.</p>
+                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5446109/" target="_blank"
+                        style="color: var(--color-primary-dark); font-weight: 700; font-size: 0.9rem; text-decoration: none; border-bottom: 2px solid rgba(90, 141, 238, 0.2);">Read
+                        the Study &rarr;</a>
+                </div>
+
+                <!-- Citation 3 -->
+                <div class="reveal citation-card"
+                    style="background: white; padding: 30px; border-radius: 12px; border-left: 4px solid var(--color-secondary); box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition-delay: 0.2s;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+                        <span
+                            style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-text-light);">Psychology</span>
+                        <span style="font-size: 1.2rem;">📄</span>
+                    </div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 10px; color: var(--color-primary-dark);">"Orthorexia
+                        Nervosa: A Review of Psychosocial
+                        Risk Factors"</h3>
+                    <p
+                        style="font-size: 0.85rem; color: var(--color-primary); font-family: monospace; margin-bottom: 15px;">
+                        Source: Appetite (NCBI)</p>
+                    <p style="font-size: 0.9rem; margin-bottom: 20px;"><strong>The Science:</strong> Validates that
+                        rigid "clean eating"
+                        rules can lead to social isolation and anxiety, supporting our balanced approach.</p>
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/31352144/" target="_blank"
+                        style="color: var(--color-primary-dark); font-weight: 700; font-size: 0.9rem; text-decoration: none; border-bottom: 2px solid rgba(90, 141, 238, 0.2);">Read
+                        the Study &rarr;</a>
+                </div>
+
+                <!-- Citation 4 -->
+                <div class="reveal citation-card"
+                    style="background: white; padding: 30px; border-radius: 12px; border-left: 4px solid #ff4757; box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition-delay: 0.3s;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+                        <span
+                            style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-text-light);">Recommended
+                            Watch</span>
+                        <span style="font-size: 1.2rem;">📺</span>
+                    </div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 10px; color: var(--color-primary-dark);">"Is the
+                        obesity crisis hiding a bigger problem?"
+                    </h3>
+                    <p
+                        style="font-size: 0.85rem; color: var(--color-primary); font-family: monospace; margin-bottom: 15px;">
+                        Source: Dr. Peter Attia / TED</p>
+                    <p style="font-size: 0.9rem; margin-bottom: 20px;"><strong>The Science:</strong> An expert breakdown
+                        of why headlines are
+                        often misleading and why mechanistic science matters more than observational studies.</p>
+                    <a href="https://www.ted.com/talks/peter_attia_is_the_obesity_crisis_hiding_a_bigger_problem"
+                        target="_blank"
+                        style="color: var(--color-primary-dark); font-weight: 700; font-size: 0.9rem; text-decoration: none; border-bottom: 2px solid rgba(90, 141, 238, 0.2);">Watch
+                        TED Talk &rarr;</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: FINAL CALL TO ACTION -->
+    <section class="final-cta"
+        style="background: var(--color-primary-dark); color: white; padding: 80px 0; text-align: center;">
+        <div class="container">
+            <h2 style="font-size: 3rem; margin-bottom: 20px; color: var(--color-secondary);">Stop Guessing. Start
+                Knowing.</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 40px; opacity: 0.9;">Your health is your most valuable asset.
+                Stop gambling it on trends.</p>
+            <a href="mailto:foodasmedicine@guttienutrition.com" class="btn btn-green btn-pulse btn-liquid"
+                style="padding: 18px 40px; font-weight: 700;">Book
+                Your Strategy Session</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <h3 style="color: white; margin-bottom: 10px;">Guttie Nutrition</h3>
+            <p style="opacity: 0.8; margin-bottom: 20px; font-size: 0.9rem;">
+                <span style="color: var(--color-primary);">Licensed Dietitian Nutritionist (LDN) – Florida</span> <br>
+                STATE OF FLORIDA DEPARTMENT OF HEALTH
+            </p>
+            <div class="footer-links"
+                style="display: flex; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; font-size: 0.9rem;">
+                <a href="index.html" class="footer-nav-link">Home</a>
+                <a href="weight-management.html" class="footer-nav-link">Weight Loss</a>
+                <a href="gut-health.html" class="footer-nav-link">Gut Health</a>
+                <a href="raising-confident-eaters.html" class="footer-nav-link">Picky Eaters</a>
+                <a href="maternity-care.html" class="footer-nav-link">Maternity Care</a>
+
+                <a href="wellness-coaching.html" class="footer-nav-link">Wellness Coaching</a>
+                <a href="mailto:foodasmedicine@guttienutrition.com" class="footer-nav-link">Contact Us</a>
+                <a href="https://my.practicebetter.io/" class="footer-nav-link" target="_blank"
+                    rel="noopener noreferrer">Client Portal</a>
+            </div>
+            <p style="opacity: 0.6; font-size: 0.9rem; margin-bottom: 10px;">Proudly serving Fort Lauderdale, Miami, and
+                South Florida.</p>
+            <p style="opacity: 0.4; font-size: 0.8rem;">
+                &copy; 2025 Con Amor Marketing LLC. All Rights Reserved. | <a href="#" id="privacy-link"
+                    style="color: rgba(255,255,255,0.6); text-decoration: none;">Privacy Policy</a> | <a href="#"
+                    id="terms-link" style="color: rgba(255,255,255,0.6); text-decoration: none;">Terms of Service</a>
+            </p>
+        </div>
+        <div
+            style="font-size: 0.75rem; opacity: 0.6; margin-top: 30px; max-width: 900px; margin-left: auto; margin-right: auto; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+            <p><strong>Disclaimer:</strong> Guttie Nutrition provides nutritional information for educational purposes
+                only. This is not medical advice and does not create a practitioner-client relationship. Consult a
+                physician before making any changes to your diet or health regimen. <a href="#"
+                    id="disclaimer-link-footer" style="color: inherit; text-decoration: underline;">Read Full
+                    Disclaimer</a></p>
+        </div>
+
+    </footer>
+
+
+    <!-- MODALS (TERMS + PRIVACY) -->
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="modal">
+        <div class="modal-content">
+            <span class="btn btn-liquid close-btn">&times;</span>
+            <div class="modal-body">
+                <h2>PRIVACY POLICY</h2>
+                <p><strong>Last Updated: 12/10/2025</strong></p>
+                <h3>1. Introduction</h3>
+                <p>Welcome to www.guttienutrition.com (the "Site"). We are committed to protecting your personal
+                    information and your right to privacy.</p>
+                <p>If you have questions, please contact us at foodasmedicine@guttienutrition.com.</p>
+                <!-- Truncated placeholder for brevity given standardized content -->
+                <p>[Standard Privacy Policy Content as seen on Index page...]</p>
+                <p><em>(Please refer to the detailed policy on the main page for full legal text)</em></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-modal" class="modal">
+        <div class="modal-content">
+            <span class="btn btn-liquid close-btn-terms close-btn">&times;</span>
+            <div class="modal-body">
+                <h2>TERMS AND CONDITIONS</h2>
+                <p><strong>Last Updated: 12/10/2025</strong></p>
+                <h3>1. Agreement to Terms</h3>
+                <p>These Terms and Conditions constitute a legally binding agreement made between you and Con Amor
+                    Marketing LLC.</p>
+                <p>[Standard Terms Content as seen on Index page...]</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Fade In Animation for Header
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent) {
+                heroContent.style.opacity = 0;
+                setTimeout(() => {
+                    heroContent.style.opacity = 1;
+                    heroContent.style.transform = 'translateY(0)';
+                }, 300);
+            }
+        });
+    </script>
+
+
+
+    <!-- Medical Disclaimer Modal -->
+    <div id="disclaimer-modal" class="modal">
+        <div class="modal-content">
+            <span class="btn btn-liquid close-btn-disclaimer close-btn">&times;</span>
+            <div class="modal-body">
+                <h2>WEBSITE MEDICAL DISCLAIMER</h2>
+                <p><strong>Last Updated: 12/17/2025</strong></p>
+
+                <h3>1. For Informational Purposes Only</h3>
+                <p>The content on Guttie Nutrition (www.guttienutrition.com), including text, graphics, images, and
+                    other material, is for informational and educational purposes only. None of the content on this site
+                    is intended to be a substitute for professional medical advice, diagnosis, or treatment.</p>
+
+                <h3>2. No Practitioner-Client Relationship</h3>
+                <p>Accessing, reading, or interacting with this website does not create a dietitian-client relationship
+                    between you and Guttie Nutrition. Such a relationship is only established after a formal intake
+                    process and a signed joinder of services/agreement has been executed.</p>
+
+                <h3>3. Not Medical Advice</h3>
+                <p>While Emily Torres-Medaglia is a Registered Dietitian Nutritionist (RDN) and Licensed Dietitian
+                    Nutritionist (LDN), the information provided on this site is not tailored to your specific health
+                    needs. Always seek the advice of your physician or another qualified health provider with any
+                    questions you may have regarding a medical condition. Never disregard professional medical advice or
+                    delay in seeking it because of something you have read on this website.</p>
+
+                <h3>4. Scope of Practice</h3>
+                <p>Our services focus on nutritional support, lifestyle adjustments, and wellness coaching. We do not
+                    "diagnose," "treat," or "cure" medical diseases or psychological disorders. If you are experiencing
+                    a medical emergency, please call your local emergency services or 911 immediately.</p>
+
+                <h3>5. Personal Responsibility & Results</h3>
+                <p>By using this website, you acknowledge that you are participating voluntarily in using our website
+                    and that you are solely and personally responsible for your choices, actions, and results, now and
+                    in the future. There is no guarantee that you will attain a particular result or health outcome.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- GLOBAL SCRIPTS -->
+
+
+
+
+    <!-- GLOBAL SCRIPTS -->
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>

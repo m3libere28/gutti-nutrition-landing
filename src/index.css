@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+/* Adding Fredoka for "Fun" headings */
+
+:root {
+  /* Brand Colors - Adjusted for vibrancy */
+  --color-primary: #5A8DEE;
+  /* Royal Blue */
+  --color-primary-dark: #3F72D3;
+  --color-primary-glow: rgba(90, 141, 238, 0.5);
+  /* Diffuse Glow */
+
+  --color-accent: #89D934;
+  /* Fresh Lime */
+  --color-accent-dark: #76bd2d;
+  --color-accent-glow: rgba(137, 217, 52, 0.5);
+
+  --color-text: #2c3e50;
+  --color-text-light: #64748b;
+  --color-bg: #f8fafc;
+
+  /* Premium Gradients */
+  --gradient-soft: radial-gradient(circle at top left, #f8fafc, #eef2f6);
+  --gradient-primary: linear-gradient(135deg, #5A8DEE 0%, #7B61FF 100%);
+  /* Blue to Purple */
+  --gradient-accent: linear-gradient(135deg, #89D934 0%, #00b894 100%);
+  /* Lime to Teal */
+  --gradient-glass-border: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+
+  /* Fonts */
+  --font-main: 'Quicksand', sans-serif;
+  --font-heading: 'Fredoka', sans-serif;
+
+  /* Deluxe Shadows (Colored & Diffuse) */
+  --shadow-sm: 0 2px 8px rgba(90, 141, 238, 0.15);
+  --shadow-card: 0 10px 30px -10px rgba(90, 141, 238, 0.2);
+  --shadow-float: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 20px var(--color-primary-glow);
+
+  /* Premium Glass 2.0 */
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-blur: blur(20px);
+  --glass-saturate: saturate(180%);
+
+  /* Radius */
+  --radius-full: 9999px;
+  --radius-lg: 24px;
+  /* Softened from 20px */
+  --radius-xl: 32px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--gradient-soft);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  /* Tighter headings */
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Bouncy click */
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* Premium Utilities */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur) var(--glass-saturate);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.9);
+  /* Top light source */
+  border-left: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-lg);
+}

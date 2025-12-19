@@ -1,0 +1,87 @@
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+    overflow: hidden;
+}
+
+.loading-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Correct Video Styles */
+.splash-video {
+    /* Increased by ~15% again (70% -> 85%) */
+    width: 85%;
+    max-width: 1000px;
+    height: auto;
+
+    /* Center it naturally in the flex container */
+    display: block;
+    position: relative;
+
+    /* Use cover and slight scale to ensure no black lines are visible */
+    object-fit: cover;
+    /* Lift it up 10% to center it better visually (optical center vs geometric center) */
+    transform: scale(1.02) translateY(-10%);
+
+    border-radius: 20px;
+
+    /* Seamless white border */
+    background-color: #ffffff;
+    border: 10px solid #ffffff;
+    box-shadow: 0 0 0 2px #ffffff;
+
+    /* Start invisible */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.splash-video.visible {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .splash-video {
+        width: 98%;
+        /* Practically full width on mobile */
+        max-width: 600px;
+    }
+}
+
+/* Fallback button (Tap to Enter) */
+.start-btn {
+    position: absolute;
+    z-index: 20;
+    padding: 15px 30px;
+    background: #FF5E62;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(255, 94, 98, 0.4);
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
