@@ -1,6 +1,12 @@
 // main.js - Global Logic (Mobile Menu, Modals)
 document.addEventListener('DOMContentLoaded', () => {
 
+    // 0. Splash Screen Logic (Session Check)
+    const splashScreen = document.getElementById('splash-screen');
+    if (sessionStorage.getItem('gutti_visited') === 'true') {
+        if (splashScreen) splashScreen.style.display = 'none';
+    }
+
     // 1. Mobile Menu Logic (Hamburger)
     const initMobileMenu = () => {
         const mobileBtn = document.getElementById('mobile-menu-btn');
