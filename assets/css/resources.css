@@ -253,9 +253,62 @@ body {
     box-shadow: 0 0 0 3px rgba(52, 96, 197, 0.1);
 }
 
-/* Mobile */
+/* Mobile Optimization */
 @media (max-width: 900px) {
+    .resource-header {
+        padding-top: 100px;
+        /* Reduced from 140px */
+        padding-bottom: 40px;
+    }
+
+    .hub-container {
+        padding: 0 20px;
+    }
+
+    /* Hero Split - Stacked */
     .hero-split {
         grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    /* Featured Card Mobile */
+    .featured-img-wrapper {
+        height: 250px;
+        /* Reduced height to save space */
+        margin-bottom: 20px;
+    }
+
+    .featured-title {
+        font-size: 1.8rem;
+        /* Scaled down from 2.5rem */
+    }
+
+    /* Sidebar Mobile Separator */
+    .sidebar {
+        border-top: 1px solid #E2E8F0;
+        padding-top: 30px;
+        margin-top: 10px;
+    }
+
+    .search-wrapper {
+        margin-bottom: 30px;
+        width: 100%;
+        max-width: none;
+    }
+
+    /* Grid Adjustments */
+    .content-section {
+        padding: 50px 0;
+    }
+
+    .resource-grid {
+        grid-template-columns: 1fr;
+        /* Full width cards on mobile for better touch targets */
+        gap: 20px;
+    }
+
+    .mini-img {
+        height: 200px;
+        /* Slightly larger image on mobile stack */
     }
 }
