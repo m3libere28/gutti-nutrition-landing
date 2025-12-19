@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guttie Nutrition Resources | Gut Health Blog & Recipes</title>
+    <meta name="description"
+        content="Expert nutrition advice, gut-friendly recipes, and weight loss tips from a Registered Dietitian. Explore our knowledge hub.">
+    <link rel="icon" type="image/png" href="assets/favicon.png?v=3">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="navbar_v2.css?v=dropdown_v3">
+
+    <style>
+        :root {
+            --color-primary: #5A8DEE;
+            --color-primary-light: #7B61FF;
+            --color-primary-dark: #3F72D3;
+            --color-secondary: #89D934;
+            --color-secondary-light: #E9F7D9;
+            --color-accent: #00b894;
+            --color-bg: #F8FAFC;
+            --color-surface: #FFFFFF;
+            --color-text: #2C3E50;
+            --color-text-light: #64748B;
+            --gradient-primary: linear-gradient(135deg, #5A8DEE 0%, #7B61FF 100%);
+            --font-heading: 'Fredoka', sans-serif;
+            --font-body: 'Quicksand', sans-serif;
+            --container-width: 1200px;
+            --radius-lg: 24px;
+            --shadow-card: 0 10px 30px -10px rgba(90, 141, 238, 0.15);
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero */
+        .page-header {
+            padding: 120px 0 60px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(90, 141, 238, 0.05) 0%, transparent 100%);
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--color-primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--color-text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Categories */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+            margin-top: 30px;
+        }
+
+        .category-btn {
+            padding: 10px 25px;
+            border-radius: 50px;
+            border: 2px solid var(--color-primary);
+            background: transparent;
+            color: var(--color-primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            text-decoration: none;
+        }
+
+        .category-btn.active,
+        .category-btn:hover {
+            background: var(--color-primary);
+            color: white;
+            box-shadow: 0 5px 15px rgba(90, 141, 238, 0.3);
+        }
+
+        /* Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            padding-bottom: 100px;
+        }
+
+        .blog-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -10px rgba(90, 141, 238, 0.2);
+        }
+
+        .card-img {
+            height: 220px;
+            background: #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .blog-card:hover .card-img img {
+            transform: scale(1.05);
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+            backdrop-filter: blur(5px);
+        }
+
+        .card-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-date {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-family: var(--font-heading);
+            color: var(--color-text);
+            line-height: 1.3;
+        }
+
+        .card-excerpt {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .read-more {
+            color: var(--color-primary);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .newsletter {
+            background: var(--color-primary-dark);
+            border-radius: 40px;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            margin: 50px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Footer (Dark Theme) */
+        footer {
+            background: #121a22;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-nav-link {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-nav-link:hover {
+            opacity: 1;
+            color: var(--color-secondary);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 40px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 12px;
+            position: relative;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            color: black;
+            text-align: left;
+        }
+
+        .close-btn,
+        .close-btn-terms {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover,
+        .close-btn-terms:hover {
+            color: #000;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-content container">
+            <a href="index.html" class="brand">
+                <img src="assets/logo.png" alt="Guttie Nutrition Logo" class="brand-logo">
+                <div>Guttie<span>Nutrition</span></div>
+            </a>
+            <div class="desktop-only nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="nav-link">Services <span style="font-size: 0.8em;">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="weight-management.html" class="dropdown-item">Weight Loss</a>
+                        <a href="gut-health.html" class="dropdown-item">Gut Health</a>
+                        <a href="raising-confident-eaters.html" class="dropdown-item">Picky Eaters</a>
+                        <a href="maternity-care.html" class="dropdown-item">Maternity Care</a>
+                        <a href="wellness-coaching.html" class="dropdown-item">Wellness Coaching</a>
+                    </div>
+                </div>
+                <a href="resources.html" class="nav-link active">Resources</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="weight-management.html" class="mobile-nav-link">Weight Loss</a>
+        <a href="gut-health.html" class="mobile-nav-link">Gut Health</a>
+        <a href="raising-confident-eaters.html" class="mobile-nav-link">Picky Eaters</a>
+        <a href="maternity-care.html" class="mobile-nav-link">Maternity Care</a>
+        <a href="wellness-coaching.html" class="mobile-nav-link">Wellness Coaching</a>
+        <a href="resources.html" class="mobile-nav-link active">Resources</a>
+    </div>
+
+
+    <header class="page-header container">
+        <h1>Nutrition Knowledge Hub</h1>
+        <p>Evidence-based insights, gut-friendly recipes, and practical tips to help you thrive.</p>
+
+        <div class="categories">
+            <button class="category-btn active">All</button>
+            <button class="category-btn">Gut Health</button>
+            <button class="category-btn">Weight Loss</button>
+            <button class="category-btn">Pediatric</button>
+            <button class="category-btn">Recipes</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="blog-grid">
+            <!-- Blog Post 1 -->
+            <a href="blog-template.html" class="blog-card">
+                <div class="card-img">
+                    <img src="assets/gut_headquarters.jpg" alt="Gut Health Guide">
+                    <span class="card-tag">Gut Health</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-date">December 15, 2025</div>
+                    <h3 class="card-title">5 Signs You Have SIBO (And What To Do About It)</h3>
+                    <p class="card-excerpt">Bloating after every meal? It might not just be "IBS". Learn the signs of
+                        Small Intestinal Bacterial Overgrowth.</p>
+                    <div class="read-more">Read Article →</div>
+                </div>
+            </a>
+
+            <!-- Blog Post 2 -->
+            <a href="#" class="blog-card">
+                <div class="card-img">
+                    <img src="assets/guttie_swimming.png"
+                        style="object-fit: contain; padding: 20px; background: #e0f2fe;" alt="Metabolism Myth">
+                    <span class="card-tag">Weight Loss</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-date">December 10, 2025</div>
+                    <h3 class="card-title">Why "Calories In, Calories Out" Is Failing You</h3>
+                    <p class="card-excerpt">Your metabolism isn't a calculator. Discover how hormones, stress, and gut
+                        health impact your weight.</p>
+                    <div class="read-more">Read Article →</div>
+                </div>
+            </a>
+
+            <!-- Blog Post 3 -->
+            <a href="#" class="blog-card">
+                <div class="card-img">
+                    <img src="assets/guttie_rope_white.png"
+                        style="object-fit: contain; padding: 20px; background: #fdf2f8;" alt="Picky Eating">
+                    <span class="card-tag">Pediatric</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-date">December 5, 2025</div>
+                    <h3 class="card-title">From "Yuck" to "Yum": Sensory Strategies for Picky Eaters</h3>
+                    <p class="card-excerpt">Is it behavior or sensory processing? How to expand your child's palate
+                        without the dinner table battles.</p>
+                    <div class="read-more">Read Article →</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="newsletter">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Join the Inner Circle</h2>
+            <p style="max-width: 600px; margin: 0 auto 30px; opacity: 0.9;">Weekly nutrition tips, exclusive recipes,
+                and gut health hacks delivered straight to your inbox.</p>
+            <form style="max-width: 400px; margin: 0 auto; display: flex; gap: 10px;">
+                <input type="email" placeholder="Your email address"
+                    style="flex: 1; padding: 15px 25px; border-radius: 50px; border: none; font-family: var(--font-body);">
+                <button type="submit"
+                    style="background: var(--color-secondary); color: var(--color-text); border: none; padding: 15px 30px; border-radius: 50px; cursor: pointer; font-weight: 700;">Subscribe</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <h3 style="color: white; margin-bottom: 10px;">Guttie Nutrition</h3>
+            <p style="opacity: 0.8; margin-bottom: 20px; font-size: 0.9rem;">
+                <span style="color: var(--color-primary);">Licensed Dietitian Nutritionist (LDN) – Florida</span> <br>
+                STATE OF FLORIDA DEPARTMENT OF HEALTH
+            </p>
+            <div class="footer-links"
+                style="display: flex; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; font-size: 0.9rem;">
+                <a href="index.html" class="footer-nav-link">Home</a>
+                <a href="weight-management.html" class="footer-nav-link">Weight Loss</a>
+                <a href="gut-health.html" class="footer-nav-link">Gut Health</a>
+                <a href="raising-confident-eaters.html" class="footer-nav-link">Picky Eaters</a>
+                <a href="maternity-care.html" class="footer-nav-link">Maternity Care</a>
+                <a href="wellness-coaching.html" class="footer-nav-link">Wellness Coaching</a>
+                <a href="mailto:foodasmedicine@guttienutrition.com" class="footer-nav-link">Contact Us</a>
+                <a href="https://my.practicebetter.io/" class="footer-nav-link" target="_blank"
+                    rel="noopener noreferrer">Client Portal</a>
+            </div>
+            <p style="opacity: 0.4; font-size: 0.8rem;">
+                &copy; 2025 Con Amor Marketing LLC. All Rights Reserved. | <a href="#" id="privacy-link"
+                    style="color: rgba(255,255,255,0.6); text-decoration: none;">Privacy Policy</a> | <a href="#"
+                    id="terms-link" style="color: rgba(255,255,255,0.6); text-decoration: none;">Terms of Service</a>
+            </p>
+
+            <div
+                style="font-size: 0.75rem; opacity: 0.6; margin-top: 30px; max-width: 900px; margin-left: auto; margin-right: auto; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+                <p><strong>Disclaimer:</strong> Guttie Nutrition provides nutritional information for educational
+                    purposes only. This is not medical advice and does not create a practitioner-client relationship.
+                    Consult a physician before making any changes to your diet or health regimen. <a href="#"
+                        id="disclaimer-link-footer" style="color: inherit; text-decoration: underline;">Read Full
+                        Disclaimer</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals (Privacy & Terms) -->
+    <div id="privacy-modal" class="modal">
+        <div class="modal-content">
+            <span class="btn btn-liquid close-btn">&times;</span>
+            <div class="modal-body">
+                <h2>PRIVACY POLICY</h2>
+                <p><strong>Last Updated: 12/10/2025</strong></p>
+                <p>Welcome to www.guttienutrition.com (the "Site"). We are committed to protecting your personal
+                    information and your right to privacy.</p>
+                <p>If you have questions, please contact us at foodasmedicine@guttienutrition.com.</p>
+                <p><strong>A. Personal Information You Disclose to Us</strong><br> We collect personal information that
+                    you voluntarily provide to us when you register on the Site, express an interest in obtaining
+                    information about us or our products and services, when you participate in activities on the Site,
+                    or otherwise when you contact us.</p>
+                <p><strong>B. Information Automatically Collected</strong><br> We automatically collect certain
+                    information when you visit, use, or navigate the Site. This information does not reveal your
+                    specific identity (like your name or contact information) but may include device and usage
+                    information.</p>
+                <p>For more detailed information, please refer to the full policy documents available upon request or
+                    via our main office.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="terms-modal" class="modal">
+        <div class="modal-content">
+            <span class="btn btn-liquid close-btn-terms close-btn">&times;</span>
+            <div class="modal-body">
+                <h2>TERMS AND CONDITIONS</h2>
+                <p><strong>Last Updated: 12/10/2025</strong></p>
+                <p>These Terms and Conditions constitute a legally binding agreement made between you and Con Amor
+                    Marketing LLC.</p>
+                <p><strong>Medical & Nutrition Disclaimer</strong><br> THIS SITE DOES NOT PROVIDE MEDICAL ADVICE. The
+                    contents of the Site are for informational and educational purposes only. The Content is not
+                    intended to be a substitute for professional medical advice, diagnosis, or treatment.</p>
+                <p><strong>Consult a Physician:</strong> Always seek the advice of your physician or other qualified
+                    health provider with any questions you may have regarding a medical condition.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Medical Disclaimer Modal -->
+    <div id="disclaimer-modal" class="modal">
+        <div class="modal-content">
+            <span class="btn btn-liquid close-btn-disclaimer close-btn">&times;</span>
+            <div class="modal-body">
+                <h2>WEBSITE MEDICAL DISCLAIMER</h2>
+                <p><strong>Last Updated: 12/17/2025</strong></p>
+
+                <h3>1. For Informational Purposes Only</h3>
+                <p>The content on Guttie Nutrition (www.guttienutrition.com), including text, graphics, images, and
+                    other material, is for informational and educational purposes only. None of the content on this site
+                    is intended to be a substitute for professional medical advice, diagnosis, or treatment.</p>
+
+                <h3>2. No Practitioner-Client Relationship</h3>
+                <p>Accessing, reading, or interacting with this website does not create a dietitian-client relationship
+                    between you and Guttie Nutrition. Such a relationship is only established after a formal intake
+                    process and a signed joinder of services/agreement has been executed.</p>
+
+                <h3>3. Not Medical Advice</h3>
+                <p>While Emily Torres-Medaglia is a Registered Dietitian Nutritionist (RDN) and Licensed Dietitian
+                    Nutritionist (LDN), the information provided on this site is not tailored to your specific health
+                    needs. Always seek the advice of your physician or another qualified health provider with any
+                    questions you may have regarding a medical condition. Never disregard professional medical advice or
+                    delay in seeking it because of something you have read on this website.</p>
+
+                <h3>4. Scope of Practice</h3>
+                <p>Our services focus on nutritional support, lifestyle adjustments, and wellness coaching. We do not
+                    "diagnose," "treat," or "cure" medical diseases or psychological disorders. If you are experiencing
+                    a medical emergency, please call your local emergency services or 911 immediately.</p>
+
+                <h3>5. Personal Responsibility & Results</h3>
+                <p>By using this website, you acknowledge that you are participating voluntarily in using our website
+                    and that you are solely and personally responsible for your choices, actions, and results, now and
+                    in the future. There is no guarantee that you will attain a particular result or health outcome.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- GLOBAL SCRIPTS -->
+    <script src="main.js"></script>
+</body>
+
+</html>

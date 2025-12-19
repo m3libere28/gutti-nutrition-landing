@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metabolic Health & Weight Loss | Guttie Nutrition</title>
+    <meta name="description"
+        content="Invest in your metabolic future. Sustainable weight management beyond calories. Stop dieting and start owning your results.">
+    <link rel="icon" type="image/png" href="assets/favicon.png?v=3">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Unified CSS -->
+    <link rel="stylesheet" href="navbar_v2.css?v=align_fix">
+
+    <style>
+        /* Reusing Core Styles */
+        :root {
+            --color-primary: #5A8DEE;
+            --color-primary-light: #7B61FF;
+            --color-primary-dark: #3F72D3;
+            --color-secondary: #89D934;
+            --color-secondary-light: #E9F7D9;
+            --color-bg: #F8FAFC;
+            --color-text: #2C3E50;
+            --color-text-light: #64748B;
+            --font-heading: 'Fredoka', sans-serif;
+            --font-body: 'Quicksand', sans-serif;
+            --container-width: 1100px;
+            /* Slightly tighter for reading */
+            --section-padding: 80px;
+            --radius-lg: 24px;
+            --shadow-card: 0 10px 30px -10px rgba(90, 141, 238, 0.15);
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading);
+            color: var(--color-primary-dark);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: var(--section-padding) 0;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(90, 141, 238, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(90, 141, 238, 0.4);
+            background: var(--color-primary-dark);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--color-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero-page {
+            position: relative;
+            min-height: 85vh;
+            /* Taller hero */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            /* Increased overlay opacity for better readability on busy illustration */
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('assets/hero_guttie_village_v2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding-top: 80px;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-weight: 500;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section 1: Empathy Hook */
+        .bg-light {
+            background: #F1F5F9;
+        }
+
+        .hook-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .pull-quote {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--color-text);
+            margin: 30px 0;
+        }
+
+        /* Section 2: Education */
+        .education-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        @media (max-width: 900px) {
+            .education-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .edu-item {
+            margin-bottom: 30px;
+        }
+
+        .edu-item h4 {
+            color: var(--color-secondary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        /* Section 3: Solution (3 Col) */
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .solution-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .solution-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-card);
+            transition: transform 0.3s;
+            border-top: 5px solid var(--color-primary);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-num {
+            font-size: 3rem;
+            font-weight: 800;
+            color: rgba(137, 217, 52, 0.2);
+            line-height: 1;
+            margin-bottom: -10px;
+        }
+
+        /* Quote Section */
+        .quote-box {
+            background: var(--color-primary-light);
+            color: white;
+            border-radius: 30px;
+            padding: 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Pulse Animation */
+        @keyframes pulse-glow {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            }
+
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 10px 20px rgba(90, 141, 238, 0.2);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            }
+        }
+
+        .animated-pulse {
+            animation: pulse-glow 3s infinite ease-in-out;
+            cursor: default;
+        }
+
+        /* Footer CTA */
+        .final-cta {
+            text-align: center;
+            padding: 100px 24px;
+            background: linear-gradient(135deg, #2C3E50 0%, #1A2633 100%);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Unified Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-content container">
+            <a href="index.html" class="brand">
+                <img src="assets/logo.png" alt="Guttie Nutrition Logo" class="brand-logo">
+                <div>Guttie<span>Nutrition</span></div>
+            </a>
+            <div class="desktop-only nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="weight-management.html" class="nav-link active">Weight Loss</a>
+                <a href="gut-health.html" class="nav-link">Gut Health</a>
+                <a href="raising-confident-eaters.html" class="nav-link">Picky Eaters</a>
+                <a href="maternity-care.html" class="nav-link">Maternity Care</a>
+                <a href="wellness-coaching.html" class="nav-link">Wellness Coaching</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="weight-management.html" class="mobile-nav-link active">Weight Loss</a>
+        <a href="gut-health.html" class="mobile-nav-link">Gut Health</a>
+        <a href="raising-confident-eaters.html" class="mobile-nav-link">Picky Eaters</a>
+        <a href="maternity-care.html" class="mobile-nav-link">Maternity Care</a>
+        <a href="wellness-coaching.html" class="mobile-nav-link">Wellness Coaching</a>
+    </div>
+
+    <!-- [HERO SECTION] -->
+    <section class="hero-page">
+        <div class="container">
+            <h1 class="hero-title">Metabolic Health & Sustainable Weight Loss</h1>
+            <p class="hero-subtitle">
+                Stop "Dieting." Start Investing in Your Metabolic Future.<br>
+                You are ready to stop renting your results and start owning them.
+            </p>
+            <a href="mailto:foodasmedicine@guttienutrition.com" class="btn btn-liquid"
+                style="background: var(--color-secondary); color: var(--color-primary-dark); font-size: 1.1rem;">
+                Start My Metabolic Reset
+            </a>
+        </div>
+    </section>
+
+    <!-- [SECTION 1: THE EMPATHY HOOK] -->
+    <section class="bg-light section">
+        <div class="container hook-content">
+            <h2 style="font-size: 2.2rem; margin-bottom: 30px;">Does This Sound Familiar?</h2>
+            <p style="font-size: 1.1rem; color: var(--color-text-light); margin-bottom: 30px;">
+                You’ve tried the quick fixes. You’ve downloaded the apps, paid for the subscriptions, and followed the
+                restrictive meal plans perfectly.
+            </p>
+            <div class="pull-quote">
+                "They work for a month. You lose 10 pounds. You feel great. And then life happens."
+            </div>
+            <p style="font-size: 1.1rem; color: var(--color-text-light); margin-bottom: 40px;">
+                The stress returns, the cravings hit, and the weight comes back—often with interest.
+            </p>
+            <div class="animated-pulse"
+                style="background: white; padding: 25px; border-radius: 15px; border-left: 5px solid var(--color-primary); margin-top: 30px;">
+                <strong style="color: var(--color-primary);">I want you to know one thing before you read
+                    further:</strong><br>
+                You are not failing. Your biology is just trying to keep you safe.
+            </div>
+        </div>
+    </section>
+
+    <!-- [SECTION 2: THE EDUCATION] -->
+    <section class="section">
+        <div class="container">
+            <div class="education-grid">
+                <div>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 24px;">The Reality: It’s Not Willpower, It’s Biology.
+                    </h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 30px; color: var(--color-text-light);">
+                        If sustainable weight loss was just about "eating less and moving more," you would have solved
+                        this problem years ago.
+                        The truth is, most insurance-driven healthcare rushes you through a 15-minute visit with a
+                        generic handout.
+                    </p>
+                    <p style="font-size: 1.1rem; font-weight: 700; color: var(--color-primary);">
+                        But your metabolism is unique, and it requires a deeper look.
+                    </p>
+                    <!-- SVG Filter for basic black transparency -->
+                    <svg style="width:0; height:0; position: absolute;" aria-hidden="true" focusable="false">
+                        <filter id="remove-black" color-interpolation-filters="sRGB">
+                            <feColorMatrix type="matrix" values="1 0 0 0 0
+                                                                 0 1 0 0 0
+                                                                 0 0 1 0 0
+                                                                 1 1 1 0 0" />
+                        </filter>
+                    </svg>
+
+                    <img src="assets/guttie_bike.jpg" alt="Guttie on a bike"
+                        style="display: block; width: 220px; margin: 30px auto 0; filter: url(#remove-black); -webkit-filter: url(#remove-black);">
+                </div>
+                <div>
+                    <!-- 1. Beyond Calories -->
+                    <div class="edu-item">
+                        <h4>1. Beyond Calories: The Hidden Drivers</h4>
+                        <p>We cannot ignore the "invisible" factors that tell your body to store fat.</p>
+                        <ul style="margin-top: 15px; margin-left: 20px; color: var(--color-text-light);">
+                            <li style="margin-bottom: 10px;"><strong>Cortisol (Stress):</strong> High stress signals
+                                your body to hold onto weight around the midsection as a survival mechanism.</li>
+                            <li style="margin-bottom: 10px;"><strong>Sleep Quality:</strong> Poor sleep disrupts your
+                                hunger hormones (ghrelin and leptin), making you crave sugar the next day.</li>
+                            <li><strong>Nutrient Timing:</strong> It's not just what you eat, but when. Eating in sync
+                                with your circadian rhythm changes how your body processes energy.</li>
+                        </ul>
+                    </div>
+
+                    <!-- 2. Set Point -->
+                    <div class="edu-item">
+                        <h4>2. The Science of the "Set Point"</h4>
+                        <p style="margin-bottom: 15px;">
+                            Think of your metabolism like a thermostat. When you crash diet, your body thinks you are
+                            starving. It reacts by slowing down your metabolism to "save" energy. This is why you
+                            rebound so quickly after a diet ends.
+                        </p>
+                        <div
+                            style="background: var(--color-secondary-light); padding: 15px; border-radius: 10px; font-size: 0.95rem;">
+                            <strong>My Approach:</strong> We don't force the thermostat down with starvation. We gently
+                            shift the dial by convincing your body it is safe to let go of the weight.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [SECTION 3: THE SOLUTION] -->
+    <section class="bg-light section">
+        <div class="container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 60px;">
+                <h2 style="margin-bottom: 15px;">The Private Practice Difference</h2>
+                <p style="font-size: 1.1rem; color: var(--color-text-light);">
+                    Why we don't rely on insurance restrictions.<br>
+                    Because we are not bound by insurance billing codes, we are free to focus on what actually works for
+                    your life.
+                </p>
+            </div>
+
+            <div class="solution-grid">
+                <!-- 01 -->
+                <div class="solution-card">
+                    <div class="card-num">01</div>
+                    <h3 style="margin-bottom: 15px;">Personalized Strategy</h3>
+                    <p>No generic handouts. We build a nutrition plan that fits your busy schedule, your family's needs,
+                        and—most importantly—your cultural foods. You do not have to give up the flavors you love to be
+                        healthy.</p>
+                </div>
+                <!-- 02 -->
+                <div class="solution-card">
+                    <div class="card-num">02</div>
+                    <h3 style="margin-bottom: 15px;">Real Accountability</h3>
+                    <p>You get a partner, not just a provider. We troubleshoot in real-time. Hitting a plateau? We
+                        adjust the plan immediately. Going on vacation? We map out a strategy so you can enjoy yourself
+                        without guilt.</p>
+                </div>
+                <!-- 03 -->
+                <div class="solution-card">
+                    <div class="card-num">03</div>
+                    <h3 style="margin-bottom: 15px;">Root Cause Investigation</h3>
+                    <p>We have the time to look deeper. We explore the relationship between your gut health, your
+                        hormones, and your weight, ensuring we are treating the cause, not just the symptom.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [SECTION 4: SOCIAL PROOF] -->
+    <section class="section">
+        <div class="container">
+            <div class="quote-box">
+                <div class="quote-text">
+                    "I finally stopped fighting my body. Emily taught me how to fuel my metabolism instead of starving
+                    it. I’m eating more than I ever have, and I feel lighter and more energetic."
+                </div>
+                <div style="margin-top: 20px; font-weight: 700; opacity: 0.9;">— Client Transformation</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [SECTION 4.5: SCIENCE RESOURCES] -->
+    <section class="bg-light section" style="padding-top: 60px; padding-bottom: 80px;">
+        <div class="container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 50px;">
+                <h2 style="font-size: 2rem; margin-bottom: 15px;">Our Approach is Backed by Science</h2>
+                <p style="color: var(--color-text-light);">We don't guess. We follow the physiology.</p>
+            </div>
+
+            <div class="method-grid">
+                <!-- 1. Metabolic Adaptation -->
+                <div class="feature-card">
+                    <h3 style="margin-bottom: 10px; font-size: 1.2rem;">🔥 Metabolic Adaptation</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px;">
+                        <strong>The Concept:</strong> When you restrict calories severely, the body fights back by
+                        slowing metabolism (the "famine response").
+                    </p>
+                    <div style="font-size: 0.85rem; border-top: 1px solid #eee; padding-top: 10px;">
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/27136388/" target="_blank"
+                            style="display: block; margin-bottom: 8px; color: var(--color-primary-dark);">
+                            📄 <strong>Read Study:</strong> "Persistent metabolic adaptation 6 years after The Biggest
+                            Loser competition" <br><span style="opacity: 0.7;">(Obesity, 2016)</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. Cortisol & Belly Fat -->
+                <div class="feature-card">
+                    <h3 style="margin-bottom: 10px; font-size: 1.2rem;">😰 Stress & Visceral Fat</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px;">
+                        <strong>The Concept:</strong> High stress increases cortisol, specifically signaling the body to
+                        store fat around the organs.
+                    </p>
+                    <div style="font-size: 0.85rem; border-top: 1px solid #eee; padding-top: 10px;">
+                        <a href="https://health.clevelandclinic.org/stress-and-weight-gain" target="_blank"
+                            style="display: block; margin-bottom: 8px; color: var(--color-primary-dark);">
+                            📖 <strong>Read Article:</strong> "How Stress Can Make You Gain Weight" <br><span
+                                style="opacity: 0.7;">(Cleveland Clinic)</span>
+                        </a>
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/28360318/" target="_blank"
+                            style="display: block; color: var(--color-primary-dark);">
+                            📄 <strong>Read Study:</strong> "Stress and Obesity" <br><span
+                                style="opacity: 0.7;">(Current Obesity Reports)</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3. Sleep & Hunger -->
+                <div class="feature-card">
+                    <h3 style="margin-bottom: 10px; font-size: 1.2rem;">💤 Sleep & Hormones</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px;">
+                        <strong>The Concept:</strong> Poor sleep disrupts Ghrelin (hunger) and Leptin (fullness),
+                        forcing physiological cravings.
+                    </p>
+                    <div style="font-size: 0.85rem; border-top: 1px solid #eee; padding-top: 10px;">
+                        <a href="https://www.yalemedicine.org/news/sleep-weight-gain" target="_blank"
+                            style="display: block; margin-bottom: 8px; color: var(--color-primary-dark);">
+                            📖 <strong>Read & Watch:</strong> Sleep & Weight Management <br><span
+                                style="opacity: 0.7;">(Yale Medicine)</span>
+                        </a>
+                        <a href="https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.0010062"
+                            target="_blank" style="display: block; color: var(--color-primary-dark);">
+                            📄 <strong>Read Study:</strong> "Short Sleep Reduced Leptin..." <br><span
+                                style="opacity: 0.7;">(PLOS Medicine)</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4. Circadian Rhythm -->
+                <div class="feature-card">
+                    <h3 style="margin-bottom: 10px; font-size: 1.2rem;">🕰️ Circadian Rhythm</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px;">
+                        <strong>The Concept:</strong> Mistimed food intake desynchronizes body clocks, leading to
+                        insulin resistance.
+                    </p>
+                    <div style="font-size: 0.85rem; border-top: 1px solid #eee; padding-top: 10px;">
+                        <a href="https://www.youtube.com/watch?v=meMXsnU-Nx8" target="_blank"
+                            style="display: block; margin-bottom: 8px; color: var(--color-primary-dark);">
+                            📺 <strong>Watch Video:</strong> Circadian Clocks & Metabolism <br><span
+                                style="opacity: 0.7;">(Univ of Utah Health)</span>
+                        </a>
+                        <a href="https://www.frontiersin.org/articles/10.3389/fendo.2024.00001/full" target="_blank"
+                            style="display: block; color: var(--color-primary-dark);">
+                            📄 <strong>Read Study:</strong> "Meal timing and obesity" <br><span
+                                style="opacity: 0.7;">(Frontiers in Endocrinology)</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [SECTION 5: FINAL CTA] -->
+    <section class="final-cta" id="contact">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 20px;">Invest in a Strategy That Lasts.</h2>
+            <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto 40px; opacity: 0.9;">
+                Your health is your most valuable asset. Stop cycling through temporary fixes and build a foundation for
+                a lifetime of metabolic health.
+            </p>
+            <a href="mailto:foodasmedicine@guttienutrition.com" class="btn btn-liquid"
+                style="background: var(--color-secondary); color: var(--color-primary-dark); padding: 20px 40px; font-size: 1.2rem;">
+                Book Your Discovery Call
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3 style="color: white; margin-bottom: 10px;">Guttie Nutrition</h3>
+            <p style="opacity: 0.8; margin-bottom: 20px; font-size: 0.9rem;">
+                Licensed Dietitian Nutritionist (LDN) – Florida <br>
+                STATE OF FLORIDA DEPARTMENT OF HEALTH
+            </p>
+            <div class="footer-links"
+                style="display: flex; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; font-size: 0.9rem;">
+                <a href="index.html" class="footer-nav-link">Home</a>
+                <a href="weight-management.html" class="footer-nav-link">Weight Loss</a>
+                <a href="gut-health.html" class="footer-nav-link">Gut Health</a>
+                <a href="raising-confident-eaters.html" class="footer-nav-link">Picky Eaters</a>
+                <a href="maternity-care.html" class="footer-nav-link">Maternity Care</a>
+                <a href="https://my.practicebetter.io/" class="footer-nav-link">Client Portal</a>
+            </div>
+            <p style="opacity: 0.4; font-size: 0.8rem;">
+                &copy; 2025 Con Amor Marketing LLC. All Rights Reserved. | <a href="#" id="privacy-link"
+                    style="color: rgba(255,255,255,0.6); text-decoration: none;">Privacy Policy</a> | <a href="#"
+                    id="terms-link" style="color: rgba(255,255,255,0.6); text-decoration: none;">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- GLOBAL SCRIPTS -->
+    <script src="main.js"></script>
+
+</body>
+
+</html>
