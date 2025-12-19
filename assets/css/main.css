@@ -417,14 +417,11 @@ img {
     margin-top: 5vh;
     /* Adjusted to 5vh based on user request */
     transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
-    /* Light Green Glow */
-    box-shadow: 0 0 35px rgba(137, 217, 52, 0.6), 0 10px 20px rgba(137, 217, 52, 0.4);
 }
 
 .splash-btn:hover {
     transform: scale(1.05);
     background: var(--color-primary-dark);
-    box-shadow: 0 0 45px rgba(137, 217, 52, 0.8), 0 15px 30px rgba(137, 217, 52, 0.5);
 }
 
 /* --- SECTIONS --- */
