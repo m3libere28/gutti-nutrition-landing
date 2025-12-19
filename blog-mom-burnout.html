@@ -5,11 +5,11 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5KPBWJVEY0"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-      gtag('config', 'G-5KPBWJVEY0');
+        gtag('config', 'G-5KPBWJVEY0');
     </script>
 
     <meta charset="UTF-8">
@@ -25,7 +25,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/navbar_v2.css?v=dropdown_v3">
 
     <style>
         /* Custom Theme Colors for "Burnout/Calm" - Soft Lavender & Mint */
@@ -36,12 +37,43 @@
             --color-secondary: #48C6B1;
             /* Mint/Teal */
             --color-secondary-light: #E0F7FA;
+            --color-secondary-text: #2D7A6E;
+            /* Darker Mint for text */
+
+            --color-bg: #F8FAFC;
+            --color-surface: #FFFFFF;
+            --color-text: #2C3E50;
+            --color-text-light: #64748B;
+            --font-heading: 'Fredoka', sans-serif;
+            --font-body: 'Quicksand', sans-serif;
             --container-width: 1200px;
             --radius-lg: 24px;
         }
 
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Post Header */
         .post-header {
-            padding: 140px 0 60px;
+            padding: 120px 0 60px;
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
@@ -62,7 +94,6 @@
             color: var(--color-primary-dark);
             line-height: 1.2;
             margin-bottom: 30px;
-            font-family: var(--font-heading);
         }
 
         .post-meta {
@@ -101,27 +132,23 @@
 
         /* Content */
         .post-content {
-            background: white;
+            background: var(--color-surface);
             padding: 40px;
             border-radius: var(--radius-lg);
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--color-text);
         }
 
         .post-content h2 {
             margin: 40px 0 20px;
             color: var(--color-primary-dark);
             font-size: 1.5rem;
-            font-family: var(--font-heading);
         }
 
         .post-content h3 {
             margin: 30px 0 15px;
             color: var(--color-secondary);
             font-size: 1.3rem;
-            font-family: var(--font-heading);
         }
 
         .post-content p {
@@ -136,10 +163,9 @@
             margin-bottom: 10px;
         }
 
-        /* RDN Tip Box */
         .rdn-tip {
             background-color: var(--color-secondary-light);
-            padding: 25px;
+            padding: 20px;
             border-radius: 12px;
             border-left: 5px solid var(--color-secondary);
             margin: 30px 0;
@@ -148,17 +174,32 @@
 
         .rdn-tip strong {
             color: var(--color-secondary);
-            /* Darker teal/mint */
             display: block;
             margin-bottom: 8px;
-            font-family: var(--font-heading);
-            font-size: 1.1rem;
+        }
+
+        .visual-block {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .visual-block img {
+            max-width: 100%;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .visual-caption {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            margin-top: 10px;
+            font-style: italic;
         }
 
         /* Sidebar */
         .post-sidebar {
             position: sticky;
-            top: 100px;
+            top: 20px;
             height: fit-content;
         }
 
@@ -177,7 +218,6 @@
             color: var(--color-primary-dark);
             border-bottom: 2px solid var(--color-secondary-light);
             padding-bottom: 10px;
-            font-family: var(--font-heading);
         }
 
         .toc-link {
@@ -200,49 +240,40 @@
         }
 
         .cta-btn {
-            background: var(--color-secondary);
-            color: white;
+            background: white;
+            color: var(--color-primary-dark);
             padding: 12px 25px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
             display: inline-block;
             margin-top: 20px;
-            font-family: var(--font-heading);
-            transition: transform 0.2s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .cta-btn:hover {
-            transform: scale(1.05);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .navbar.scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .infographic-placeholder {
-            background: var(--color-secondary-light);
-            border: 2px dashed var(--color-secondary);
-            border-radius: var(--radius-lg);
-            padding: 40px;
-            text-align: center;
-            color: var(--color-secondary);
-            margin: 40px 0;
-            font-weight: bold;
+        /* References */
+        .references-section {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid #eee;
+            font-size: 0.9rem;
+            color: var(--color-text-light);
         }
     </style>
   <script type="module" crossorigin src="/assets/main-_2oSX-eH.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-Ciqhqg6S.css">
 </head>
 
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar scrolled" id="navbar">
+    <nav class="navbar navbar-inverse" id="navbar">
         <div class="nav-content container">
-            <a href="index.html" class="brand" aria-label="Guttie Nutrition Homepage">
+            <a href="index.html" class="brand">
                 <img src="/assets/logo-Cv-xR-w-.png" alt="Guttie Nutrition Logo" class="brand-logo">
                 <div>Guttie<span>Nutrition</span></div>
             </a>
@@ -259,8 +290,6 @@
                     </div>
                 </div>
                 <a href="resources.html" class="nav-link active">Resources</a>
-                <a href="quiz.html" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Free Energy
-                    Audit</a>
             </div>
             <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu">
                 <span></span>
@@ -279,7 +308,6 @@
         <a href="maternity-care.html" class="mobile-nav-link">Maternity Care</a>
         <a href="wellness-coaching.html" class="mobile-nav-link">Wellness Coaching</a>
         <a href="resources.html" class="mobile-nav-link active">Resources</a>
-        <a href="quiz.html" class="mobile-nav-link">Free Energy Audit</a>
     </div>
 
     <article>
@@ -290,7 +318,7 @@
                 <img src="/assets/emily_profile_update-BUSyG7JJ.jpg" alt="Emily Torres-Medaglia" class="author-img">
                 <div>
                     <strong>Emily Torres-Medaglia, RDN</strong><br>
-                    <span>Health & Wellness • 4 min read</span>
+                    <span>4 min read</span>
                 </div>
             </div>
         </header>
@@ -299,12 +327,12 @@
 
             <!-- Main Content -->
             <div class="post-content">
+                <!-- Hero Image -->
                 <div class="post-hero-image"
                     style="margin-bottom: 40px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                     <img src="/assets/blog_mom_burnout_cover-Dn0n0X0o.jpg" alt="Mother smiling and relaxed"
                         style="width: 100%; height: auto; display: block;">
                 </div>
-
 
                 <p>I’ll be honest: most of us have accepted "exhaustion" as a personality trait. We wake up, hit the
                     coffee, manage the chaos of the kids and the office, and by 3:00 PM, we feel like we’re walking
@@ -332,18 +360,14 @@
 
                 <h2 id="connection">The Science of Stress & Gut Health</h2>
                 <p>The connection between our gut and our brain is real and powerful. This is known as the
-                    <strong>Gut-Brain Axis</strong>.
-                </p>
+                    <strong>Gut-Brain Axis</strong>.</p>
 
                 <!-- Infographic -->
-                <figure style="margin: 40px 0; text-align: center;">
+                <div class="visual-block">
                     <img src="/assets/blog_mom_burnout_infographic-lnYqAo6w.jpg"
-                        alt="The Stressed Mom's Gut-Brain Loop Infographic"
-                        style="max-width: 100%; border-radius: var(--radius-lg); box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
-                    <figcaption style="margin-top: 10px; font-size: 0.9rem; color: var(--color-text-light);">
-                        How chronic stress impacts your digestion and energy.
-                    </figcaption>
-                </figure>
+                        alt="The Stressed Mom's Gut-Brain Loop Infographic">
+                    <p class="visual-caption">How chronic stress impacts your digestion and energy.</p>
+                </div>
 
                 <p>Research has shown that the microbiome plays a significant role in influencing anxiety and depression
                     (Foster & Neufeld, 2013). Furthermore, chronic stress can directly alter our gut microbiota,
@@ -360,16 +384,22 @@
                         when you're stressed. Add a pinch of sea salt or lemon.</li>
                 </ol>
 
-                <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+                <div class="references-section">
+                    <h4>Evidence-based references</h4>
+                    <ul>
+                        <li>Foster, J. A., & Neufeld, K. A. M. (2013). Gut–brain axis: how the microbiome influences
+                            anxiety and depression. <em>Trends in Neurosciences</em>.</li>
+                        <li>Madison, A., & Kiecolt-Glaser, J. K. (2019). Stress, depression, diet, and the gut
+                            microbiota. <em>Current Opinion in Behavioral Sciences</em>.</li>
+                    </ul>
+                </div>
 
-                <h3>Evidence-based references</h3>
-                <ul style="font-size: 0.9rem; color: var(--color-text-light);">
-                    <li>Foster, J. A., & Neufeld, K. A. M. (2013). Gut–brain axis: how the microbiome influences anxiety
-                        and depression. <em>Trends in Neurosciences</em>.</li>
-                    <li>Madison, A., & Kiecolt-Glaser, J. K. (2019). Stress, depression, diet, and the gut microbiota.
-                        <em>Current Opinion in Behavioral Sciences</em>.
-                    </li>
-                </ul>
+                <div class="cta-box" style="margin-top: 50px; padding: 40px; border-radius: 20px;">
+                    <h3 style="color: white; margin-bottom: 20px;">Feel Like Yourself Again</h3>
+                    <p style="color: white; opacity: 0.9;">Book a Free Discovery Call today and let’s get your energy
+                        back.</p>
+                    <a href="gut-health.html" class="cta-btn">Book Discovery Call</a>
+                </div>
 
             </div>
 
@@ -381,7 +411,6 @@
                         style="color: var(--color-primary); font-weight: bold; text-decoration: none;">&larr; Back to
                         Hub</a>
                 </div>
-
                 <div class="sidebar-widget">
                     <h3 class="sidebar-title">Table of Contents</h3>
                     <a href="#connection" class="toc-link">Science of Stress</a>
@@ -389,10 +418,9 @@
                 </div>
 
                 <div class="sidebar-widget cta-box">
-                    <h3 style="color: white; margin-bottom: 10px;">Feel Like Yourself Again</h3>
-                    <p style="font-size: 0.9rem; margin-bottom: 0;">Book a Free Discovery Call today and let’s get your
-                        energy back.</p>
-                    <a href="gut-health.html" class="cta-btn">Book Discovery Call</a>
+                    <h3 style="color: white; margin-bottom: 10px;">Burned Out?</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">Reclaim your energy and mental clarity.</p>
+                    <a href="gut-health.html" class="cta-btn">Start Here</a>
                 </div>
             </aside>
 
@@ -404,31 +432,15 @@
         <div class="container">
             <div class="footer-links">
                 <a href="index.html" class="footer-nav-link">Home</a>
-                <a href="gut-health.html" class="footer-nav-link">Services</a>
-                <a href="resources.html" class="footer-nav-link">Resources</a>
-                <a href="mailto:foodasmedicine@guttienutrition.com" class="footer-nav-link">Email Us</a>
-                <a href="https://g.page/r/CUcHIbCHOZpWEBM/review" class="footer-nav-link" target="_blank"
-                    style="color: #FFD700; font-weight: bold;">⭐ Leave a Review</a>
-                <a href="https://my.practicebetter.io/" class="footer-nav-link" target="_blank"
-                    rel="noopener noreferrer" aria-label="Client Portal (Footer)">Client Portal</a>
+                <a href="resources.html" class="footer-nav-link">All Articles</a>
+                <a href="mailto:foodasmedicine@guttienutrition.com" class="footer-nav-link">Contact</a>
             </div>
-            <p style="text-align: center; opacity: 0.6; font-size: 0.9rem; margin-bottom: 10px;">Proudly serving Fort
-                Lauderdale, Miami, and South Florida.</p>
-            <p style="text-align: center; opacity: 0.4; font-size: 0.8rem;">
-                &copy; 2025 Con Amor Marketing LLC. All Rights Reserved.
-            </p>
-
-            <!-- Blog Specific Medical Disclaimer -->
+            <p style="text-align: center; margin-top: 20px;">&copy; 2025 Guttie Nutrition.</p>
             <div
                 style="font-size: 0.75rem; opacity: 0.6; margin-top: 30px; max-width: 900px; margin-left: auto; margin-right: auto; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 20px; color: var(--color-text);">
-                <p style="margin-bottom: 10px;"><strong>FDA Disclaimer:</strong> These statements have not been
-                    evaluated by the Food and Drug Administration. This service is not intended to diagnose, treat,
-                    cure, or prevent any disease.</p>
                 <p><strong>Medical Disclaimer:</strong> The information provided on this website is for educational and
-                    informational purposes only and does not constitute medical advice, diagnosis, or treatment. Use of
-                    this site does not establish a patient-provider relationship. Always seek the advice of your
-                    physician or other qualified health provider with any questions you may have regarding a medical
-                    condition.</p>
+                    informational
+                    purposes only and does not constitute medical advice.</p>
             </div>
         </div>
     </footer>
