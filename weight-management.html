@@ -5,11 +5,11 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5KPBWJVEY0"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-      gtag('config', 'G-5KPBWJVEY0');
+        gtag('config', 'G-5KPBWJVEY0');
     </script>
 
     <meta charset="UTF-8">
@@ -26,7 +26,7 @@
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
-    <!-- <link rel="stylesheet" href="navbar_v2.css"> -->
+    <link rel="stylesheet" href="navbar_v2.css?v=dropdown_v3">
 
     <style>
         /* Reusing Core Styles */
@@ -98,11 +98,6 @@
         .section {
             padding: var(--section-padding) 0;
         }
-
-
-
-
-
 
         /* Hero Section */
         .hero-page {
@@ -434,6 +429,20 @@
             background: linear-gradient(135deg, #2C3E50 0%, #1A2633 100%);
             color: white;
         }
+
+        /* Page-specific navbar override: keep top tabs white on this dark hero */
+        .navbar .nav-link {
+            color: rgba(255, 255, 255, 0.98) !important;
+        }
+
+        .navbar.scrolled .nav-link {
+            color: rgba(255, 255, 255, 0.98) !important;
+        }
+
+        .navbar .nav-link:hover,
+        .navbar.scrolled .nav-link:hover {
+            color: #ffffff !important;
+        }
     </style>
 </head>
 
@@ -441,7 +450,7 @@
 
     <!-- Navigation -->
     <!-- Navigation -->
-    <nav class="navbar-inverse navbar" id="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-content container">
             <a href="index.html" class="brand">
                 <img src="assets/logo.png" alt="Guttie Nutrition Logo" class="brand-logo">
