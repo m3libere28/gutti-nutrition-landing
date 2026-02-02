@@ -1,6 +1,26 @@
 // main.js - Global Logic (Mobile Menu, Modals)
 document.addEventListener('DOMContentLoaded', () => {
 
+    const disableResourcesNavLink = () => {
+        const selectors = [
+            '#navbar a.nav-link[href="resources.html"]',
+            '#mobile-menu a.mobile-nav-link[href="resources.html"]',
+        ];
+
+        const links = document.querySelectorAll(selectors.join(','));
+        links.forEach((link) => {
+            link.setAttribute('aria-disabled', 'true');
+            link.setAttribute('tabindex', '-1');
+            link.style.pointerEvents = 'none';
+            link.style.cursor = 'default';
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+            });
+        });
+    };
+    disableResourcesNavLink();
+
     const navbar = document.getElementById('navbar');
     if (navbar) {
         const hero = document.querySelector('.hero');
