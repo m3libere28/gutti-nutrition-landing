@@ -272,7 +272,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbar');
     if (navbar) {
         const hero = document.querySelector('.hero');
+        const isHomePage = (() => {
+            const path = (window.location.pathname || '').toLowerCase();
+            return path === '/' || path.endsWith('/index.html');
+        })();
+
         const getThreshold = () => {
+            if (!isHomePage) return 50;
             if (!hero) return 50;
             const threshold = hero.offsetHeight - navbar.offsetHeight;
             return Number.isFinite(threshold) ? Math.max(0, threshold) : 50;
