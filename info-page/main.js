@@ -38,25 +38,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     redirectMailtoLinks();
 
-    const disableResourcesNavLink = () => {
+    const removeResourcesNavLink = () => {
         const selectors = [
             '#navbar a.nav-link[href="resources.html"]',
+            '#navbar a.dropdown-item[href="resources.html"]',
             '#mobile-menu a.mobile-nav-link[href="resources.html"]',
         ];
 
         const links = document.querySelectorAll(selectors.join(','));
         links.forEach((link) => {
-            link.setAttribute('aria-disabled', 'true');
-            link.setAttribute('tabindex', '-1');
-            link.style.pointerEvents = 'none';
-            link.style.cursor = 'default';
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-            });
+            link.remove();
         });
     };
-    disableResourcesNavLink();
+    removeResourcesNavLink();
 
     // 1. Navigation Scroll Effect
     const navbar = document.getElementById('navbar');
