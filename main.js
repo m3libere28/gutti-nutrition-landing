@@ -60,6 +60,231 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     disableResourcesNavLink();
 
+    const initEventsAndWorkshops = () => {
+        const calendarRoot = document.getElementById('events-calendar');
+        const monthLabel = document.getElementById('events-month');
+        const prevBtn = document.getElementById('events-prev');
+        const nextBtn = document.getElementById('events-next');
+        const listRoot = document.getElementById('events-list');
+        const selectedRoot = document.getElementById('events-selected');
+
+        if (!calendarRoot || !monthLabel || !prevBtn || !nextBtn || !listRoot || !selectedRoot) return;
+
+        const EVENTS = [
+            {
+                title: 'Gut Health Q&A (Live)',
+                date: '2026-02-10',
+                time: '7:00 PM',
+                location: 'Zoom',
+                type: 'Live Session',
+                description: 'Bring your questions. We’ll cover digestion, bloating, and getting started with realistic habits.',
+                ctaLabel: 'Reserve a spot',
+                ctaUrl: PRACTICE_BETTER_BOOKINGS_URL,
+            },
+            {
+                title: 'Feeding Kids Without Stress',
+                date: '2026-02-22',
+                time: '11:00 AM',
+                location: 'Virtual',
+                type: 'Workshop',
+                description: 'A practical workshop for picky eating, meal structure, and confidence at the table.',
+                ctaLabel: 'Join workshop',
+                ctaUrl: PRACTICE_BETTER_BOOKINGS_URL,
+            },
+        ];
+
+        const pad2 = (n) => String(n).padStart(2, '0');
+        const toKey = (d) => `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
+        const parseLocalDate = (dateStr) => {
+            const [y, m, d] = dateStr.split('-').map((x) => Number(x));
+            return new Date(y, m - 1, d);
+        };
+
+        const byDateKey = EVENTS.reduce((acc, ev) => {
+            if (!acc[ev.date]) acc[ev.date] = [];
+            acc[ev.date].push(ev);
+            return acc;
+        }, {});
+
+        const monthNames = [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December',
+        ];
+
+        let currentMonth = new Date();
+        currentMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1);
+        let selectedDateKey = null;
+
+        const renderSelected = (dateKey) => {
+            selectedDateKey = dateKey;
+            const items = byDateKey[dateKey] || [];
+            const displayDate = parseLocalDate(dateKey);
+
+            selectedRoot.innerHTML = '';
+
+            const header = document.createElement('div');
+            header.className = 'events-selected-header';
+            header.textContent = `Selected: ${monthNames[displayDate.getMonth()]} ${displayDate.getDate()}, ${displayDate.getFullYear()}`;
+            selectedRoot.appendChild(header);
+
+            if (items.length === 0) {
+                const empty = document.createElement('div');
+                empty.className = 'events-empty';
+                empty.textContent = 'No events scheduled for this day.';
+                selectedRoot.appendChild(empty);
+                return;
+            }
+
+            const stack = document.createElement('div');
+            stack.className = 'events-selected-stack';
+            items.forEach((ev) => {
+                stack.appendChild(renderEventCard(ev, true));
+            });
+            selectedRoot.appendChild(stack);
+        };
+
+        const renderEventCard = (ev, compact = false) => {
+            const card = document.createElement('div');
+            card.className = compact ? 'events-item compact' : 'events-item';
+
+            const top = document.createElement('div');
+            top.className = 'events-item-top';
+
+            const tag = document.createElement('div');
+            tag.className = 'events-tag';
+            tag.textContent = ev.type || 'Event';
+
+            const date = parseLocalDate(ev.date);
+            const meta = document.createElement('div');
+            meta.className = 'events-meta';
+            meta.textContent = `${monthNames[date.getMonth()].slice(0, 3)} ${date.getDate()} • ${ev.time || 'TBA'} • ${ev.location || 'TBA'}`;
+
+            top.appendChild(tag);
+            top.appendChild(meta);
+
+            const title = document.createElement('div');
+            title.className = 'events-title';
+            title.textContent = ev.title;
+
+            const desc = document.createElement('div');
+            desc.className = 'events-desc';
+            desc.textContent = ev.description || '';
+
+            const actions = document.createElement('div');
+            actions.className = 'events-actions';
+
+            const cta = document.createElement('a');
+            cta.className = 'btn btn-primary btn-liquid';
+            cta.href = ev.ctaUrl || PRACTICE_BETTER_BOOKINGS_URL;
+            cta.target = '_blank';
+            cta.rel = 'noopener noreferrer';
+            cta.textContent = ev.ctaLabel || 'Learn more';
+
+            const viewDay = document.createElement('button');
+            viewDay.type = 'button';
+            viewDay.className = 'btn btn-secondary btn-liquid';
+            viewDay.textContent = 'View day';
+            viewDay.addEventListener('click', () => {
+                const d = parseLocalDate(ev.date);
+                currentMonth = new Date(d.getFullYear(), d.getMonth(), 1);
+                renderCalendar();
+                renderSelected(ev.date);
+                document.getElementById('events-workshops')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+
+            actions.appendChild(cta);
+            actions.appendChild(viewDay);
+
+            card.appendChild(top);
+            card.appendChild(title);
+            if (ev.description) card.appendChild(desc);
+            if (!compact) card.appendChild(actions);
+
+            return card;
+        };
+
+        const renderUpcoming = () => {
+            const now = new Date();
+            const todayKey = toKey(now);
+
+            const upcoming = [...EVENTS]
+                .filter((ev) => ev.date >= todayKey)
+                .sort((a, b) => (a.date === b.date ? (a.time || '').localeCompare(b.time || '') : a.date.localeCompare(b.date)));
+
+            listRoot.innerHTML = '';
+
+            if (upcoming.length === 0) {
+                const empty = document.createElement('div');
+                empty.className = 'events-empty';
+                empty.textContent = 'New events coming soon.';
+                listRoot.appendChild(empty);
+                return;
+            }
+
+            upcoming.forEach((ev) => {
+                listRoot.appendChild(renderEventCard(ev));
+            });
+        };
+
+        const renderCalendar = () => {
+            calendarRoot.innerHTML = '';
+            monthLabel.textContent = `${monthNames[currentMonth.getMonth()]} ${currentMonth.getFullYear()}`;
+
+            const firstDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1);
+            const startDow = firstDay.getDay();
+            const daysInMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0).getDate();
+
+            for (let i = 0; i < startDow; i += 1) {
+                const pad = document.createElement('div');
+                pad.className = 'events-day pad';
+                calendarRoot.appendChild(pad);
+            }
+
+            for (let day = 1; day <= daysInMonth; day += 1) {
+                const d = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
+                const key = toKey(d);
+                const hasEvents = Boolean(byDateKey[key] && byDateKey[key].length);
+
+                const cell = document.createElement('button');
+                cell.type = 'button';
+                cell.className = 'events-day';
+                if (hasEvents) cell.classList.add('has-events');
+                if (key === selectedDateKey) cell.classList.add('selected');
+
+                cell.setAttribute('aria-label', hasEvents ? `View events for ${key}` : `No events for ${key}`);
+                cell.innerHTML = `<span class="events-day-num">${day}</span>${hasEvents ? '<span class="events-dot" aria-hidden="true"></span>' : ''}`;
+
+                cell.addEventListener('click', () => {
+                    renderSelected(key);
+                    renderCalendar();
+                });
+
+                calendarRoot.appendChild(cell);
+            }
+        };
+
+        prevBtn.addEventListener('click', () => {
+            currentMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1);
+            renderCalendar();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1);
+            renderCalendar();
+        });
+
+        renderUpcoming();
+
+        const nextEvent = [...EVENTS].sort((a, b) => a.date.localeCompare(b.date))[0];
+        if (nextEvent && byDateKey[nextEvent.date]) {
+            renderSelected(nextEvent.date);
+            const d = parseLocalDate(nextEvent.date);
+            currentMonth = new Date(d.getFullYear(), d.getMonth(), 1);
+        }
+        renderCalendar();
+    };
+    initEventsAndWorkshops();
+
     const navbar = document.getElementById('navbar');
     if (navbar) {
         const hero = document.querySelector('.hero');

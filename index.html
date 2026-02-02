@@ -522,83 +522,44 @@
         </div>
     </section>
 
-    <!-- Latest Resources / Blog Preview -->
-    <section id="resources-preview" class="section" style="background: white;">
+    <!-- Events & Workshops Section -->
+    <section id="events-workshops" class="section" style="background: white;">
         <div class="container">
-            <h2 class="reveal" style="text-align: center; margin-bottom: 20px;">Latest Resources</h2>
+            <h2 class="reveal" style="text-align: center; margin-bottom: 20px;">Events &amp; Workshops</h2>
             <p class="reveal"
-                style="text-align: center; max-width: 600px; margin: 0 auto 60px; color: var(--color-text-light);">
-                Expert advice and science-backed strategies for your gut health journey.
+                style="text-align: center; max-width: 700px; margin: 0 auto 60px; color: var(--color-text-light);">
+                Join live sessions, workshops, and community events designed to support your gut health journey.
             </p>
 
-            <div class="services-grid" style="margin-top: 0;">
-                <!-- Blog 1: Bloating -->
-                <a href="resources.html" class="glass-card reveal" aria-disabled="true" tabindex="-1"
-                    style="text-decoration: none; color: inherit; display: block; transition-delay: 0.1s; padding: 0; overflow: hidden; cursor: default; pointer-events: none;"
-                    aria-label="Read more about Why Am I Always Bloated?">
-                    <div style="height: 200px; overflow: hidden;">
-                        <img src="assets/blog_bloating_hero.jpg" alt="Bloating Relief"
-                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s;">
+            <div class="events-grid">
+                <div class="glass-card reveal events-calendar" style="padding: 24px;">
+                    <div class="events-calendar-header">
+                        <button type="button" class="btn btn-secondary btn-liquid events-calendar-nav" id="events-prev"
+                            aria-label="Previous month">&larr;</button>
+                        <div class="events-calendar-title" id="events-month" aria-live="polite"></div>
+                        <button type="button" class="btn btn-secondary btn-liquid events-calendar-nav" id="events-next"
+                            aria-label="Next month">&rarr;</button>
                     </div>
-                    <div style="padding: 30px;">
-                        <div
-                            style="color: var(--color-secondary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px;">
-                            Gut Health</div>
-                        <h3 style="margin-bottom: 10px; font-size: 1.2rem;">Why Am I Always Bloated?</h3>
-                        <p style="font-size: 0.9rem; color: var(--color-text-light);">Get to the root cause of your
-                            distension and discomfort.</p>
-                        <span
-                            style="display: inline-block; margin-top: 15px; color: var(--color-primary); font-weight: 700; font-size: 0.9rem;">Read
-                            More &rarr;</span>
+                    <div class="events-calendar-weekdays" aria-hidden="true">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
                     </div>
-                </a>
+                    <div class="events-calendar-grid" id="events-calendar"></div>
+                    <div class="events-selected" id="events-selected" style="margin-top: 18px;"></div>
+                </div>
 
-                <!-- Blog 2: Metabolism -->
-                <a href="resources.html" class="glass-card reveal" aria-disabled="true" tabindex="-1"
-                    style="text-decoration: none; color: inherit; display: block; transition-delay: 0.2s; padding: 0; overflow: hidden; cursor: default; pointer-events: none;"
-                    aria-label="Read more about Metabolism Myths">
-                    <div style="height: 200px; overflow: hidden;">
-                        <img src="assets/blog_metabolism_hero.jpg" alt="Metabolism Myths"
-                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s;">
+                <div class="glass-card reveal events-upcoming" style="padding: 24px; transition-delay: 0.2s;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;">
+                        <h3 style="margin: 0;">Upcoming</h3>
+                        <div style="color: var(--color-text-light); font-size: 0.9rem;">Scroll to explore</div>
                     </div>
-                    <div style="padding: 30px;">
-                        <div
-                            style="color: var(--color-secondary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px;">
-                            Weight Loss</div>
-                        <h3 style="margin-bottom: 10px; font-size: 1.2rem;">Metabolism Myths Busting</h3>
-                        <p style="font-size: 0.9rem; color: var(--color-text-light);">Is your metabolism really
-                            "broken"? The science explained.</p>
-                        <span
-                            style="display: inline-block; margin-top: 15px; color: var(--color-primary); font-weight: 700; font-size: 0.9rem;">Read
-                            More &rarr;</span>
-                    </div>
-                </a>
-
-                <!-- Blog 3: SIBO -->
-                <a href="resources.html" class="glass-card reveal" aria-disabled="true" tabindex="-1"
-                    style="text-decoration: none; color: inherit; display: block; transition-delay: 0.3s; padding: 0; overflow: hidden; cursor: default; pointer-events: none;"
-                    aria-label="Read more about Understanding SIBO">
-                    <div style="height: 200px; overflow: hidden;">
-                        <img src="assets/blog_sibo_hero.png" alt="SIBO Explained"
-                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s;">
-                    </div>
-                    <div style="padding: 30px;">
-                        <div
-                            style="color: var(--color-secondary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px;">
-                            Conditions</div>
-                        <h3 style="margin-bottom: 10px; font-size: 1.2rem;">Understanding SIBO</h3>
-                        <p style="font-size: 0.9rem; color: var(--color-text-light);">Small Intestinal Bacterial
-                            Overgrowth: Symptoms & Solutions.</p>
-                        <span
-                            style="display: inline-block; margin-top: 15px; color: var(--color-primary); font-weight: 700; font-size: 0.9rem;">Read
-                            More &rarr;</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="reveal" style="text-align: center; margin-top: 40px;">
-                <a href="resources.html" class="btn btn-secondary btn-liquid" aria-disabled="true" tabindex="-1"
-                    style="pointer-events: none; cursor: default;">View All Articles</a>
+                    <div class="events-list" id="events-list" style="margin-top: 18px;"></div>
+                </div>
             </div>
         </div>
     </section>
