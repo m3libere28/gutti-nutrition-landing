@@ -1,6 +1,28 @@
 // main.js - Global Logic (Mobile Menu, Modals)
 document.addEventListener('DOMContentLoaded', () => {
 
+    const navbar = document.getElementById('navbar');
+    if (navbar) {
+        const hero = document.querySelector('.hero');
+        const getThreshold = () => {
+            if (!hero) return 50;
+            const threshold = hero.offsetHeight - navbar.offsetHeight;
+            return Number.isFinite(threshold) ? Math.max(0, threshold) : 50;
+        };
+
+        let threshold = getThreshold();
+        const updateNavbarScrolled = () => {
+            navbar.classList.toggle('scrolled', window.scrollY > threshold);
+        };
+
+        window.addEventListener('scroll', updateNavbarScrolled, { passive: true });
+        window.addEventListener('resize', () => {
+            threshold = getThreshold();
+            updateNavbarScrolled();
+        });
+        updateNavbarScrolled();
+    }
+
     // 0. Splash Screen Logic (Session Check)
     const splashScreen = document.getElementById('splash-screen');
     if (sessionStorage.getItem('gutti_visited') === 'true') {
