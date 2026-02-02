@@ -4,10 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const renameFreeEnergyAuditToFreeNutritionQuiz = () => {
         const fromText = 'Free Energy Audit';
         const toText = 'Free Nutrition Quiz';
+        const fromTextRegex = /Free\s+Energy\s+Audit/g;
 
         const textElements = document.querySelectorAll('a, button, span, div, p, h1, h2, h3, h4, h5, h6');
         textElements.forEach((el) => {
-            if (el.childElementCount === 0 && el.textContent && el.textContent.trim() === fromText) {
+            const normalizedText = (el.textContent || '').replace(/\s+/g, ' ').trim();
+            if (el.childElementCount === 0 && normalizedText === fromText) {
                 el.textContent = toText;
             }
         });
@@ -16,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
         attrElements.forEach((el) => {
             ['aria-label', 'title', 'alt'].forEach((attr) => {
                 const val = el.getAttribute(attr);
-                if (val && val.includes(fromText)) {
-                    el.setAttribute(attr, val.replaceAll(fromText, toText));
+                if (val && fromTextRegex.test(val)) {
+                    el.setAttribute(attr, val.replace(fromTextRegex, toText));
                 }
             });
         });
