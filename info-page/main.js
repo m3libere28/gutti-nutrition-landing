@@ -1,4 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const PRACTICE_BETTER_BOOKINGS_URL = 'https://guttienutrition.practicebetter.io/#/693701654a4220bc75135fe0/bookings?step=services';
+
+    const redirectMailtoLinks = () => {
+        const mailtoLinks = document.querySelectorAll('a[href^="mailto:"]');
+        mailtoLinks.forEach((link) => {
+            link.setAttribute('href', PRACTICE_BETTER_BOOKINGS_URL);
+            if (!link.getAttribute('target')) {
+                link.setAttribute('target', '_blank');
+                link.setAttribute('rel', 'noopener noreferrer');
+            }
+        });
+    };
+    redirectMailtoLinks();
+
     const disableResourcesNavLink = () => {
         const selectors = [
             '#navbar a.nav-link[href="resources.html"]',
