@@ -72,24 +72,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const EVENTS = [
             {
-                title: 'Gut Health Q&A (Live)',
-                date: '2026-02-10',
-                time: '7:00 PM',
-                location: 'Zoom',
-                type: 'Live Session',
-                description: 'Bring your questions. We’ll cover digestion, bloating, and getting started with realistic habits.',
-                ctaLabel: 'Reserve a spot',
-                ctaUrl: PRACTICE_BETTER_BOOKINGS_URL,
-            },
-            {
-                title: 'Feeding Kids Without Stress',
-                date: '2026-02-22',
-                time: '11:00 AM',
+                title: 'The Aligned Reset Workshop',
+                date: '2026-02-15',
+                time: '1:00 PM',
                 location: 'Virtual',
                 type: 'Workshop',
-                description: 'A practical workshop for picky eating, meal structure, and confidence at the table.',
-                ctaLabel: 'Join workshop',
-                ctaUrl: PRACTICE_BETTER_BOOKINGS_URL,
+                description: 'A 3-hour virtual workshop designed to help you pause, recalibrate, and move into the year ahead with clarity, intention, and support.',
+                ctaLabel: 'Register',
+                ctaUrl: 'https://guttienutrition.practicebetter.io/#/693701654a4220bc75135fe0/bookings?step=course',
             },
         ];
 
