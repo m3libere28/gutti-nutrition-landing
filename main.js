@@ -40,6 +40,34 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     redirectMailtoLinks();
 
+    const updateFooterLinks = () => {
+        const footer = document.querySelector('footer');
+        if (!footer) return;
+
+        const links = footer.querySelectorAll('a');
+        links.forEach((link) => {
+            const text = (link.textContent || '').replace(/\s+/g, ' ').trim().toLowerCase();
+            const href = (link.getAttribute('href') || '').trim();
+
+            const isClientPortal = text === 'client portal' || href === 'https://my.practicebetter.io/' || href === 'https://my.practicebetter.io';
+            if (isClientPortal) {
+                link.setAttribute('href', PRACTICE_BETTER_BOOKINGS_URL);
+                link.setAttribute('target', '_blank');
+                link.setAttribute('rel', 'noopener noreferrer');
+                const aria = link.getAttribute('aria-label');
+                if (aria && aria.toLowerCase().includes('client portal')) {
+                    link.setAttribute('aria-label', 'Book an appointment (Practice Better)');
+                }
+            }
+
+            const isResources = href.endsWith('resources.html') || text === 'resources';
+            if (isResources) {
+                link.remove();
+            }
+        });
+    };
+    updateFooterLinks();
+
     const removeResourcesNavLink = () => {
         const selectors = [
             '#navbar a.nav-link[href="resources.html"]',
