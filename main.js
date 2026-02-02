@@ -3,6 +3,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const PRACTICE_BETTER_BOOKINGS_URL = 'https://guttienutrition.practicebetter.io/#/693701654a4220bc75135fe0/bookings?step=services';
 
+    const renameFreeEnergyAuditToFreeNutritionQuiz = () => {
+        const fromText = 'Free Energy Audit';
+        const toText = 'Free Nutrition Quiz';
+
+        const textElements = document.querySelectorAll('a, button, span, div, p, h1, h2, h3, h4, h5, h6');
+        textElements.forEach((el) => {
+            if (el.childElementCount === 0 && el.textContent && el.textContent.trim() === fromText) {
+                el.textContent = toText;
+            }
+        });
+
+        const attrElements = document.querySelectorAll('[aria-label], [title], img[alt]');
+        attrElements.forEach((el) => {
+            ['aria-label', 'title', 'alt'].forEach((attr) => {
+                const val = el.getAttribute(attr);
+                if (val && val.includes(fromText)) {
+                    el.setAttribute(attr, val.replaceAll(fromText, toText));
+                }
+            });
+        });
+    };
+    renameFreeEnergyAuditToFreeNutritionQuiz();
+
     const redirectMailtoLinks = () => {
         const mailtoLinks = document.querySelectorAll('a[href^="mailto:"]');
         mailtoLinks.forEach((link) => {
