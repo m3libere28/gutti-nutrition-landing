@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5KPBWJVEY0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-5KPBWJVEY0');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshops | Guttie Nutrition</title>
+    <meta name="description"
+        content="Register for upcoming Guttie Nutrition workshops. Evidence-based education, practical tools, and a clear plan you can apply immediately.">
+    <link rel="icon" type="image/png" href="assets/favicon.png?v=3">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="navbar_v2.css?v=workshops">
+
+    <style>
+        :root {
+            --color-primary: #3460C5;
+            --color-primary-light: #7B61FF;
+            --color-primary-dark: #2A4EA3;
+            --color-secondary: #89D934;
+            --color-secondary-light: #E9F7D9;
+            --color-bg: #F8FAFC;
+            --color-text: #2C3E50;
+            --color-text-light: #64748B;
+            --container-width: 1100px;
+            --radius-lg: 22px;
+            --shadow-card: 0 18px 40px -22px rgba(52, 96, 197, 0.25);
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.75;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 22px;
+        }
+
+        .workshops-hero {
+            position: relative;
+            padding: 150px 0 70px;
+            overflow: hidden;
+            background: radial-gradient(1100px 520px at 20% 10%, rgba(123, 97, 255, 0.16), transparent 55%),
+                radial-gradient(900px 480px at 85% 25%, rgba(137, 217, 52, 0.16), transparent 60%),
+                linear-gradient(180deg, #ffffff, rgba(248, 250, 252, 1));
+        }
+
+        .workshops-hero-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.95fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .workshops-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: rgba(52, 96, 197, 0.09);
+            color: var(--color-primary-dark);
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            margin-bottom: 18px;
+        }
+
+        .workshops-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: clamp(2.6rem, 4vw, 3.35rem);
+            line-height: 1.1;
+            margin: 0 0 18px;
+            color: var(--color-primary-dark);
+            letter-spacing: -0.7px;
+        }
+
+        .workshops-subtitle {
+            font-size: 1.15rem;
+            color: var(--color-text-light);
+            margin: 0 0 26px;
+            max-width: 42ch;
+        }
+
+        .workshops-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .workshops-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            box-shadow: 0 14px 24px -22px rgba(15, 23, 42, 0.18);
+            font-weight: 700;
+            color: rgba(30, 41, 59, 0.92);
+            white-space: nowrap;
+        }
+
+        .workshops-badge span {
+            font-weight: 600;
+            color: var(--color-text-light);
+        }
+
+        .registration-card {
+            position: sticky;
+            top: 110px;
+            border-radius: var(--radius-lg);
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            box-shadow: var(--shadow-card);
+            padding: 26px;
+            backdrop-filter: blur(16px);
+        }
+
+        .registration-card h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.4rem;
+            margin: 0 0 10px;
+            color: var(--color-primary-dark);
+        }
+
+        .registration-card p {
+            margin: 0 0 16px;
+            color: var(--color-text-light);
+        }
+
+        .registration-meta {
+            display: grid;
+            gap: 12px;
+            margin: 18px 0 20px;
+        }
+
+        .meta-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: rgba(248, 250, 252, 0.75);
+            border: 1px solid rgba(148, 163, 184, 0.28);
+        }
+
+        .meta-row strong {
+            color: rgba(15, 23, 42, 0.88);
+        }
+
+        .meta-row span {
+            color: var(--color-text-light);
+            text-align: right;
+        }
+
+        .register-actions {
+            display: grid;
+            gap: 12px;
+        }
+
+        .register-actions a.btn {
+            text-align: center;
+        }
+
+        .fine-print {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            margin: 10px 0 0;
+        }
+
+        .workshops-section {
+            padding: 80px 0;
+        }
+
+        .workshops-section.alt {
+            background: #ffffff;
+            border-top: 1px solid rgba(148, 163, 184, 0.2);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .workshops-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 44px;
+            align-items: start;
+        }
+
+        .section-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2.2rem;
+            margin: 0 0 14px;
+            color: var(--color-primary-dark);
+            letter-spacing: -0.4px;
+        }
+
+        .section-lead {
+            margin: 0 0 18px;
+            color: var(--color-text-light);
+            font-size: 1.05rem;
+        }
+
+        .feature-list {
+            margin: 0;
+            padding-left: 18px;
+            display: grid;
+            gap: 10px;
+        }
+
+        .agenda {
+            display: grid;
+            gap: 14px;
+        }
+
+        .agenda-item {
+            border-radius: 18px;
+            background: rgba(248, 250, 252, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.26);
+            padding: 16px 18px;
+        }
+
+        .agenda-item strong {
+            display: block;
+            font-weight: 800;
+            color: rgba(15, 23, 42, 0.9);
+            margin-bottom: 6px;
+        }
+
+        .agenda-item span {
+            color: var(--color-text-light);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 26px;
+        }
+
+        .faq-item {
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(148, 163, 184, 0.26);
+            padding: 18px 18px;
+            box-shadow: 0 16px 30px -26px rgba(15, 23, 42, 0.22);
+        }
+
+        .faq-item h4 {
+            font-family: 'Fredoka', sans-serif;
+            margin: 0 0 8px;
+            color: var(--color-primary-dark);
+            font-size: 1.15rem;
+        }
+
+        .faq-item p {
+            margin: 0;
+            color: var(--color-text-light);
+        }
+
+        .cta-strip {
+            padding: 70px 0;
+            background: linear-gradient(90deg, rgba(52, 96, 197, 0.96), rgba(123, 97, 255, 0.96));
+            color: white;
+        }
+
+        .cta-strip-grid {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 26px;
+            flex-wrap: wrap;
+        }
+
+        .cta-strip h3 {
+            font-family: 'Fredoka', sans-serif;
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: -0.3px;
+        }
+
+        .cta-strip p {
+            margin: 8px 0 0;
+            opacity: 0.9;
+            max-width: 54ch;
+        }
+
+        @media (max-width: 960px) {
+            .workshops-hero {
+                padding-top: 130px;
+            }
+
+            .workshops-hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .registration-card {
+                position: relative;
+                top: auto;
+            }
+
+            .workshops-two-col {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .registration-card {
+                padding: 22px;
+            }
+
+            .workshops-badge {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .meta-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .meta-row span {
+                text-align: left;
+            }
+        }
+    </style>
+
+    <script type="module" src="/main.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-content container">
+            <a href="index.html" class="brand" aria-label="Guttie Nutrition Homepage">
+                <img src="assets/logo.png" alt="Guttie Nutrition Logo" class="brand-logo">
+                <div>Guttie<span>Nutrition</span></div>
+            </a>
+            <div class="desktop-only nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="nav-link">Services <span style="font-size: 0.8em;">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="weight-management.html" class="dropdown-item">Weight Loss</a>
+                        <a href="gut-health.html" class="dropdown-item">Gut Health</a>
+                        <a href="raising-confident-eaters.html" class="dropdown-item">Picky Eaters</a>
+                        <a href="maternity-care.html" class="dropdown-item">Maternity Care</a>
+                        <a href="wellness-coaching.html" class="dropdown-item">Wellness Coaching</a>
+                        <a href="resources.html" class="dropdown-item">Resources</a>
+                    </div>
+                </div>
+                <a href="resources.html" class="nav-link">Resources</a>
+                <a href="quiz.html" class="btn btn-primary btn-liquid" style="padding: 10px 20px; font-size: 0.9rem;">Free
+                    Nutrition Quiz</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="weight-management.html" class="mobile-nav-link">Weight Loss</a>
+        <a href="gut-health.html" class="mobile-nav-link">Gut Health</a>
+        <a href="raising-confident-eaters.html" class="mobile-nav-link">Picky Eaters</a>
+        <a href="maternity-care.html" class="mobile-nav-link">Maternity Care</a>
+        <a href="wellness-coaching.html" class="mobile-nav-link">Wellness Coaching</a>
+        <a href="resources.html" class="mobile-nav-link">Resources</a>
+        <a href="quiz.html" class="mobile-nav-link">Free Nutrition Quiz</a>
+    </div>
+
+    <header class="workshops-hero">
+        <div class="container">
+            <div class="workshops-hero-grid">
+                <div>
+                    <div class="workshops-kicker">Workshops &amp; Events</div>
+                    <h1 class="workshops-title">Register for the next Guttie workshop.</h1>
+                    <p class="workshops-subtitle">Evidence-based education, practical tools, and a clear plan you can apply
+                        immediately—without information overload.</p>
+
+                    <div class="workshops-badges">
+                        <div class="workshops-badge">🗓️ <strong>Next session</strong> <span>Coming soon</span></div>
+                        <div class="workshops-badge">🧑‍💻 <strong>Format</strong> <span>Virtual</span></div>
+                        <div class="workshops-badge">⏱️ <strong>Length</strong> <span>Live workshop</span></div>
+                    </div>
+                </div>
+
+                <aside class="registration-card" aria-label="Workshop registration">
+                    <h3>Secure your spot</h3>
+                    <p>Checkout is handled securely by Stripe. You’ll receive a confirmation email after payment.</p>
+
+                    <div class="registration-meta">
+                        <div class="meta-row"><strong>Date</strong><span>TBD</span></div>
+                        <div class="meta-row"><strong>Time</strong><span>TBD (ET)</span></div>
+                        <div class="meta-row"><strong>Price</strong><span>See checkout</span></div>
+                    </div>
+
+                    <div class="register-actions">
+                        <a class="btn btn-primary btn-liquid" href="https://buy.stripe.com/dRm9AV7Sd6h88o66ph9oc00"
+                            target="_blank" rel="noopener noreferrer">Register &amp; Pay</a>
+                        <a class="btn btn-secondary btn-liquid" href="#details">View details</a>
+                    </div>
+
+                    <p class="fine-print">Questions? Email us via the contact link in the footer.</p>
+                </aside>
+            </div>
+        </div>
+    </header>
+
+    <section class="workshops-section" id="details">
+        <div class="container">
+            <div class="workshops-two-col">
+                <div>
+                    <h2 class="section-title">What you’ll leave with</h2>
+                    <p class="section-lead">This isn’t a lecture. It’s a guided, high-signal workshop that gives you a
+                        framework you can use right away.</p>
+                    <ul class="feature-list">
+                        <li>A clear action plan you can implement the same week</li>
+                        <li>How to filter nutrition noise and focus on what actually moves the needle</li>
+                        <li>Simple templates + checklists to reduce decision fatigue</li>
+                        <li>Live Q&amp;A to personalize the strategy to your situation</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="section-title">Agenda snapshot</h2>
+                    <p class="section-lead">You’ll be guided step-by-step through the core strategy, with practical
+                        examples throughout.</p>
+                    <div class="agenda">
+                        <div class="agenda-item"><strong>Part 1: Foundation</strong><span>Clarify your goal, assess your
+                                constraints, and identify your biggest leverage points.</span></div>
+                        <div class="agenda-item"><strong>Part 2: The Strategy</strong><span>Build a realistic plan that’s
+                                aligned with your life (work, travel, social schedule).</span></div>
+                        <div class="agenda-item"><strong>Part 3: Implementation</strong><span>Templates, routines, and
+                                troubleshooting—so you can actually sustain it.</span></div>
+                        <div class="agenda-item"><strong>Live Q&amp;A</strong><span>Bring your questions and get clarity on
+                                your next steps.</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="workshops-section alt">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">FAQ</h2>
+            <p class="section-lead" style="text-align: center; max-width: 70ch; margin-left: auto; margin-right: auto;">
+                If you’re coming from Instagram, this page is designed to make registration simple and seamless.</p>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>Is this workshop right for me?</h4>
+                    <p>If you want evidence-based guidance without restrictive rules, and you’re ready for a practical
+                        plan, you’ll fit right in.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How do I access the workshop?</h4>
+                    <p>After checkout, you’ll receive instructions by email. If you don’t see it, check spam or Promotions
+                        and then reach out.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is the payment secure?</h4>
+                    <p>Yes—payment is processed by Stripe. Your card details are never stored on guttienutrition.com.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I get a refund?</h4>
+                    <p>Please refer to the refund terms shown on the Stripe checkout page before purchasing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-strip" aria-label="Call to action">
+        <div class="container">
+            <div class="cta-strip-grid">
+                <div>
+                    <h3>Ready to register?</h3>
+                    <p>Secure checkout takes less than a minute. Click below to reserve your spot.</p>
+                </div>
+                <a class="btn btn-green btn-pulse btn-liquid" href="https://buy.stripe.com/dRm9AV7Sd6h88o66ph9oc00"
+                    target="_blank" rel="noopener noreferrer" style="padding: 16px 32px; font-weight: 700;">Register
+                    &amp; Pay</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <h3 style="color: white; margin-bottom: 10px;">Guttie Nutrition</h3>
+            <p style="opacity: 0.8; margin-bottom: 20px; font-size: 0.9rem;">
+                <span style="color: var(--color-primary);">Licensed Dietitian Nutritionist (LDN) – Florida</span> <br>
+                STATE OF FLORIDA DEPARTMENT OF HEALTH
+            </p>
+            <div class="footer-links"
+                style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-bottom: 30px; font-size: 0.9rem;">
+                <a href="index.html" class="footer-nav-link">Home</a>
+                <a href="weight-management.html" class="footer-nav-link">Weight Loss</a>
+                <a href="gut-health.html" class="footer-nav-link">Gut Health</a>
+                <a href="raising-confident-eaters.html" class="footer-nav-link">Picky Eaters</a>
+                <a href="maternity-care.html" class="footer-nav-link">Maternity Care</a>
+                <a href="wellness-coaching.html" class="footer-nav-link">Wellness Coaching</a>
+                <a href="mailto:foodasmedicine@guttienutrition.com" class="footer-nav-link"
+                    aria-label="Contact Us (Footer)">Email Us</a>
+                <a href="https://share.google/CIcHIbCHOZpWj0LAv" class="footer-nav-link" target="_blank"
+                    style="color: #FFD700; font-weight: bold;" aria-label="Leave a Review (Footer)">⭐ Leave a Review</a>
+                <a href="https://my.practicebetter.io/" class="footer-nav-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="Client Portal (Footer)">Client Portal</a>
+            </div>
+
+            <p style="opacity: 0.6; font-size: 0.9rem; margin-bottom: 10px;">Proudly serving Fort Lauderdale, Miami, and
+                South Florida.</p>
+            <p style="opacity: 0.4; font-size: 0.8rem;">
+                &copy; 2025 Con Amor Marketing LLC. All Rights Reserved. | <a href="#" id="privacy-link"
+                    style="color: rgba(255,255,255,0.6); text-decoration: none;">Privacy Policy</a> | <a href="#"
+                    id="terms-link" style="color: rgba(255,255,255,0.6); text-decoration: none;">Terms of Service</a>
+            </p>
+        </div>
+        <div
+            style="font-size: 0.75rem; opacity: 0.6; margin-top: 30px; max-width: 900px; margin-left: auto; margin-right: auto; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+            <p><strong>Disclaimer:</strong> Guttie Nutrition provides nutritional information for educational purposes
+                only. This is not medical advice and does not create a practitioner-client relationship. Consult a
+                physician before making any changes to your diet or health regimen.</p>
+        </div>
+
+    </footer>
+</body>
+
+</html>

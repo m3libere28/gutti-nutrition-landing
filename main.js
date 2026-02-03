@@ -82,6 +82,53 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     removeResourcesNavLink();
 
+    const addWorkshopsNavLink = () => {
+        const WORKSHOPS_HREF = 'workshops.html';
+
+        const path = (window.location.pathname || '').toLowerCase();
+        const isWorkshopsPage = path.endsWith('/workshops.html') || path.endsWith('workshops.html');
+
+        const desktopNav = document.querySelector('#navbar .nav-links');
+        if (desktopNav && !desktopNav.querySelector(`a.nav-link[href="${WORKSHOPS_HREF}"]`)) {
+            const link = document.createElement('a');
+            link.href = WORKSHOPS_HREF;
+            link.className = `nav-link${isWorkshopsPage ? ' active' : ''}`;
+            link.textContent = 'Workshops';
+
+            const cta = desktopNav.querySelector('a.btn');
+            if (cta) {
+                desktopNav.insertBefore(link, cta);
+            } else {
+                desktopNav.appendChild(link);
+            }
+        }
+
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu && !mobileMenu.querySelector(`a.mobile-nav-link[href="${WORKSHOPS_HREF}"]`)) {
+            const link = document.createElement('a');
+            link.href = WORKSHOPS_HREF;
+            link.className = `mobile-nav-link${isWorkshopsPage ? ' active' : ''}`;
+            link.textContent = 'Workshops';
+
+            const quizLink = mobileMenu.querySelector('a.mobile-nav-link[href="quiz.html"]');
+            if (quizLink) {
+                mobileMenu.insertBefore(link, quizLink);
+            } else {
+                mobileMenu.appendChild(link);
+            }
+        }
+
+        if (isWorkshopsPage) {
+            document.querySelectorAll('#navbar a.nav-link.active').forEach((el) => {
+                if (el.getAttribute('href') !== WORKSHOPS_HREF) el.classList.remove('active');
+            });
+            document.querySelectorAll('#mobile-menu a.mobile-nav-link.active').forEach((el) => {
+                if (el.getAttribute('href') !== WORKSHOPS_HREF) el.classList.remove('active');
+            });
+        }
+    };
+    addWorkshopsNavLink();
+
     const initEventsAndWorkshops = () => {
         const calendarRoot = document.getElementById('events-calendar');
         const monthLabel = document.getElementById('events-month');
@@ -101,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 type: 'Workshop',
                 description: 'A 3-hour virtual workshop designed to help you pause, recalibrate, and move into the year ahead with clarity, intention, and support.',
                 ctaLabel: 'Register',
-                ctaUrl: 'https://guttienutrition.practicebetter.io/#/693701654a4220bc75135fe0/bookings?step=course',
+                ctaUrl: 'workshops.html',
             },
         ];
 

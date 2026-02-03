@@ -13,6 +13,7 @@ export default defineConfig({
         pickyEaters: resolve(__dirname, 'raising-confident-eaters.html'),
         maternityCare: resolve(__dirname, 'maternity-care.html'),
         wellnessCoaching: resolve(__dirname, 'wellness-coaching.html'),
+        workshops: resolve(__dirname, 'workshops.html'),
         resources: resolve(__dirname, 'resources.html'),
         blogTemplate: resolve(__dirname, 'blog-template.html'),
         check: resolve(__dirname, 'check.html'),
