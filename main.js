@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 time: '1:00 PM',
                 location: 'Virtual',
                 type: 'Workshop',
-                description: 'A 3-hour virtual workshop designed to help you pause, recalibrate, and move into the year ahead with clarity, intention, and support.',
+                description: 'A grounded 3-hour virtual workshop to pause, recalibrate, and step into 2026 with clarity, intention, and support.',
                 ctaLabel: 'Register',
                 ctaUrl: 'workshops.html',
             },
